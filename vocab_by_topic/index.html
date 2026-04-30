@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学中文 · Learn Mandarin (Complete + Emojis)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Menu">☰</button>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>📖 学中文</h2>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Search...">
+            </div>
+        </div>
+        <nav class="topic-nav"><ul id="topicList"></ul></nav>
+        <div class="sidebar-footer">
+            <small>✨ Tap to flip cards</small>
+            <button id="startQuizBtn" class="quiz-btn">📝 Quick Quiz</button>
+            <button id="showFavoritesBtn" class="quiz-btn secondary">⭐ Favorites</button>
+        </div>
+    </aside>
+    <main class="main-content" id="mainContent">
+        <div id="topicContainer"></div>
+        <footer class="content-footer">
+            <p>📝 <strong>Tip:</strong> Practice tones daily! &nbsp;|&nbsp; 加油！(jiā yóu!) — You can do it! 🚀</p>
+        </footer>
+    </main>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Quiz modal -->
+    <div class="modal" id="quizModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeQuiz">&times;</span>
+            <h2>📝 Quick Quiz</h2>
+            <p>What is the English meaning?</p>
+            <div class="quiz-display" id="quizDisplay"></div>
+            <div class="quiz-options" id="quizOptions"></div>
+            <p class="quiz-score">Score: <span id="quizScore">0</span></p>
+        </div>
+    </div>
+
+    <!-- Favorites modal -->
+    <div class="modal" id="favoritesModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeFavorites">&times;</span>
+            <h2>⭐ Your Favorite Words</h2>
+            <div id="favoritesList"></div>
+        </div>
+    </div>
+
+    <script src="data-part1.js"></script>
+    <script src="topic-extras-part1.js"></script>
+    <script src="data-part2.js"></script>
+    <script src="topic-extras-part2.js"></script>
+    <script src="data-part3.js"></script>
+    <script src="topic-extras-part3.js"></script>
+    <script src="data-part4.js"></script>
+    <script src="topic-extras-part4.js"></script>
+    <script src="data-part5.js"></script>
+    <script src="topic-extras-part5.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+:root {
+    --bg: #fdfaf5;
+    --card-bg: #ffffff;
+    --text: #3a322e;
+    --text-light: #6b5e55;
+    --border: #e8dfd5;
+    --shadow: 0 2px 12px rgba(0,0,0,0.05);
+    --shadow-hover: 0 6px 22px rgba(0,0,0,0.1);
+    --radius: 14px;
+    --font-cn: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'STSong', 'KaiTi', serif;
+    --font-sans: 'PingFang SC', 'Noto Sans SC', 'Segoe UI', Arial, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    background:var(--bg);color:var(--text);
+    font-family:var(--font-sans);line-height:1.6;
+    background-image:radial-gradient(ellipse at 10% 20%, rgba(180,140,100,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 70%, rgba(160,120,90,0.04) 0%, transparent 60%);
+}
+.hero{text-align:center;padding:50px 20px 40px;background:linear-gradient(180deg,#fefefe 0%,#f9f5ef 100%);border-bottom:1px solid var(--border)}
+.hero h1{font-family:var(--font-cn);font-size:2.8rem;color:#8b1a1a;margin-bottom:0.3rem}
+.hero .subtitle{font-size:1.1rem;color:var(--text-light)}
+.cn{font-family:var(--font-cn)}
+.intro{max-width:860px;margin:28px auto 18px;padding:0 20px;text-align:center;color:var(--text-light)}
+.category-section{max-width:1600px;margin:24px auto 12px;padding:0 20px}
+.category-title{font-size:1.7rem;font-weight:700;margin:28px 0 14px;padding-bottom:6px;border-bottom:2px solid #e8dfd5;display:flex;align-items:center;gap:8px;color:#5a4a3a}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform 0.2s ease,box-shadow 0.2s ease;border:1px solid transparent;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);border-color:#e8dfd5}
+.card-accent{height:4px;width:100%}
+.card-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column}
+.radical-showcase{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.radical-char{font-family:var(--font-cn);font-size:3.8rem;font-weight:700;line-height:1;color:#3a2a1a;transition:transform 0.2s}
+.card:hover .radical-char{transform:scale(1.05)}
+.radical-info{display:flex;flex-direction:column;gap:1px}
+.radical-name{font-weight:700;font-size:1.1rem;color:#3a2a1a}
+.radical-pinyin{font-size:0.9rem;color:#8b6b4a;font-style:italic}
+.radical-meaning{font-size:0.8rem;color:#9b7b5b}
+.radical-emoji{font-size:1.8rem;margin-left:auto}
+.variant-row{font-size:0.8rem;color:#8b6b4a;background:#fdf9f4;border-radius:6px;padding:3px 10px;display:inline-block;align-self:flex-start;margin-bottom:8px}
+.assoc-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;color:#a09080;margin-bottom:4px;font-weight:600}
+.assoc-chars{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.assoc-chip{font-family:var(--font-cn);font-size:1.3rem;background:#faf7f2;border:1px solid #e8dfd5;border-radius:7px;padding:3px 10px;display:flex;flex-direction:column;align-items:center;transition:background 0.2s}
+.assoc-chip:hover{background:#fef9f0;border-color:#c9a87c}
+.assoc-chip .py{font-size:0.65rem;color:#a09080;font-family:var(--font-sans);margin-top:1px;white-space:nowrap}
+.example-box{background:#fefefb;border-left:3px solid #d4b896;border-radius:0 6px 6px 0;padding:8px 12px;margin-bottom:8px}
+.example-hanzi{font-family:var(--font-cn);font-size:1.1rem;font-weight:600;color:#3a2a1a}
+.example-pinyin{font-size:0.8rem;color:#8b6b4a;font-style:italic;margin-top:2px}
+.example-trans{font-size:0.8rem;color:#7a6b5b}
+.footer{text-align:center;padding:28px 20px 36px;color:#b0a090;font-size:0.85rem;border-top:1px solid var(--border);max-width:800px;margin:30px auto 0}
+@media(max-width:700px){.card-grid{grid-template-columns:1fr}.radical-char{font-size:3rem}}

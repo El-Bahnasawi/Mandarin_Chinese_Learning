@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Grammar · Beginner's Complete Guide</title>
+    <style>
+        :root {
+            --bg: #faf7f2;
+            --card-bg: #ffffff;
+            --text: #2d2a22;
+            --text-light: #5f5b51;
+            --accent: #b5443a;
+            --accent-soft: #d97c4d;
+            --gold: #b68b3c;
+            --border: #e5ddd0;
+            --shadow: 0 2px 18px rgba(0, 0, 0, 0.05);
+            --radius: 14px;
+            --radius-sm: 8px;
+            --font-cn: 'Noto Serif SC', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', serif;
+            --font-en: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --transition: 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-en);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 20% 10%, rgba(181, 68, 58, 0.03) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(182, 139, 60, 0.04) 0%, transparent 60%);
+        }
+
+        /* ── Navigation ── */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 247, 242, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            height: 60px;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.02);
+        }
+        .top-nav::-webkit-scrollbar {
+            display: none;
+        }
+        .top-nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 550;
+            padding: 8px 14px;
+            border-radius: 20px;
+            transition: var(--transition);
+            flex-shrink: 0;
+            letter-spacing: 0.01em;
+            background: transparent;
+        }
+        .top-nav a:hover,
+        .top-nav a.active-section {
+            background: var(--accent);
+            color: #fff;
+            font-weight: 600;
+        }
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-right: 14px;
+            flex-shrink: 0;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-logo span {
+            font-size: 1.4rem;
+        }
+
+        /* ── Main Container ── */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 24px 20px 60px;
+        }
+
+        /* ── Header ── */
+        .header {
+            text-align: center;
+            padding: 44px 20px 12px;
+        }
+        .header .icon {
+            font-size: 3.2rem;
+            margin-bottom: 4px;
+        }
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 750;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            line-height: 1.3;
+        }
+        .header h1 .hanzi {
+            color: var(--accent);
+            font-family: var(--font-cn);
+            font-weight: 800;
+        }
+        .header .subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+
+        /* ── Section Cards ── */
+        .section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 30px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            scroll-margin-top: 85px;
+        }
+        .section:hover {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+            transform: translateY(-2px);
+        }
+        .section h2 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            border-bottom: 2px solid #f1ece2;
+            padding-bottom: 10px;
+        }
+        .section h2 .emoji {
+            font-size: 1.7rem;
+        }
+        .section .tagline {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* ── Example Box ── */
+        .example-box {
+            background: #fefcf8;
+            border-left: 5px solid var(--accent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 16px 22px;
+            margin: 14px 0;
+            position: relative;
+            transition: background 0.2s;
+        }
+        .example-box:hover {
+            background: #fff9f2;
+        }
+        .example-box .cn {
+            font-family: var(--font-cn);
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: 0.03em;
+            line-height: 1.4;
+        }
+        .example-box .pinyin {
+            color: #9b8c7a;
+            font-size: 0.85rem;
+            margin: 3px 0 5px;
+            font-style: italic;
+        }
+        .example-box .en {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .example-box .badge {
+            position: absolute;
+            top: -10px;
+            right: 18px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 14px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        /* ── Highlight rules ── */
+        .hl {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .hl-gold {
+            color: #b8860b;
+            font-weight: 700;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        @media (max-width: 640px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 22px 18px;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            .example-box .cn {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* ── Table ── */
+        .mini-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            margin: 14px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+        .mini-table th,
+        .mini-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .mini-table th {
+            background: #fdfaf4;
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .mini-table td {
+            font-family: var(--font-cn);
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+        .mini-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ── Practice Box ── */
+        .practice-box {
+            background: #fffdf6;
+            border: 2px dashed #e3d7bb;
+            border-radius: var(--radius-sm);
+            padding: 22px 24px;
+            margin: 18px 0;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+        .practice-box:hover {
+            border-color: #c4a257;
+        }
+        .practice-box h4 {
+            font-size: 1rem;
+            color: #7b691c;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .practice-box .big-cn {
+            font-family: var(--font-cn);
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 4px;
+        }
+        .btn-reveal {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 24px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: background 0.2s, transform 0.15s;
+            box-shadow: 0 3px 8px rgba(181,68,58,0.2);
+        }
+        .btn-reveal:hover {
+            background: #9e3b32;
+            transform: scale(1.04);
+        }
+        .hidden-answer {
+            display: none;
+            margin-top: 12px;
+            color: var(--text-light);
+            font-style: italic;
+            animation: fadeIn 0.3s ease;
+        }
+        .hidden-answer.show {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── Tip callout ── */
+        .tip {
+            background: #fef9f1;
+            border-radius: var(--radius-sm);
+            padding: 14px 18px;
+            margin: 14px 0;
+            font-size: 0.9rem;
+            color: #5e4e32;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            border: 1px solid #ede3d0;
+        }
+        .tip .tip-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .tip strong {
+            color: var(--accent);
+        }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            padding: 30px 0 10px;
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+        .footer .heart {
+            color: var(--accent);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── Sticky Navigation ─── -->
+    <nav class="top-nav" id="topNav">
+        <span class="nav-logo"><span>📘</span> 语法</span>
+        <a href="#sentence-structure">Sentence</a>
+        <a href="#essential-verbs">是·有·在</a>
+        <a href="#questions">Questions</a>
+        <a href="#measure-words">Measure</a>
+        <a href="#particles">的·了</a>
+        <a href="#negation">不/没</a>
+        <a href="#time">Time</a>
+        <a href="#adjectives">Adjectives</a>
+        <a href="#practice">Practice</a>
+    </nav>
+
+    <!-- ─── Main Content ─── -->
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="icon">📚</div>
+            <h1>Chinese Grammar<br><span class="hanzi">汉语语法</span> — Beginner's Path</h1>
+            <p class="subtitle">The most important structures to start speaking Chinese today.</p>
+        </div>
+
+        <!-- 1. Sentence Structure -->
+        <div class="section" id="sentence-structure">
+            <h2><span class="emoji">🏗️</span> Basic Sentence Structure (SVO)</h2>
+            <p class="tagline">Chinese word order is Subject–Verb–Object — same as English. No conjugation!</p>
+            <p>The core pattern is <strong>Subject + Verb + Object</strong>. Verbs never change form, so you don't need to worry about tenses through the verb itself.</p>
+
+            <div class="example-box">
+                <span class="badge">SVO</span>
+                <div class="cn">我 爱 你。</div>
+                <div class="pinyin">Wǒ ài nǐ.</div>
+                <div class="en">I love you.</div>
+            </div>
+            <div class="example-box">
+                <span class="badge">SVO</span>
+                <div class="cn">他 吃 苹果。</div>
+                <div class="pinyin">Tā chī píngguǒ.</div>
+                <div class="en">He eats an apple.</div>
+            </div>
+
+            <h3 style="margin-top:24px;">Topic-Comment (The "As for…" Pattern)</h3>
+            <p>Chinese often starts with the <strong>topic</strong> (what you're talking about), followed by a comment. This feels natural even if it breaks SVO.</p>
+            <div class="example-box">
+                <span class="badge">Topic-Comment</span>
+                <div class="cn">中国菜，我 很 喜欢。</div>
+                <div class="pinyin">Zhōngguó cài, wǒ hěn xǐhuān.</div>
+                <div class="en">Chinese food — I really like it.</div>
+            </div>
+        </div>
+
+        <!-- 2. Essential Verbs: 是, 有, 在 -->
+        <div class="section" id="essential-verbs">
+            <h2><span class="emoji">🔤</span> Essential Verbs: 是, 有, 在</h2>
+            <p class="tagline">These three tiny words do the heavy lifting for "to be", "to have" and "to be at".</p>
+
+            <div class="grid-2">
+                <div style="border-left:4px solid var(--accent); padding-left:16px;">
+                    <h3 style="color:var(--accent); margin-bottom:6px;">是 (shì) – to be</h3>
+                    <p>Used to link two nouns (identity, category).</p>
+                    <div class="example-box" style="margin:10px 0;">
+                        <div class="cn">我 <span class="hl">是</span> 学生。</div>
+                        <div class="pinyin">Wǒ <span class="hl">shì</span> xuésheng.</div>
+                        <div class="en">I am a student.</div>
+                    </div>
+                </div>
+                <div style="border-left:4px solid #c49a2c; padding-left:16px;">
+                    <h3 style="color:#b8860b; margin-bottom:6px;">有 (yǒu) – to have</h3>
+                    <p>Possession or existence.</p>
+                    <div class="example-box" style="margin:10px 0;">
+                        <div class="cn">我 <span class="hl-gold">有</span> 一个 哥哥。</div>
+                        <div class="pinyin">Wǒ <span class="hl-gold">yǒu</span> yī gè gēge.</div>
+                        <div class="en">I have one older brother.</div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-left:4px solid #6b8e5a; padding-left:16px; margin-top:18px;">
+                <h3 style="color:#4a6741; margin-bottom:6px;">在 (zài) – to be at / in</h3>
+                <p>Location or ongoing action (we'll keep it simple: location).</p>
+                <div class="example-box" style="margin:10px 0;">
+                    <div class="cn">他 <span style="color:#4a6741; font-weight:700;">在</span> 家。</div>
+                    <div class="pinyin">Tā <span style="color:#4a6741; font-weight:700;">zài</span> jiā.</div>
+                    <div class="en">He is at home.</div>
+                </div>
+            </div>
+            <div class="tip">
+                <span class="tip-icon">💡</span>
+                <span><strong>Remember:</strong> 是 is not used with adjectives. You don't say "我是高" — instead you say "我 很 高" (I am tall). We'll cover adjectives later.</span>
+            </div>
+        </div>
+
+        <!-- 3. Questions -->
+        <div class="section" id="questions">
+            <h2><span class="emoji">❓</span> Asking Questions</h2>
+            <p class="tagline">No complicated word order changes — just add a small particle or use question words in place.</p>
+
+            <h3>① 吗 (ma) – Yes/No questions</h3>
+            <p>Take any statement and put <span class="hl">吗</span> at the end.</p>
+            <div class="example-box">
+                <div class="cn">你 好 → 你 好 <span class="hl">吗</span>？</div>
+                <div class="pinyin">Nǐ hǎo → Nǐ hǎo <span class="hl">ma</span>?</div>
+                <div class="en">Hello → How are you? (lit. "Are you good?")</div>
+            </div>
+
+            <h3>② 呢 (ne) – "What about…?"</h3>
+            <p>Bounce the question back with <span class="hl">呢</span>.</p>
+            <div class="example-box">
+                <div class="cn">我 很好，你 <span class="hl">呢</span>？</div>
+                <div class="pinyin">Wǒ hěn hǎo, nǐ <span class="hl">ne</span>?</div>
+                <div class="en">I'm good. And you?</div>
+            </div>
+
+            <h3>③ 吧 (ba) – Suggestions</h3>
+            <p>Softens a statement into a suggestion.</p>
+            <div class="example-box">
+                <div class="cn">我们 走 <span class="hl">吧</span>。</div>
+                <div class="pinyin">Wǒmen zǒu <span class="hl">ba</span>.</div>
+                <div class="en">Let's go.</div>
+            </div>
+
+            <h3>④ Question Words (keep the same order)</h3>
+            <table class="mini-table">
+                <thead><tr><th>Word</th><th>Pinyin</th><th>Meaning</th></tr></thead>
+                <tbody>
+                    <tr><td>什么</td><td>shénme</td><td>What</td></tr>
+                    <tr><td>谁</td><td>shéi / shuí</td><td>Who</td></tr>
+                    <tr><td>哪里 / 哪儿</td><td>nǎlǐ / nǎr</td><td>Where</td></tr>
+                    <tr><td>什么时候</td><td>shénme shíhou</td><td>When</td></tr>
+                    <tr><td>为什么</td><td>wèishénme</td><td>Why</td></tr>
+                    <tr><td>怎么</td><td>zěnme</td><td>How</td></tr>
+                    <tr><td>几 / 多少</td><td>jǐ / duōshao</td><td>How many / much</td></tr>
+                </tbody>
+            </table>
+            <div class="tip">
+                <span class="tip-icon">🧠</span>
+                <span>Place the question word exactly where the answer would go: <em>你 是 <span class="hl">谁</span>？(You are who?)</em></span>
+            </div>
+        </div>
+
+        <!-- 4. Measure Words -->
+        <div class="section" id="measure-words">
+            <h2><span class="emoji">📏</span> Measure Words (量词 liàngcí)</h2>
+            <p class="tagline">You can't say "a book" — you say "one [measure word] book".</p>
+            <p><strong>Pattern:</strong> Number + <span class="hl-gold">Measure Word</span> + Noun</p>
+
+            <table class="mini-table">
+                <thead><tr><th>MW</th><th>Used for</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>个 (gè)</strong></td><td>General / people</td><td>一<span class="hl">个</span>人 (yī gè rén) — one person</td></tr>
+                    <tr><td><strong>本 (běn)</strong></td><td>Books</td><td>一<span class="hl">本</span>书 (yī běn shū) — one book</td></tr>
+                    <tr><td><strong>杯 (bēi)</strong></td><td>Cups / drinks</td><td>一<span class="hl">杯</span>茶 (yī bēi chá) — a cup of tea</td></tr>
+                    <tr><td><strong>张 (zhāng)</strong></td><td>Flat objects</td><td>一<span class="hl">张</span>纸 (yī zhāng zhǐ) — a sheet of paper</td></tr>
+                    <tr><td><strong>只 (zhī)</strong></td><td>Animals, one of a pair</td><td>一<span class="hl">只</span>猫 (yī zhī māo) — a cat</td></tr>
+                    <tr><td><strong>条 (tiáo)</strong></td><td>Long, flexible</td><td>一<span class="hl">条</span>鱼 (yī tiáo yú) — a fish</td></tr>
+                    <tr><td><strong>辆 (liàng)</strong></td><td>Vehicles</td><td>一<span class="hl">辆</span>车 (yī liàng chē) — a car</td></tr>
+                </tbody>
+            </table>
+            <div class="tip">
+                <span class="tip-icon">👍</span>
+                <span>When unsure, use <span class="hl">个 (gè)</span> — it's the universal fallback and works in most everyday situations.</span>
+            </div>
+        </div>
+
+        <!-- 5. Particles -->
+        <div class="section" id="particles">
+            <h2><span class="emoji">🧩</span> Key Particles: 的 & 了</h2>
+            <p class="tagline">Tiny words that mark possession, description, or completed actions.</p>
+
+            <h3>的 (de) — Possession & Description</h3>
+            <p><span class="hl">的</span> connects a possessor to a thing, or an adjective to a noun.</p>
+            <div class="example-box">
+                <div class="cn">我 <span class="hl">的</span> 手机</div>
+                <div class="pinyin">Wǒ <span class="hl">de</span> shǒujī</div>
+                <div class="en">My mobile phone</div>
+            </div>
+            <div class="example-box">
+                <div class="cn">很 好吃 <span class="hl">的</span> 菜</div>
+                <div class="pinyin">Hěn hǎochī <span class="hl">de</span> cài</div>
+                <div class="en">A delicious dish (lit. "very tasty 的 dish")</div>
+            </div>
+
+            <h3>了 (le) — Completed Action or Change</h3>
+            <p><span class="hl">了</span> often appears after a verb (completed) or at the end of a sentence (new situation).</p>
+            <div class="example-box">
+                <span class="badge">Completed</span>
+                <div class="cn">我 买 <span class="hl">了</span> 三 本 书。</div>
+                <div class="pinyin">Wǒ mǎi <span class="hl">le</span> sān běn shū.</div>
+                <div class="en">I bought three books.</div>
+            </div>
+            <div class="example-box">
+                <span class="badge">Change</span>
+                <div class="cn">我 累 <span class="hl">了</span>。</div>
+                <div class="pinyin">Wǒ lèi <span class="hl">le</span>.</div>
+                <div class="en">I'm tired (now). / I've become tired.</div>
+            </div>
+        </div>
+
+        <!-- 6. Negation -->
+        <div class="section" id="negation">
+            <h2><span class="emoji">🚫</span> Negation: 不 (bù) vs 没 (méi)</h2>
+            <p class="tagline">Two different "no" words — choose based on time and meaning.</p>
+
+            <div class="grid-2">
+                <div style="border:2px solid #e8d5b0; border-radius:12px; padding:20px;">
+                    <h3 style="color:var(--accent);">不 (bù)</h3>
+                    <p><strong>Present & Future</strong><br>Habits, adjectives, future actions.</p>
+                    <div class="example-box" style="margin:10px 0;">
+                        <div class="cn">我 <span class="hl">不</span> 喝 咖啡。</div>
+                        <div class="pinyin">Wǒ <span class="hl">bù</span> hē kāfēi.</div>
+                        <div class="en">I don't drink coffee.</div>
+                    </div>
+                    <div class="example-box" style="margin:10px 0;">
+                        <div class="cn">他 <span class="hl">不</span> 忙。</div>
+                        <div class="pinyin">Tā <span class="hl">bù</span> máng.</div>
+                        <div class="en">He is not busy.</div>
+                    </div>
+                </div>
+                <div style="border:2px solid #e8d5b0; border-radius:12px; padding:20px;">
+                    <h3 style="color:#b8860b;">没 (méi)</h3>
+                    <p><strong>Past actions / 有</strong><br>Negates completed actions and 有.</p>
+                    <div class="example-box" style="margin:10px 0;">
+                        <div class="cn">我 <span class="hl-gold">没</span> 去。</div>
+                        <div class="pinyin">Wǒ <span class="hl-gold">méi</span> qù.</div>
+                        <div class="en">I didn't go.</div>
+                    </div>
+                    <div class="example-box" style="margin:10px 0;">
+                        <div class="cn">我 <span class="hl-gold">没</span> 有 车。</div>
+                        <div class="pinyin">Wǒ <span class="hl-gold">méi</span> yǒu chē.</div>
+                        <div class="en">I don't have a car.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Time Expressions -->
+        <div class="section" id="time">
+            <h2><span class="emoji">⏰</span> Time Words & Word Order</h2>
+            <p class="tagline">Time expressions usually come before the verb — at the start or right after the subject.</p>
+            <p><strong>Pattern:</strong> Subject + <span class="hl-gold">Time</span> + Verb (+ Object)</p>
+
+            <div class="example-box">
+                <div class="cn">我 <span class="hl-gold">明天</span> 去 上海。</div>
+                <div class="pinyin">Wǒ <span class="hl-gold">míngtiān</span> qù Shànghǎi.</div>
+                <div class="en">I'm going to Shanghai tomorrow.</div>
+            </div>
+            <div class="example-box">
+                <div class="cn"><span class="hl-gold">昨天</span> 他 没 来。</div>
+                <div class="pinyin"><span class="hl-gold">Zuótiān</span> tā méi lái.</div>
+                <div class="en">Yesterday he didn't come.</div>
+            </div>
+            <p style="margin-top:12px;"><strong>Common time words:</strong> 今天 (jīntiān - today), 明天 (míngtiān - tomorrow), 昨天 (zuótiān - yesterday), 现在 (xiànzài - now), 每天 (měitiān - every day)</p>
+        </div>
+
+        <!-- 8. Adjectives -->
+        <div class="section" id="adjectives">
+            <h2><span class="emoji">🌈</span> Adjectives – No "to be" Needed</h2>
+            <p class="tagline">Adjectives behave like verbs — you don't use 是. Use 很 (hěn) to link them naturally.</p>
+
+            <div class="example-box">
+                <div class="cn">她 <span class="hl">很</span> 漂亮。</div>
+                <div class="pinyin">Tā <span class="hl">hěn</span> piàoliang.</div>
+                <div class="en">She is beautiful. (lit. "She very beautiful")</div>
+            </div>
+            <div class="example-box">
+                <div class="cn">这个 苹果 <span class="hl">很</span> 大。</div>
+                <div class="pinyin">Zhège píngguǒ <span class="hl">hěn</span> dà.</div>
+                <div class="en">This apple is big.</div>
+            </div>
+            <div class="tip">
+                <span class="tip-icon">⚠️</span>
+                <span><strong>Never say "她是漂亮".</strong> Always insert <span class="hl">很</span> (even if you don't mean "very") — it makes the sentence sound complete.</span>
+            </div>
+
+            <h3 style="margin-top:20px;">Plurals: 们 (men)</h3>
+            <p>Add <span class="hl">们</span> to pronouns or people nouns (never objects).</p>
+            <table class="mini-table">
+                <tr><td>我 (wǒ) — I</td><td>→ 我们 (wǒmen) — We</td></tr>
+                <tr><td>你 (nǐ) — You</td><td>→ 你们 (nǐmen) — You (plural)</td></tr>
+                <tr><td>他/她 (tā)</td><td>→ 他们/她们 (tāmen) — They</td></tr>
+                <tr><td>朋友 (péngyou)</td><td>→ 朋友们 (péngyoumen) — Friends</td></tr>
+            </table>
+        </div>
+
+        <!-- 9. Practice -->
+        <div class="section" id="practice">
+            <h2><span class="emoji">✏️</span> Practice Corner</h2>
+            <p class="tagline">Test what you've learned. Click to reveal answers.</p>
+
+            <div class="practice-box">
+                <h4>Translate: "I don't have a cat."</h4>
+                <button class="btn-reveal" onclick="toggleAnswer('ans1')">Reveal Answer</button>
+                <div class="hidden-answer" id="ans1">
+                    <div class="big-cn">我 没有 猫。</div>
+                    <div class="pinyin">Wǒ méi yǒu māo.</div>
+                    <em>(Use 没 to negate 有 — "don't have")</em>
+                </div>
+            </div>
+
+            <div class="practice-box">
+                <h4>Translate: "She is very happy today."</h4>
+                <button class="btn-reveal" onclick="toggleAnswer('ans2')">Reveal Answer</button>
+                <div class="hidden-answer" id="ans2">
+                    <div class="big-cn">她 今天 很 开心。</div>
+                    <div class="pinyin">Tā jīntiān hěn kāixīn.</div>
+                    <em>(Time before the adjective; 很 as a linker)</em>
+                </div>
+            </div>
+
+            <div class="practice-box">
+                <h4>Choose the correct measure word: 一 ___ 书 (one book)</h4>
+                <button class="btn-reveal" onclick="toggleAnswer('ans3')">Reveal Answer</button>
+                <div class="hidden-answer" id="ans3">
+                    <div class="big-cn">一 <span style="color:var(--accent);">本</span> 书</div>
+                    <div class="pinyin">Yī běn shū</div>
+                    <em>(本 is the measure word for books)</em>
+                </div>
+            </div>
+
+            <div class="practice-box">
+                <h4>Turn this into a question: 他是老师。(He is a teacher.)</h4>
+                <button class="btn-reveal" onclick="toggleAnswer('ans4')">Reveal Answer</button>
+                <div class="hidden-answer" id="ans4">
+                    <div class="big-cn">他 是 老师 <span class="hl">吗</span>？</div>
+                    <div class="pinyin">Tā shì lǎoshī <span class="hl">ma</span>?</div>
+                    <em>(Add 吗 at the end — no word order change)</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Made with <span class="heart">❤️</span> for your Chinese learning journey | 加油！(Jiāyóu! — You can do it!)</p>
+            <p style="font-size:0.8rem;">Grammar opens the door, practice walks through it. 慢慢来！(Take it step by step.)</p>
+        </div>
+    </div>
+
+    <!-- ─── JavaScript ─── -->
+    <script>
+        function toggleAnswer(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('show');
+        }
+
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.top-nav a');
+
+        function updateActiveNav() {
+            let currentId = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 130) {
+                    currentId = section.id;
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active-section');
+                if (link.getAttribute('href') === '#' + currentId) {
+                    link.classList.add('active-section');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+        updateActiveNav();
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                setTimeout(updateActiveNav, 400);
+            });
+        });
+
+        console.log('📘 Chinese Grammar Guide – ready! 好好学习，天天向上！');
+    </script>
+</body>
+</html>

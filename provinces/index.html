@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China’s Provinces – Interactive Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf8f5;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: #333;
+            line-height: 1.5;
+            padding: 20px 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: #b71c1c;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 6px 18px;
+            border-radius: 30px;
+            background: #fff5f5;
+            transition: background 0.2s;
+        }
+        .back-link:hover {
+            background: #fce4ec;
+        }
+
+        /* Hero section with map */
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+            border: 3px solid #e6b422;
+        }
+        h1 {
+            font-size: 2.4rem;
+            color: #b71c1c;
+            margin: 20px 0 8px;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        /* Region section */
+        .region {
+            margin-bottom: 48px;
+        }
+        .region h2 {
+            font-size: 1.8rem;
+            color: #b71c1c;
+            border-bottom: 3px solid #e6b422;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .region h2 span.emoji {
+            font-size: 2rem;
+        }
+
+        /* Card grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .province-card {
+            background: white;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+            border: 1px solid #f0e6d2;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .province-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+        }
+
+        .chinese-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #b71c1c;
+            margin-bottom: 4px;
+        }
+        .english-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .pinyin {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .meaning {
+            font-size: 1rem;
+            color: #5a3e2b;
+            background: #fefaf0;
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .fun-fact {
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #f0e6d2;
+            padding-top: 10px;
+            margin-top: 8px;
+        }
+
+        /* Video card (same as before) */
+        .video-card-link {
+            display: block;
+            max-width: 360px;
+            margin: 32px auto;
+            text-decoration: none;
+            color: inherit;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .video-card-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+        .video-thumb {
+            width: 100%;
+            padding-bottom: 56.25%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            background-color: #e9ecef;
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(183, 28, 28, 0.85);
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            pointer-events: none;
+        }
+        .video-info {
+            padding: 14px 18px;
+            text-align: center;
+            font-weight: 600;
+            color: #b71c1c;
+            background: #fefaf0;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            color: #aaa;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .region h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <!-- Hero -->
+    <div class="hero">
+        <img src="https://www.asiaodysseytravel.com/images/china-tours/maps/china-province-map-1500.jpg"
+             alt="Map of China Provinces">
+        <h1>China’s 34 Provincial‑Level Divisions</h1>
+        <p class="subtitle">23 Provinces · 4 Municipalities · 5 Autonomous Regions · 2 SARs — every name tells a story</p>
+    </div>
+
+    <!-- ==================== NORTHEAST ==================== -->
+    <div class="region">
+        <h2><span class="emoji">❄️</span> Northeast (东北)</h2>
+        <div class="card-grid">
+            <div class="province-card">
+                <div class="chinese-name">黑龙江</div>
+                <div class="english-name">Heilongjiang</div>
+                <div class="pinyin">Hēilóngjiāng</div>
+                <div class="meaning">Black Dragon River</div>
+                <div class="fun-fact">Named after the Heilong River (Amur), which marks the border with Russia.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">吉林</div>
+                <div class="english-name">Jilin</div>
+                <div class="pinyin">Jílín</div>
+                <div class="meaning">Auspicious Forest (from Manchu "girin ula")</div>
+                <div class="fun-fact">Shortened from "Jilin Ula", a Manchu phrase meaning "along the river."</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">辽宁</div>
+                <div class="english-name">Liaoning</div>
+                <div class="pinyin">Liáoníng</div>
+                <div class="meaning">Liao River + Peace</div>
+                <div class="fun-fact">The Liao River runs through the province; "ning" expresses a wish for peace.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== NORTH ==================== -->
+    <div class="region">
+        <h2><span class="emoji">🏯</span> North (华北)</h2>
+        <div class="card-grid">
+            <div class="province-card">
+                <div class="chinese-name">北京</div>
+                <div class="english-name">Beijing (M)</div>
+                <div class="pinyin">Běijīng</div>
+                <div class="meaning">Northern Capital</div>
+                <div class="fun-fact">The capital in the north; contrast with Nanjing ("Southern Capital").</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">天津</div>
+                <div class="english-name">Tianjin (M)</div>
+                <div class="pinyin">Tiānjīn</div>
+                <div class="meaning">Heaven's Ford</div>
+                <div class="fun-fact">Named by a Ming emperor after an imperial ferry crossing.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">河北</div>
+                <div class="english-name">Hebei</div>
+                <div class="pinyin">Héběi</div>
+                <div class="meaning">North of the River</div>
+                <div class="fun-fact">The river is the Yellow River (黄河). North of it = Hebei.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">山西</div>
+                <div class="english-name">Shanxi</div>
+                <div class="pinyin">Shānxī</div>
+                <div class="meaning">West of the Mountains</div>
+                <div class="fun-fact">The mountains are the Taihang Range. West side = Shanxi.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">内蒙古</div>
+                <div class="english-name">Inner Mongolia (AR)</div>
+                <div class="pinyin">Nèi Měnggǔ</div>
+                <div class="meaning">Inner Mongolia</div>
+                <div class="fun-fact">"Inner" distinguishes it from Outer Mongolia, the independent country.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== EAST ==================== -->
+    <div class="region">
+        <h2><span class="emoji">🌊</span> East (华东)</h2>
+        <div class="card-grid">
+            <div class="province-card">
+                <div class="chinese-name">上海</div>
+                <div class="english-name">Shanghai (M)</div>
+                <div class="pinyin">Shànghǎi</div>
+                <div class="meaning">Upon the Sea</div>
+                <div class="fun-fact">Originally a fishing village on the East China Sea coast.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">江苏</div>
+                <div class="english-name">Jiangsu</div>
+                <div class="pinyin">Jiāngsū</div>
+                <div class="meaning">Jiang (River) + Su (from Suzhou)</div>
+                <div class="fun-fact">Combines "Yangtze River" and the old city of Suzhou.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">浙江</div>
+                <div class="english-name">Zhejiang</div>
+                <div class="pinyin">Zhèjiāng</div>
+                <div class="meaning">Crooked River</div>
+                <div class="fun-fact">Named after the Qiantang River's winding shape.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">安徽</div>
+                <div class="english-name">Anhui</div>
+                <div class="pinyin">Ānhuī</div>
+                <div class="meaning">Peace + (Hui from Huizhou)</div>
+                <div class="fun-fact">Combines Anqing city and Huizhou prefecture.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">福建</div>
+                <div class="english-name">Fujian</div>
+                <div class="pinyin">Fújiàn</div>
+                <div class="meaning">Fortune + Established</div>
+                <div class="fun-fact">Name comes from Fuzhou and Jian'ou, two ancient cities.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">江西</div>
+                <div class="english-name">Jiangxi</div>
+                <div class="pinyin">Jiāngxī</div>
+                <div class="meaning">West of the River</div>
+                <div class="fun-fact">The river is the Yangtze; historically called "Jiangnan West."</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">山东</div>
+                <div class="english-name">Shandong</div>
+                <div class="pinyin">Shāndōng</div>
+                <div class="meaning">East of the Mountains</div>
+                <div class="fun-fact">The mountains are the Taihang Range; east side = Shandong.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">台湾</div>
+                <div class="english-name">Taiwan</div>
+                <div class="pinyin">Táiwān</div>
+                <div class="meaning">Terrace Bay</div>
+                <div class="fun-fact">Likely from the aboriginal Siraya word "Tayovan."</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CENTRAL ==================== -->
+    <div class="region">
+        <h2><span class="emoji">🏞️</span> Central (华中)</h2>
+        <div class="card-grid">
+            <div class="province-card">
+                <div class="chinese-name">河南</div>
+                <div class="english-name">Henan</div>
+                <div class="pinyin">Hénán</div>
+                <div class="meaning">South of the River</div>
+                <div class="fun-fact">The river is the Yellow River. Most of Henan lies south of it.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">湖北</div>
+                <div class="english-name">Hubei</div>
+                <div class="pinyin">Húběi</div>
+                <div class="meaning">North of the Lake</div>
+                <div class="fun-fact">The lake is <strong>Dongting Lake</strong>. Hubei = north of it.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">湖南</div>
+                <div class="english-name">Hunan</div>
+                <div class="pinyin">Húnán</div>
+                <div class="meaning">South of the Lake</div>
+                <div class="fun-fact">Again, <strong>Dongting Lake</strong>. Hunan = south of it.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SOUTH ==================== -->
+    <div class="region">
+        <h2><span class="emoji">🌴</span> South (华南)</h2>
+        <div class="card-grid">
+            <div class="province-card">
+                <div class="chinese-name">广东</div>
+                <div class="english-name">Guangdong</div>
+                <div class="pinyin">Guǎngdōng</div>
+                <div class="meaning">Wide East</div>
+                <div class="fun-fact">"Guang" refers to the region; east of Guangxi.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">广西</div>
+                <div class="english-name">Guangxi (AR)</div>
+                <div class="pinyin">Guǎngxī</div>
+                <div class="meaning">Wide West</div>
+                <div class="fun-fact">Now the Guangxi Zhuang Autonomous Region.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">海南</div>
+                <div class="english-name">Hainan</div>
+                <div class="pinyin">Hǎinán</div>
+                <div class="meaning">South of the Sea</div>
+                <div class="fun-fact">Island province; "sea" refers to the South China Sea.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">香港</div>
+                <div class="english-name">Hong Kong (SAR)</div>
+                <div class="pinyin">Xiānggǎng</div>
+                <div class="meaning">Fragrant Harbor</div>
+                <div class="fun-fact">Named after its historic incense trade and deep port.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">澳门</div>
+                <div class="english-name">Macau (SAR)</div>
+                <div class="pinyin">Àomén</div>
+                <div class="meaning">Bay Gate</div>
+                <div class="fun-fact">Refers to the A-Ma Temple (sea goddess) at the harbor entrance.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SOUTHWEST ==================== -->
+    <div class="region">
+        <h2><span class="emoji">⛰️</span> Southwest (西南)</h2>
+        <div class="card-grid">
+            <div class="province-card">
+                <div class="chinese-name">重庆</div>
+                <div class="english-name">Chongqing (M)</div>
+                <div class="pinyin">Chóngqìng</div>
+                <div class="meaning">Double Celebration</div>
+                <div class="fun-fact">A Southern Song emperor celebrated being made prince then emperor here.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">四川</div>
+                <div class="english-name">Sichuan</div>
+                <div class="pinyin">Sìchuān</div>
+                <div class="meaning">Four Rivers</div>
+                <div class="fun-fact">Refers to the four major river basins in the region.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">贵州</div>
+                <div class="english-name">Guizhou</div>
+                <div class="pinyin">Guìzhōu</div>
+                <div class="meaning">Noble Prefecture</div>
+                <div class="fun-fact">The name comes from the ancient "Gui" mountain.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">云南</div>
+                <div class="english-name">Yunnan</div>
+                <div class="pinyin">Yúnnán</div>
+                <div class="meaning">South of the Clouds</div>
+                <div class="fun-fact">"Cloud" refers to the Yunling Mountains; "south" = south of them.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">西藏</div>
+                <div class="english-name">Tibet (AR)</div>
+                <div class="pinyin">Xīzàng</div>
+                <div class="meaning">Western Treasure / Tibet</div>
+                <div class="fun-fact">"Zang" refers to the Tibetan people; "xi" means west.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== NORTHWEST ==================== -->
+    <div class="region">
+        <h2><span class="emoji">🏜️</span> Northwest (西北)</h2>
+        <div class="card-grid">
+            <div class="province-card">
+                <div class="chinese-name">陕西</div>
+                <div class="english-name">Shaanxi</div>
+                <div class="pinyin">Shǎnxī</div>
+                <div class="meaning">West of the Shan (Plateau)</div>
+                <div class="fun-fact">"Shan" refers to the Shanzhou plateau; west of it.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">甘肃</div>
+                <div class="english-name">Gansu</div>
+                <div class="pinyin">Gānsù</div>
+                <div class="meaning">Sweet + Solemn</div>
+                <div class="fun-fact">Combines Ganzhou and Suzhou, two ancient cities.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">青海</div>
+                <div class="english-name">Qinghai</div>
+                <div class="pinyin">Qīnghǎi</div>
+                <div class="meaning">Blue‑Green Sea</div>
+                <div class="fun-fact">Named after the vast Qinghai Lake (the largest in China).</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">宁夏</div>
+                <div class="english-name">Ningxia (AR)</div>
+                <div class="pinyin">Níngxià</div>
+                <div class="meaning">Peaceful Xia</div>
+                <div class="fun-fact">Wishes for peace in the former Western Xia kingdom.</div>
+            </div>
+            <div class="province-card">
+                <div class="chinese-name">新疆</div>
+                <div class="english-name">Xinjiang (AR)</div>
+                <div class="pinyin">Xīnjiāng</div>
+                <div class="meaning">New Frontier</div>
+                <div class="fun-fact">Officially incorporated under Qing rule; the "new border."</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Resource -->
+    <h2 style="text-align:center; color:#b71c1c; margin-top: 48px;">📺 Visual Guide</h2>
+    <a href="https://www.youtube.com/watch?v=Vy58VzFnOpM" target="_blank" rel="noopener" class="video-card-link">
+        <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/Vy58VzFnOpM/hqdefault.jpg');">
+            <div class="play-button">▶</div>
+        </div>
+        <div class="video-info">Provinces of China – Geography & Pronunciation</div>
+    </a>
+
+    <div class="footer-note">🧧 Every province name is a tiny history lesson. Enjoy exploring!</div>
+</div>
+</body>
+</html>

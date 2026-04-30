@@ -3,67 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学中文 · Learn Mandarin (Complete + Emojis)</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Mandarin Chinese Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #faf8f5;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Decorative top accent */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #c62828, #e6b422);
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 1rem;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #b71c1c;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .subtitle-chinese {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #b71c1c;
+            opacity: 0.8;
+            margin-top: 0.3rem;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 3px;
+            background: #e6b422;
+            border-radius: 3px;
+            opacity: 0;
+            transition: opacity 0.25s, width 0.25s;
+        }
+
+        .module-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+            border-color: rgba(198, 40, 40, 0.15);
+        }
+
+        .module-card:hover::after {
+            opacity: 1;
+            width: 70%;
+        }
+
+        .module-icon {
+            font-size: 3rem;
+            margin-bottom: 0.8rem;
+            background: #fce4ec;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .module-card:hover .module-icon {
+            background: #f8bbd0;
+        }
+
+        .module-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #b71c1c;
+            margin-bottom: 0.5rem;
+        }
+
+        .module-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 2rem 0 0.5rem;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #b71c1c;
+            text-decoration: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .module-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Menu">☰</button>
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h2>📖 学中文</h2>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="🔍 Search...">
-            </div>
+    <div class="container">
+        <header>
+            <h1>
+                <span>📖</span> Mandarin Chinese Learning
+            </h1>
+            <p class="subtitle-chinese">中文学习工具箱</p>
+            <p>Your interactive path to mastering Mandarin</p>
+        </header>
+
+        <div class="module-grid">
+            <!-- Pronunciation -->
+            <a href="complete_pronunciation_handout/Complete_Chinese_Pronunciation_Handout.html" class="module-card">
+                <div class="module-icon">🗣️</div>
+                <div class="module-title">Complete Pronunciation</div>
+                <div class="module-desc">Pinyin, tones, zhuyin, and sound drills – all in one place.</div>
+            </a>
+
+            <!-- Culture -->
+            <a href="culture/index.html" class="module-card">
+                <div class="module-icon">🏮</div>
+                <div class="module-title">Culture</div>
+                <div class="module-desc">Festivals, customs, etiquette, and cultural insights.</div>
+            </a>
+
+            <!-- Grammar -->
+            <a href="grammar/index.html" class="module-card">
+                <div class="module-icon">📚</div>
+                <div class="module-title">Grammar</div>
+                <div class="module-desc">Structures, particles, measure words, and sentence patterns.</div>
+            </a>
+
+            <!-- Radicals -->
+            <a href="radicals/index.html" class="module-card">
+                <div class="module-icon">⺡</div>
+                <div class="module-title">Radicals</div>
+                <div class="module-desc">Character building blocks – learn to decode Chinese characters.</div>
+            </a>
+
+            <!-- Vocabulary by Topic -->
+            <a href="vocab_by_topic/index.html" class="module-card">
+                <div class="module-icon">📝</div>
+                <div class="module-title">Vocabulary by Topic</div>
+                <div class="module-desc">Food, travel, business, daily life and more – organized thematically.</div>
+            </a>
+            
+            <!-- Provinces -->
+            <a href="provinces/index.html" class="module-card">
+                <div class="module-icon">🗺️</div>
+                <div class="module-title">Provinces & Regions</div>
+                <div class="module-desc">All 34 divisions – names, characters, and their fascinating meanings.</div>
+            </a>
         </div>
-        <nav class="topic-nav"><ul id="topicList"></ul></nav>
-        <div class="sidebar-footer">
-            <small>✨ Tap to flip cards</small>
-            <button id="startQuizBtn" class="quiz-btn">📝 Quick Quiz</button>
-            <button id="showFavoritesBtn" class="quiz-btn secondary">⭐ Favorites</button>
-        </div>
-    </aside>
-    <main class="main-content" id="mainContent">
-        <div id="topicContainer"></div>
-        <footer class="content-footer">
-            <p>📝 <strong>Tip:</strong> Practice tones daily! &nbsp;|&nbsp; 加油！(jiā yóu!) — You can do it! 🚀</p>
+        
+
+        <footer>
+            <p>🧧 Keep learning, 加油！ — <a href="https://github.com/your-username/Mandarin_Chinese_Learning" target="_blank">View on GitHub</a></p>
         </footer>
-    </main>
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-    <!-- Quiz modal -->
-    <div class="modal" id="quizModal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeQuiz">&times;</span>
-            <h2>📝 Quick Quiz</h2>
-            <p>What is the English meaning?</p>
-            <div class="quiz-display" id="quizDisplay"></div>
-            <div class="quiz-options" id="quizOptions"></div>
-            <p class="quiz-score">Score: <span id="quizScore">0</span></p>
-        </div>
     </div>
-
-    <!-- Favorites modal -->
-    <div class="modal" id="favoritesModal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeFavorites">&times;</span>
-            <h2>⭐ Your Favorite Words</h2>
-            <div id="favoritesList"></div>
-        </div>
-    </div>
-
-    <script src="data-part1.js"></script>
-    <script src="topic-extras-part1.js"></script>
-    <script src="data-part2.js"></script>
-    <script src="topic-extras-part2.js"></script>
-    <script src="data-part3.js"></script>
-    <script src="topic-extras-part3.js"></script>
-    <script src="data-part4.js"></script>
-    <script src="topic-extras-part4.js"></script>
-    <script src="data-part5.js"></script>
-    <script src="topic-extras-part5.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>

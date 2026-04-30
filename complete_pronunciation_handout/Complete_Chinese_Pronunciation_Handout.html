@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Grace Mandarin Chinese – Complete Pronunciation Handout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #eef2f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Noto Sans', sans-serif;
+            line-height: 1.5;
+            padding: 20px 16px;
+        }
+        .handout {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+            padding: 28px 28px 48px;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #1e3a5f;
+            border-left: 6px solid #e67e22;
+            padding-left: 22px;
+            margin-bottom: 10px;
+        }
+        .subhead {
+            color: #4a627a;
+            font-size: 1rem;
+            margin-bottom: 40px;
+            padding-left: 28px;
+            border-left: 3px solid #e67e22;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #1e3a5f;
+            margin: 52px 0 20px 0;
+            padding-left: 12px;
+            border-left: 6px solid #e67e22;
+            break-after: avoid;
+        }
+        h3 {
+            font-size: 1.5rem;
+            color: #c0392b;
+            margin: 28px 0 16px 0;
+            font-weight: 600;
+            padding-left: 8px;
+        }
+        .sound-card {
+            display: flex;
+            gap: 28px;
+            background: #fefaf0;
+            border-radius: 32px;
+            padding: 22px 24px;
+            margin-bottom: 30px;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            break-inside: avoid;
+        }
+        @media (max-width: 700px) {
+            .sound-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        .card-img {
+            flex: 0 0 140px;
+            text-align: center;
+        }
+        .card-img img {
+            max-width: 100%;
+            max-height: 140px;
+            object-fit: contain;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .card-img .no-img {
+            background: #e9ecef;
+            border-radius: 20px;
+            padding: 12px 8px;
+            font-size: 0.7rem;
+            color: #2c3e66;
+            border: 1px dashed #adb5bd;
+            display: inline-block;
+            width: 100%;
+        }
+        .card-desc {
+            flex: 1;
+        }
+        .ipa-badge {
+            background: #e9ecef;
+            padding: 3px 12px;
+            border-radius: 40px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .practice-word {
+            font-weight: 600;
+            color: #b85c00;
+            background: #fff0e0;
+            display: inline-block;
+            padding: 3px 14px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 0.9rem;
+            min-width: 420px;
+        }
+        th {
+            background: #e2e8f0;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            font-weight: 600;
+        }
+        td {
+            padding: 8px 12px;
+            border: 1px solid #cbd5e1;
+            vertical-align: top;
+        }
+        .callout {
+            background: #fff7e6;
+            border-left: 6px solid #e67e22;
+            padding: 18px 22px;
+            border-radius: 24px;
+            margin: 30px 0;
+        }
+        .callout-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #b85c00;
+            margin-bottom: 10px;
+        }
+        .review-box {
+            background: #f0f4ff;
+            border-radius: 24px;
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-left: 5px solid #3a6ea5;
+        }
+        .review-box ul {
+            margin: 8px 0 0 1.2rem;
+        }
+        .review-box li {
+            margin: 5px 0;
+        }
+        /* family comparison image – large, centered */
+        .family-comparison {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .family-comparison img {
+            max-width: 100%;
+            max-height: 340px;
+            object-fit: contain;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            background: white;
+        }
+        .family-comparison .no-img {
+            background: #e9ecef;
+            border-radius: 20px;
+            padding: 24px 16px;
+            font-size: 0.85rem;
+            color: #2c3e66;
+            border: 1px dashed #adb5bd;
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+        }
+        ul, ol {
+            padding-left: 1.6rem;
+            margin: 16px 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        hr {
+            margin: 48px 0 24px;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #cbd5e1, transparent);
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5b6e8c;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .tone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .tone-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 14px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .handout {
+                padding: 16px;
+                box-shadow: none;
+            }
+            .sound-card {
+                break-inside: avoid;
+            }
+            h2, h3 {
+                break-after: avoid;
+            }
+        }
+    /* ---------- Video Section (thumbnail cards) ---------- */
+    .video-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 28px;
+        margin: 24px 0;
+    }
+
+    .video-card-link {
+        text-decoration: none;
+        color: inherit;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        transition: transform 0.25s, box-shadow 0.25s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .video-card-link:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    .video-thumb {
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 */
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        background-color: #e9ecef;
+    }
+
+    .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.65);
+        color: white;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: background 0.2s;
+        pointer-events: none; /* click passes through to link */
+    }
+
+    .video-card-link:hover .play-button {
+        background: #b71c1c;
+    }
+
+    .video-info {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        color: #1e3a5f;
+    }
+
+    .video-info strong {
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 2px;
+        color: #b85c00;
+    }
+    </style>
+</head>
+<body>
+<div class="handout">
+    <h1>Complete Pronunciation Training</h1>
+    <div class="subhead">All consonants · vowels · nasal finals · tones</div>
+
+    <!-- ========================================================= -->
+    <!-- IMPORTANT CONCEPT -->
+    <!-- ========================================================= -->
+    <div class="review-box">
+        <h3 style="margin-top:0; color:#1e3a5f;">🔑 Key concept: Aspirated vs. Unaspirated</h3>
+        <p>In each pair (b–p, d–t, g–k, j–q, zh–ch, z–c) <strong>the tongue position is exactly the same</strong>.<br>
+        The only difference: the second sound has a <strong>strong puff of air</strong> (aspiration).</p>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 1. b p m f -->
+    <!-- ========================================================= -->
+    <h2>1. b p m f</h2>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/b.png" alt="b sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: b – lips closed, no burst]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">b (ㄅ) <span class="ipa-badge">[p]</span></h3>
+            <p><strong>Lips:</strong> Pressed together – block air completely, then release gently.<br>
+            <strong>Airflow:</strong> Unaspirated (no strong puff).<br>
+            <span class="practice-word">Practice:</span> 爸 (bà), 杯 (bēi)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/p.png" alt="p sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: p – lips closed, strong burst]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">p (ㄆ) <span class="ipa-badge">[pʰ]</span></h3>
+            <p><strong>Lips:</strong> Same as <strong>b</strong>: press, then release.<br>
+            <strong>Airflow:</strong> <strong>Strongly aspirated</strong> – more air pushed out.<br>
+            <span class="practice-word">Practice:</span> 怕 (pà), 皮 (pí)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/m.png" alt="m sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: m – lips closed, nasal]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">m (ㄇ) <span class="ipa-badge">[m]</span></h3>
+            <p><strong>Lips:</strong> Closed (like b/p), but <strong>air escapes through the nose</strong>.<br>
+            <span class="practice-word">Practice:</span> 妈 (mā), 门 (mén)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/f.png" alt="f sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: f – lower lip + upper teeth]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">f (ㄈ) <span class="ipa-badge">[f]</span></h3>
+            <p><strong>Mouth:</strong> Lower lip touches upper front teeth lightly; air flows continuously.<br>
+            <span class="practice-word">Practice:</span> 发 (fā), 饭 (fàn)</p>
+        </div>
+    </div>
+
+    <div class="review-box">
+        <div class="family-comparison">
+            <img src="Images/bpm_comparison.png" alt="b p m comparison" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: b p m comparison]</div>'">
+        </div>
+        <strong>👄 Group recap: b / p / m / f</strong>
+        <ul>
+            <li><strong>b</strong> → lips, no puff</li>
+            <li><strong>p</strong> → lips, strong puff</li>
+            <li><strong>m</strong> → lips, nasal (air through nose)</li>
+            <li><strong>f</strong> → lip + teeth, continuous airflow</li>
+        </ul>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 2. d t n l -->
+    <!-- ========================================================= -->
+    <h2>2. d t n l</h2>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/d.png" alt="d sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: d – tongue tip on alveolar ridge]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">d (ㄉ) <span class="ipa-badge">[t]</span></h3>
+            <p><strong>Tongue:</strong> Tip against the alveolar ridge (gums behind upper teeth).<br>
+            Block air with tongue tip, then release gently (no puff).<br>
+            <span class="practice-word">Practice:</span> 大 (dà), 灯 (dēng)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/t.png" alt="t sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: t – same position, strong burst]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">t (ㄊ) <span class="ipa-badge">[tʰ]</span></h3>
+            <p><strong>Tongue:</strong> Same as <strong>d</strong> – tip on alveolar ridge.<br>
+            <strong>Airflow:</strong> Strong aspiration (more air pushed out).<br>
+            <span class="practice-word">Practice:</span> 他 (tā), 天 (tiān)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/n.png" alt="n sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: n – tip on alveolar ridge, nasal]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">n (ㄋ) <span class="ipa-badge">[n]</span></h3>
+            <p><strong>Tongue:</strong> Same alveolar position, but air goes <strong>through the nose</strong>.<br>
+            <span class="practice-word">Practice:</span> 你 (nǐ), 男 (nán)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/l.png" alt="l sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: l – tip on ridge, air around sides]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">l (ㄌ) <span class="ipa-badge">[l]</span></h3>
+            <p><strong>Tongue:</strong> Tip touches alveolar ridge, but air flows out <strong>over the sides</strong> of the tongue.<br>
+            <span class="practice-word">Practice:</span> 了 (le), 来 (lái)</p>
+        </div>
+    </div>
+
+    <div class="review-box">
+        <div class="family-comparison">
+            <img src="Images/dtnl_comparison.png" alt="d t n l comparison" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: d t n l comparison]</div>'">
+        </div>
+        <strong>👅 Group recap: d / t / n / l</strong>
+        <ul>
+            <li>All four start with the tongue tip on the <strong>alveolar ridge</strong>.</li>
+            <li><strong>d</strong> → block, release (no puff)</li>
+            <li><strong>t</strong> → block, release with strong puff</li>
+            <li><strong>n</strong> → block, nasal (air escapes through nose)</li>
+            <li><strong>l</strong> → tip stays, air flows around sides (no blockage)</li>
+        </ul>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 3. g k h -->
+    <!-- ========================================================= -->
+    <h2>3. g k h</h2>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/g.png" alt="g sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: g – back of tongue raised, block]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">g (ㄍ) <span class="ipa-badge">[k]</span></h3>
+            <p><strong>Tongue:</strong> Raise the <strong>back</strong> of the tongue against the soft palate.<br>
+            Block air, then release gently (unaspirated).<br>
+            <span class="practice-word">Practice:</span> 哥 (gē), 给 (gěi)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/k.png" alt="k sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: k – back raised, strong burst]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">k (ㄎ) <span class="ipa-badge">[kʰ]</span></h3>
+            <p><strong>Tongue:</strong> Same back-of-tongue position as <strong>g</strong>.<br>
+            <strong>Airflow:</strong> Strong aspiration – a forceful release.<br>
+            <span class="practice-word">Practice:</span> 可 (kě), 开 (kāi)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/h.png" alt="h sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: h – back raised, air flows]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">h (ㄏ) <span class="ipa-badge">[x]</span></h3>
+            <p><strong>Tongue:</strong> Back raised close to soft palate, but <strong>no complete closure</strong>.<br>
+            Air flows continuously – like a gentle rough breath.<br>
+            <span class="practice-word">Practice:</span> 喝 (hē), 好 (hǎo)</p>
+        </div>
+    </div>
+
+    <div class="review-box">
+        <div class="family-comparison">
+            <img src="Images/gkh_comparison.png" alt="g k h comparison" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: g k h comparison]</div>'">
+        </div>
+        <strong>🗣️ Group recap: g / k / h</strong>
+        <ul>
+            <li>All three raise the <strong>back of the tongue</strong>.</li>
+            <li><strong>g</strong> → full closure, no puff</li>
+            <li><strong>k</strong> → closure, strong puff</li>
+            <li><strong>h</strong> → no closure, air flows freely</li>
+        </ul>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 4. j q x (palatal) -->
+    <!-- ========================================================= -->
+    <h2>4. j q x</h2>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/x.png" alt="x sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: x – tip down, front raised]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">x (ㄒ) <span class="ipa-badge">[ɕ]</span></h3>
+            <p><strong>Tongue:</strong> Tip behind lower front teeth. Front of tongue raises toward hard palate.<br>
+            <strong>Mouth:</strong> Spread wide, like a smile. Air flows continuously – no blockage.<br>
+            <span class="practice-word">Practice:</span> 西 (xī), 小 (xiǎo)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/j.png" alt="j sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: j – tip down, front blocked then released]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">j (ㄐ) <span class="ipa-badge">[tɕ]</span></h3>
+            <p><strong>Tongue:</strong> Same position as <strong>x</strong>. Press front of tongue against hard palate – block air, then release gently (unaspirated).<br>
+            <span class="practice-word">Practice:</span> 鸡 (jī), 见 (jiàn)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/q.png" alt="q sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: q – same as j, strong puff]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">q (ㄑ) <span class="ipa-badge">[tɕʰ]</span></h3>
+            <p><strong>Tongue:</strong> Same as <strong>j</strong> (block then release).<br>
+            <strong>Airflow:</strong> Strong aspiration – push out more air.<br>
+            <span class="practice-word">Practice:</span> 七 (qī), 去 (qù)</p>
+        </div>
+    </div>
+
+    <div class="review-box">
+        <div class="family-comparison">
+            <img src="Images/jqx_comparison.png" alt="j q x comparison" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: j q x comparison]</div>'">
+        </div>
+        <strong>🔁 j / q / x – the palatal family</strong>
+        <ul>
+            <li>Tongue tip <strong>down</strong> behind lower teeth.</li>
+            <li><strong>x</strong> → air flows, no closure (like a hissing smile)</li>
+            <li><strong>j</strong> → full closure then gentle release (no puff)</li>
+            <li><strong>q</strong> → closure + strong burst of air</li>
+        </ul>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 5. zh ch sh r (retroflex) -->
+    <!-- ========================================================= -->
+    <h2>5. zh ch sh r</h2>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/zh.png" alt="zh sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: zh – curled tip against ridge]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">zh (ㄓ) <span class="ipa-badge">[ʈʂ]</span></h3>
+            <p><strong>Tongue:</strong> Curl tip back to touch the hard palate just behind the alveolar ridge.<br>
+            Block air, then release gently (unaspirated).<br>
+            <span class="practice-word">Practice:</span> 知 (zhī), 中 (zhōng)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/ch.png" alt="ch sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: ch – same curled, strong burst]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">ch (ㄔ) <span class="ipa-badge">[ʈʂʰ]</span></h3>
+            <p><strong>Tongue:</strong> Same curled position as <strong>zh</strong>.<br>
+            <strong>Airflow:</strong> Strong aspiration – a forceful puff.<br>
+            <span class="practice-word">Practice:</span> 吃 (chī), 车 (chē)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/sh.png" alt="sh sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: sh – curled close, air flows]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">sh (ㄕ) <span class="ipa-badge">[ʂ]</span></h3>
+            <p><strong>Tongue:</strong> Curl tip close to the same spot, but <strong>do not touch</strong>. Air flows continuously.<br>
+            <span class="practice-word">Practice:</span> 师 (shī), 上 (shàng)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/r.png" alt="r sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: r – same as sh, but voiced]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">r (ㄖ) <span class="ipa-badge">[ɻ]</span></h3>
+            <p><strong>Tongue:</strong> Same as <strong>sh</strong> (curled, close to palate).<br>
+            <strong>Voice:</strong> <strong>Vibrate your vocal cords</strong> – the voiced partner of sh.<br>
+            <span class="practice-word">Practice:</span> 日 (rì), 人 (rén)</p>
+        </div>
+    </div>
+
+    <div class="review-box">
+        <div class="family-comparison">
+            <img src="Images/zhchshr_comparison.png" alt="zh ch sh r comparison" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: zh ch sh r comparison]</div>'">
+        </div>
+        <strong>🌀 zh / ch / sh / r – retroflex family</strong>
+        <ul>
+            <li>Tongue tip <strong>curled back</strong> toward the hard palate.</li>
+            <li><strong>zh</strong> → tip touches, no puff</li>
+            <li><strong>ch</strong> → tip touches, strong puff</li>
+            <li><strong>sh</strong> → curled close, continuous airflow (voiceless)</li>
+            <li><strong>r</strong> → same as sh, but with vocal cord vibration (voiced)</li>
+        </ul>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 6. z c s (dental sibilants) -->
+    <!-- ========================================================= -->
+    <h2>6. z c s</h2>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/z.png" alt="z sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: z – tip against upper teeth]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">z (ㄗ) <span class="ipa-badge">[ts]</span></h3>
+            <p><strong>Tongue:</strong> Tip touches the back of the <strong>upper front teeth</strong>.<br>
+            Block air, then release gently (unaspirated).<br>
+            <span class="practice-word">Practice:</span> 子 (zǐ), 早 (zǎo)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/c.png" alt="c sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: c – tip on teeth, strong burst]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">c (ㄘ) <span class="ipa-badge">[tsʰ]</span></h3>
+            <p><strong>Tongue:</strong> Same dental position as <strong>z</strong>.<br>
+            <strong>Airflow:</strong> Strong aspiration – a sharp puff of air.<br>
+            <span class="practice-word">Practice:</span> 词 (cí), 草 (cǎo)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/s.png" alt="s sound" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: s – tip close to teeth, air flows]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">s (ㄙ) <span class="ipa-badge">[s]</span></h3>
+            <p><strong>Tongue:</strong> Tip close to upper front teeth. Air flows continuously – no closure.<br>
+            <span class="practice-word">Practice:</span> 四 (sì), 三 (sān)</p>
+        </div>
+    </div>
+
+    <div class="review-box">
+        <div class="family-comparison">
+            <img src="Images/zcs_comparison.png" alt="z c s comparison" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: z c s comparison]</div>'">
+        </div>
+        <strong>🦷 z / c / s – dental sibilants</strong>
+        <ul>
+            <li>Tongue tip near the <strong>upper front teeth</strong>.</li>
+            <li><strong>z</strong> → full contact, no puff</li>
+            <li><strong>c</strong> → full contact, strong puff</li>
+            <li><strong>s</strong> → close but not touching, continuous air</li>
+        </ul>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- CONSONANT QUICK REFERENCE -->
+    <!-- ========================================================= -->
+    <div class="review-box" style="background:#f0fff0; border-left-color:#27ae60; margin-top:40px;">
+        <h3 style="margin-top:0; color:#1e6b3a;">✅ Quick‑reference: all consonants</h3>
+        <ul style="columns:2;">
+            <li><strong>b</strong> [p] – lips, no puff</li>
+            <li><strong>p</strong> [pʰ] – lips, strong puff</li>
+            <li><strong>m</strong> [m] – lips, nasal</li>
+            <li><strong>f</strong> [f] – lip+teeth</li>
+            <li><strong>d</strong> [t] – alveolar, no puff</li>
+            <li><strong>t</strong> [tʰ] – alveolar, strong puff</li>
+            <li><strong>n</strong> [n] – alveolar, nasal</li>
+            <li><strong>l</strong> [l] – alveolar, lateral</li>
+            <li><strong>g</strong> [k] – soft palate, no puff</li>
+            <li><strong>k</strong> [kʰ] – soft palate, strong puff</li>
+            <li><strong>h</strong> [x] – soft palate, friction</li>
+            <li><strong>j</strong> [tɕ] – palatal, no puff</li>
+            <li><strong>q</strong> [tɕʰ] – palatal, strong puff</li>
+            <li><strong>x</strong> [ɕ] – palatal, continuous</li>
+            <li><strong>zh</strong> [ʈʂ] – retroflex, no puff</li>
+            <li><strong>ch</strong> [ʈʂʰ] – retroflex, strong puff</li>
+            <li><strong>sh</strong> [ʂ] – retroflex, voiceless</li>
+            <li><strong>r</strong> [ɻ] – retroflex, voiced</li>
+            <li><strong>z</strong> [ts] – dental, no puff</li>
+            <li><strong>c</strong> [tsʰ] – dental, strong puff</li>
+            <li><strong>s</strong> [s] – dental, continuous</li>
+        </ul>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 7. SIMPLE VOWELS -->
+    <!-- ========================================================= -->
+    <h2>7. Simple vowels: i, u, ü, a, o</h2>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/i.png" alt="i vowel" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: i vowel]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">i (ㄧ) <span class="ipa-badge">[i]</span> – high front unrounded</h3>
+            <p><strong>Mouth:</strong> Spread lips wide, tense. <strong>Tongue:</strong> High front, tip behind lower teeth.<br>
+            <span class="practice-word">Practice:</span> 一 (yī), 衣服 (yīfu)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/u.png" alt="u vowel" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: u vowel]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">u (ㄨ) <span class="ipa-badge">[u]</span> – high back rounded</h3>
+            <p><strong>Mouth:</strong> Small circle, protrude slightly. <strong>Tongue:</strong> Pull back, raise back toward soft palate.<br>
+            <span class="practice-word">Practice:</span> 五 (wǔ), 不 (bù)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/ü.png" alt="ü vowel" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: ü vowel]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">ü (ㄩ) <span class="ipa-badge">[y]</span> – high front rounded</h3>
+            <p><strong>Tongue:</strong> Exactly like [i] (high front). <strong>Mouth:</strong> Round lips tightly – only difference from i.<br>
+            <span class="practice-word">Practice:</span> 鱼 (yú), 去 (qù)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/a.png" alt="a vowel" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: a vowel]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">a (ㄚ) <span class="ipa-badge">[a]</span> – low central unrounded</h3>
+            <p><strong>Mouth:</strong> Open wide, jaw dropped. <strong>Tongue:</strong> Flat, low, central.<br>
+            <span class="practice-word">Practice:</span> 妈 (mā), 大 (dà)</p>
+        </div>
+    </div>
+
+    <div class="sound-card">
+        <div class="card-img">
+            <img src="Images/o.png" alt="o vowel" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'no-img\'>[Image: o vowel]</div>'">
+        </div>
+        <div class="card-desc">
+            <h3 style="margin-top:0;">o (ㄛ) <span class="ipa-badge">[o]</span> – high‑mid back rounded</h3>
+            <p><strong>Mouth:</strong> Rounded, less tight than [u]. <strong>Tongue:</strong> Pull back, raise mid‑back.<br>
+            <span class="practice-word">Practice:</span> 我 (wǒ), 多 (duō)</p>
+        </div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">⚠️ Special rule: "o" after b, p, m, f</div>
+        <p>When <strong>o</strong> follows <strong>b, p, m, f</strong> alone, it sounds like <strong>uo [wo]</strong>.<br>
+        Example: 潑水 (pō shuǐ) → "puo", 模仿 (mó fǎng) → "muo".</p>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 8. NASAL FINALS -->
+    <!-- ========================================================= -->
+    <h2>8. Nasal finals: en/eng · in/ing · an/ang</h2>
+
+    <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 30px; flex-wrap: wrap;">
+        <div style="text-align: center;">
+            <img src="Images/n.png" alt="Front nasal: tongue tip to alveolar ridge" style="max-width: 160px; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <p><strong>Front nasal (-n)</strong><br>Tip touches alveolar ridge</p>
+        </div>
+        <div style="text-align: center;">
+            <img src="Images/ng.png" alt="Back nasal: back of tongue to soft palate" style="max-width: 160px; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <p><strong>Back nasal (-ng)</strong><br>Back of tongue raises to soft palate</p>
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <thead><tr><th>Final</th><th>IPA</th><th>How to pronounce</th><th>Example</th></tr></thead>
+            <tbody>
+                <tr><td><strong>en</strong></td><td>[ən]</td><td>Start with schwa, then tip of tongue touches upper gums (front nasal).</td><td>本 (běn)</td></tr>
+                <tr><td><strong>eng</strong></td><td>[əŋ]</td><td>Start with schwa, then back of tongue raises to soft palate (back nasal).</td><td>风 (fēng)</td></tr>
+                <tr><td><strong>in</strong></td><td>[in]</td><td>Start with [i], then tip to alveolar ridge for -n.</td><td>心 (xīn)</td></tr>
+                <tr><td><strong>ing</strong></td><td>[iŋ]</td><td>Start with [i], then raise back of tongue for -ng.</td><td>请 (qǐng)</td></tr>
+                <tr><td><strong>an</strong></td><td>[an]</td><td>Start with open [a], then tip to alveolar ridge for -n.</td><td>看 (kàn)</td></tr>
+                <tr><td><strong>ang</strong></td><td>[ɑŋ]</td><td>Start with back [ɑ] (wider mouth), then back tongue to soft palate.</td><td>上 (shàng)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">⚠️ Common mistake: -ian / -üan → -ien / -üen</div>
+        <p>When <strong>i-</strong> or <strong>ü-</strong> is followed by <strong>-an</strong>, the [a] shifts to [e]:</p>
+        <ul>
+            <li><strong>ian</strong> → i + en (先 xiān sounds like "shi‑en")</li>
+            <li><strong>üan</strong> → ü + en (全 quán sounds like "chyü‑en")</li>
+        </ul>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 9. TONES (fully revised) -->
+    <!-- ========================================================= -->
+    <h2>9. Tones – the complete picture</h2>
+
+    <div class="callout" style="background:#f0f4ff; border-left-color:#3a6ea5;">
+        <div class="callout-title" style="color:#1e3a5f;">🎵 The real secret: tones are relative, not absolute</div>
+        <p>The 1–5 scale is a <strong>relative reference</strong>, not a musical note. Tone 1 is <strong>not</strong> a strained high “55” – it’s a comfortable mid‑to‑high‑mid flat tone. Tone 3 is mostly just a low tone, not a full fall‑rise.</p>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <caption style="caption-side: top; text-align: left; font-weight: bold; margin-bottom: 8px;">The four full tones & the neutral tone</caption>
+            <thead><tr><th>Tone</th><th>Realistic description</th><th>Duration</th><th>Intensity</th><th>Mnemonic</th></tr></thead>
+            <tbody>
+                <tr><td><strong>1st</strong> (¯)</td><td>Mid‑to‑high‑mid flat, comfortable</td><td>Normal</td><td>Consistent</td><td>Steady held note</td></tr>
+                <tr><td><strong>2nd</strong> (ˊ)</td><td>Low → high, like “Huh?!”</td><td>Slightly longer</td><td>Quiet → Loud</td><td>“Huh?!” or “tea?”</td></tr>
+                <tr><td><strong>3rd</strong> (ˇ)</td><td>Low, often creaky; full fall‑rise rare</td><td><strong>Longest</strong></td><td><strong>Quietest</strong></td><td>Creaky “ah…”</td></tr>
+                <tr><td><strong>4th</strong> (ˋ)</td><td>High → low, sharp fall</td><td><strong>Shortest</strong></td><td>Loud → Quiet</td><td>“Stop!” or “Go!”</td></tr>
+                <tr><td><strong>Neutral</strong> (·)</td><td>No fixed pitch; short and light</td><td>Short</td><td>Weak</td><td>Unstressed light beat</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tone-grid">
+        <div class="tone-card"><strong>1st tone (¯)</strong><br>mid‑high level<br><span style="font-size:1.8rem;">mā</span><br>妈 (mother)</div>
+        <div class="tone-card"><strong>2nd tone (ˊ)</strong><br>rising (low→high)<br><span style="font-size:1.8rem;">má</span><br>麻 (hemp)</div>
+        <div class="tone-card"><strong>3rd tone (ˇ)</strong><br>low dip (creaky)<br><span style="font-size:1.8rem;">mǎ</span><br>马 (horse)</div>
+        <div class="tone-card"><strong>4th tone (ˋ)</strong><br>sharp falling (high→low)<br><span style="font-size:1.8rem;">mà</span><br>骂 (scold)</div>
+        <div class="tone-card"><strong>Neutral (·)</strong><br>light & quick<br><span style="font-size:1.8rem;">ma</span><br>吗 (question)</div>
+    </div>
+
+    <h3>9.1 The third tone & tone‑sandhi</h3>
+    <div class="callout">
+        <div class="callout-title">🔎 The real third tone</div>
+        <p>In everyday speech the third tone is usually just a <strong>low tone that dips slightly</strong> – often with a creaky voice. The full 2→1→4 contour only appears at the end of a phrase or for emphasis.</p>
+    </div>
+
+    <div class="callout" style="background:#f3f0ff; border-left-color:#6c5ce7;">
+        <div class="callout-title" style="color:#4a3f7a;">🔄 3‑3 → half‑2 + 3</div>
+        <p>When two third tones meet, the first becomes a <strong>half tone 2</strong> (a short rise, not a full second tone):</p>
+        <ul>
+            <li>你好 (nǐ hǎo) → <strong>ní hǎo</strong></li>
+            <li>想法 (xiǎng fǎ) → <strong>xiáng fǎ</strong></li>
+            <li>雨傘 (yǔ sǎn) → <strong>yú sǎn</strong></li>
+        </ul>
+    </div>
+
+    <div class="callout" style="background:#fef9e7; border-left-color:#f39c12;">
+        <div class="callout-title" style="color:#b85c00;">🚂 Sandhi trains (3+ third tones)</div>
+        <p>Within a word, every third tone except the last becomes tone 2. Across word boundaries the chain may break.</p>
+        <ul>
+            <li>管理組 → <strong>guán lí zǔ</strong></li>
+            <li>買雨傘 → <strong>mái yú sǎn</strong> (verb + object)</li>
+        </ul>
+    </div>
+
+    <h3>9.2 Tone changes for 一 (yī) and 不 (bù)</h3>
+    <div class="table-wrapper">
+        <table>
+            <caption style="caption-side: top; text-align: left; font-weight: bold;">🔢 一 (one)</caption>
+            <thead><tr><th>Context</th><th>Tone</th><th>Example</th></tr></thead>
+            <tbody>
+                <tr><td>Isolation, numbers, end‑of‑word (唯一)</td><td><strong>1st</strong></td><td>一 (yī), 第一 (dì‑yī)</td></tr>
+                <tr><td>Before a <strong>4th tone</strong></td><td>→ <strong>2nd</strong></td><td>一半 (yí bàn)</td></tr>
+                <tr><td>Before <strong>1st, 2nd, 3rd</strong> tone</td><td>→ <strong>4th</strong></td><td>一些 (yì xiē)</td></tr>
+                <tr><td>Between duplicated verbs</td><td>→ <strong>neutral</strong></td><td>看一看 (kàn yi kàn)</td></tr>
+                <tr><td>Verb/adjective + measure word</td><td>→ <strong>neutral</strong></td><td>等一下 (děng yi xià)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <caption style="caption-side: top; text-align: left; font-weight: bold;">🚫 不 (not)</caption>
+            <thead><tr><th>Context</th><th>Tone</th><th>Example</th></tr></thead>
+            <tbody>
+                <tr><td>Most cases (alone, before 1st/2nd/3rd)</td><td><strong>4th</strong></td><td>不 (bù), 不知道</td></tr>
+                <tr><td>Before another <strong>4th tone</strong></td><td>→ <strong>2nd</strong></td><td>不要 (bú yào)</td></tr>
+                <tr><td>Verb‑complement (potential)</td><td>→ <strong>neutral</strong></td><td>對不起 (duì bu qǐ)</td></tr>
+                <tr><td>Reduplicated verb phrases</td><td>→ <strong>neutral</strong></td><td>要不要 (yào bu yào)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>9.3 Connected speech: downdrift & assimilation</h3>
+    <div class="callout" style="background:#f0f4ff; border-left-color:#3a6ea5;">
+        <div class="callout-title" style="color:#1e3a5f;">📉 Downdrift – the phrase curve</div>
+        <p>Over a sentence, the overall pitch <strong>drifts downward</strong>. A tone 1 at the end is lower than at the start. Pronouncing every syllable at textbook pitch sounds robotic.</p>
+        <p><span class="practice-word">Example:</span> 媽媽罵馬 (māma mà mǎ) – the second “mā” and “mǎ” are lower than the first.</p>
+    </div>
+
+    <div class="callout" style="background:#f5fbf0; border-left-color:#27ae60;">
+        <div class="callout-title" style="color:#2d6a4f;">🔗 Carry‑over effects</div>
+        <p>A high‑ending tone raises the start of the next syllable; a low‑ending tone lowers it. This is natural smoothing – don’t force it, just listen and imitate.</p>
+    </div>
+
+    <h3>9.4 Emotion & questions – without breaking tones</h3>
+    <div class="callout">
+        <div class="callout-title">🌊 Shift your pitch range, not the tone shape</div>
+        <p>Surprise → raise whole range. Sadness → lower whole range. Anger → add extra fall at the very end. Never twist the contour of the tone itself.</p>
+    </div>
+
+    <div class="callout" style="background:#f4f9ff; border-left-color:#2c5282;">
+        <div class="callout-title" style="color:#1e3a5f;">❓ Questions – higher register, not a final rise</div>
+        <p>Raise the pitch of the <strong>whole</strong> question and exaggerate the final tone contour. Never add an English‑style rise.</p>
+        <p><span class="practice-word">Contrast:</span> 這是水。 (normal) vs. 這是水？ (higher register, magnified low tone)</p>
+    </div>
+
+    <h3>9.5 The neutral tone (輕聲)</h3>
+    <div class="callout" style="background:#fef9e7; border-left-color:#f39c12;">
+        <div class="callout-title" style="color:#b85c00;">⚡ Short, weak, borrows pitch from before</div>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>After tone…</th><th>Neutral tone pitch</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>1st</strong></td><td>Lower than tone 1</td><td>媽媽 (māma)</td></tr>
+                    <tr><td><strong>2nd</strong></td><td>Lower; tone 2 cuts off mid‑rise</td><td>什麼 (shénme)</td></tr>
+                    <tr><td><strong>3rd</strong></td><td><strong>Higher</strong> (because half‑3 is very low)</td><td>椅子 (yǐzi)</td></tr>
+                    <tr><td><strong>4th</strong></td><td>Slightly above the fall’s end</td><td>是的 (shìde)</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>The neutral tone is an <strong>unstressed light beat</strong>. Make it short and light, and you’ll be understood.</p>
+    </div>
+
+    <div style="background:#fef9e7; border-radius:24px; padding:18px; margin:24px 0;">
+        <h4 style="margin:0 0 8px;">🗣️ Quick practice – tones across emotions</h4>
+        <ul style="margin-bottom:0;">
+            <li><strong>真的有？</strong> – “Really?” – keep “有” low; whole voice higher.</li>
+            <li><strong>太好了！</strong> – “Great!” – “好” stays low even when excited.</li>
+            <li><strong>不要問了！</strong> – “Stop asking!” – tones intact, sharp final drop.</li>
+            <li><strong>這是水？</strong> – “This is water?” – higher register; “shuǐ” magnified.</li>
+        </ul>
+    </div>
+
+    <div class="callout" style="background:#f0fff0; border-left-color:#27ae60; margin-top:40px;">
+        <div class="callout-title" style="color:#1e6b3a;">✅ Summary: Mandarin tones in one page</div>
+        <ol>
+            <li>Tone charts are <strong>relative</strong>. Tone 1 is mid‑high, tone 3 is a low tone – not a dramatic fall‑rise.</li>
+            <li>Each tone has a <strong>duration & intensity</strong> profile: 4th is shortest, 3rd is longest and quietest.</li>
+            <li><strong>Downdrift</strong> gently lowers pitch across a sentence; without it you sound robotic.</li>
+            <li><strong>Tone sandhi</strong> (3‑3, 一, 不) are systematic – learn the patterns, then trust your ear.</li>
+            <li><strong>Chinese intonation exists</strong> – raise the whole pitch range for questions, never twist the tone contour.</li>
+            <li><strong>Assimilation</strong> smooths out transitions automatically; don’t force it.</li>
+            <li>Aim for <strong>naturalness</strong>, not a mythical “perfect” pitch. Regional and individual variation is normal.</li>
+        </ol>
+    </div>
+
+    <hr>
+    <!-- ========================================================= -->
+    <!-- VIDEO RESOURCES (fallback thumbnails – zero embedding issues) -->
+    <!-- ========================================================= -->
+    <h2>📺 Video Resources</h2>
+    <p style="color:#4a627a; margin-top:-10px; margin-bottom:24px;">Click any card to open the video on YouTube 🎬</p>
+
+    <div class="video-section">
+    <!-- Grace Mandarin Chinese – Playlist -->
+    <a href="https://www.youtube.com/playlist?list=PLwFUKjRMEUxw2IRsDA8GZGW1AZdgCoiAA"
+        target="_blank" rel="noopener"
+        class="video-card-link">
+        <div class="video-thumb"
+            style="background-image: url('https://img.youtube.com/vi/n_Cj3aOSI1w/hqdefault.jpg');">
+        <div class="play-button">▶</div>
+        </div>
+        <div class="video-info">
+        <strong>Grace Mandarin Chinese</strong><br>
+        Full Pronunciation Playlist
+        </div>
+    </a>
+
+    <!-- Grace Mandarin Chinese – Single video -->
+    <a href="https://www.youtube.com/watch?v=NdPZeWIxrtc"
+        target="_blank" rel="noopener"
+        class="video-card-link">
+        <div class="video-thumb"
+            style="background-image: url('https://img.youtube.com/vi/NdPZeWIxrtc/hqdefault.jpg');">
+        <div class="play-button">▶</div>
+        </div>
+        <div class="video-info">
+        <strong>Grace Mandarin Chinese</strong><br>
+        Understand FAST Chinese Conversations | Common Reductions in Everyday Speech
+        </div>
+    </a>
+
+    <!-- Dr. Julesy – Tone & Psycholinguistics 1 -->
+    <a href="https://www.youtube.com/watch?v=eIP8yVcDZRI&list=PLaK41SI2a-0SCqzpo8XXuOCf89R4ELP0f&index=13"
+        target="_blank" rel="noopener"
+        class="video-card-link">
+        <div class="video-thumb"
+            style="background-image: url('https://img.youtube.com/vi/eIP8yVcDZRI/hqdefault.jpg');">
+        <div class="play-button">▶</div>
+        </div>
+        <div class="video-info">
+        <strong>Dr. Julesy</strong><br>
+        The SECRET to Perfect Mandarin Tone Pronunciation 🇨🇳
+        </div>
+    </a>
+
+    <!-- Dr. Julesy – Tone & Psycholinguistics 2 -->
+    <a href="https://www.youtube.com/watch?v=ikBI9pk84EE&list=PLaK41SI2a-0SCqzpo8XXuOCf89R4ELP0f&index=12"
+        target="_blank" rel="noopener"
+        class="video-card-link">
+        <div class="video-thumb"
+            style="background-image: url('https://img.youtube.com/vi/ikBI9pk84EE/hqdefault.jpg');">
+        <div class="play-button">▶</div>
+        </div>
+        <div class="video-info">
+        <strong>Dr. Julesy</strong><br>
+        (Pt 2)The SECRET to Perfect Mandarin Tone Pronunciation
+        </div>
+    </a>
+    </div>
+    <div class="footer">
+        Based on <strong>Grace Mandarin Chinese</strong> pronunciation training.<br>
+        Additional tone research insights adapted from <strong>Dr. Julesy (Julsy Two Shoes)</strong> – PhD in Mandarin lexical tones.<br>
+        🌟 Great job! Review any section you find difficult. Repeat practice words daily.<br>
+        📺 Need more help? Watch the full pronunciation playlist on YouTube.
+    </div>
+</div>
+</body>
+</html>

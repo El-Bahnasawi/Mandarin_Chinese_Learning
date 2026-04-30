@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中华文化 | Comprehensive Guide to Chinese Culture for Mandarin Learners</title>
+    <style>
+        :root {
+            --red: #C41E3A;
+            --gold: #D4A843;
+            --dark: #1a1a1a;
+            --light: #fdf6ec;
+            --cream: #fef9f0;
+            --jade: #5B8C5A;
+            --ink: #2c2416;
+            --paper: #fdf8f0;
+            --accent: #8B2500;
+            --border: #e0d5c1;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+            --transition: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Noto Serif SC', 'STSong', 'SimSun', 'Songti SC', serif;
+            background-color: #fdf8f0;
+            background-image:
+                radial-gradient(ellipse at 20% 10%, rgba(212, 168, 67, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 90%, rgba(196, 30, 58, 0.04) 0%, transparent 60%);
+            color: #2c2416;
+            line-height: 1.75;
+            scroll-behavior: smooth;
+            background-attachment: fixed;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(30, 20, 10, 0.95);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 2px solid var(--gold);
+            padding: 0 20px;
+            box-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+        }
+        nav .nav-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--gold);
+            letter-spacing: 2px;
+            white-space: nowrap;
+            padding: 12px 0;
+            text-decoration: none;
+        }
+        nav .logo span {
+            color: #fff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 8px 0;
+        }
+        nav ul li a {
+            color: #e8dcc8;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            white-space: nowrap;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        nav ul li a:hover,
+        nav ul li a:focus {
+            background: var(--red);
+            color: #fff;
+            outline: none;
+        }
+
+        /* ── Layout ── */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px 60px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 50px;
+            position: relative;
+            border-bottom: 3px double var(--gold);
+            margin-bottom: 40px;
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: var(--red);
+            letter-spacing: 3px;
+            font-weight: 900;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+            margin-bottom: 8px;
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #6b5e4e;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+        .hero .chinese-seal {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            border: 3px solid var(--red);
+            color: var(--red);
+            line-height: 66px;
+            font-size: 2rem;
+            font-weight: bold;
+            border-radius: 50%;
+            margin: 16px 0 0;
+            font-family: 'KaiTi', 'STKaiti', '楷体', serif;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 10%;
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        /* ── Section Cards ── */
+        section {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        section:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border-color: #c9b896;
+        }
+        section h2 {
+            font-size: 1.8rem;
+            color: var(--red);
+            border-bottom: 2px solid #f0e4d0;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        section h2 .icon {
+            font-size: 1.6rem;
+        }
+        section h3 {
+            font-size: 1.3rem;
+            color: #5a3e1b;
+            margin: 20px 0 10px;
+            padding-left: 8px;
+            border-left: 4px solid var(--gold);
+        }
+        section h4 {
+            color: var(--accent);
+            margin: 14px 0 6px;
+            font-size: 1.05rem;
+        }
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        ul,
+        ol {
+            margin: 8px 0 16px 20px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* ── Info Grid ── */
+        .grid-2,
+        .grid-3 {
+            display: grid;
+            gap: 20px;
+            margin-top: 16px;
+        }
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        .card {
+            background: #fffef9;
+            border: 1px solid #e8ddcc;
+            border-radius: 10px;
+            padding: 20px;
+            transition: var(--transition);
+        }
+        .card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+            transform: translateY(-2px);
+        }
+        .card h4 {
+            color: var(--red);
+            margin-top: 0;
+        }
+
+        /* ── Dialect Table ── */
+        .dialect-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            display: block;
+        }
+        .dialect-table thead {
+            background: var(--red);
+            color: #fff;
+        }
+        .dialect-table th,
+        .dialect-table td {
+            padding: 12px 14px;
+            text-align: left;
+            border: 1px solid #e0d5c1;
+            white-space: nowrap;
+        }
+        .dialect-table tbody tr:nth-child(even) {
+            background: #fdf6ec;
+        }
+        .dialect-table tbody tr:hover {
+            background: #fef0e0;
+        }
+
+        /* ── Timeline ── */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid var(--gold);
+            margin: 20px 0;
+        }
+        .timeline-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--red);
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px var(--gold);
+        }
+        .timeline-item .year {
+            font-weight: bold;
+            color: var(--red);
+            font-size: 1rem;
+        }
+
+        /* ── Quote Block ── */
+        blockquote {
+            background: #fffef7;
+            border-left: 5px solid var(--gold);
+            margin: 16px 0;
+            padding: 16px 20px;
+            font-style: italic;
+            color: #5a4a30;
+            border-radius: 0 8px 8px 0;
+            quotes: "「" "」";
+        }
+        blockquote::before {
+            content: "「";
+            font-size: 2rem;
+            color: var(--gold);
+            line-height: 0;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+        blockquote::after {
+            content: "」";
+            font-size: 2rem;
+            color: var(--gold);
+            line-height: 0;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid #e0d5c1;
+            color: #8b7a60;
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.4);
+            margin-top: 20px;
+        }
+        footer a {
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        /* ── Back to Top ── */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            background: var(--red);
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 44px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 14px rgba(196, 30, 58, 0.4);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .back-to-top:hover {
+            background: #a01830;
+            transform: translateY(-3px);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            nav .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav ul {
+                justify-content: center;
+                gap: 2px;
+            }
+            nav ul li a {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+            section {
+                padding: 20px 16px;
+            }
+            .hero {
+                padding: 30px 10px 30px;
+            }
+            .dialect-table {
+                font-size: 0.8rem;
+            }
+            .dialect-table th,
+            .dialect-table td {
+                padding: 8px 6px;
+            }
+        }
+
+        /* ── Print ── */
+        @media print {
+            nav,
+            .back-to-top {
+                display: none;
+            }
+            body {
+                background: #fff;
+                color: #000;
+            }
+            section {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="#hero" class="logo">中<span>华</span> · CHINESE CULTURE</a>
+            <ul>
+                <li><a href="#overview">📖 Overview</a></li>
+                <li><a href="#history">🏛 History</a></li>
+                <li><a href="#dialects">🗣 Dialects</a></li>
+                <li><a href="#philosophy">☯ Philosophy</a></li>
+                <li><a href="#arts">🎨 Arts</a></li>
+                <li><a href="#cuisine">🥢 Cuisine</a></li>
+                <li><a href="#festivals">🎊 Festivals</a></li>
+                <li><a href="#customs">💮 Customs</a></li>
+                <li><a href="#architecture">🏯 Architecture</a></li>
+                <li><a href="#literature">📚 Literature</a></li>
+                <li><a href="#tea">🍵 Tea Culture</a></li>
+                <li><a href="#martial">🥋 Martial Arts</a></li>
+                <li><a href="#medicine">🌿 Medicine</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ═══════════════ HERO ═══════════════ -->
+        <header class="hero" id="hero">
+            <h1>中华文化</h1>
+            <p class="subtitle">A Comprehensive Guide to Chinese Culture for Language Learners</p>
+            <div class="chinese-seal" aria-label="Chinese seal character">文</div>
+            <p style="margin-top:14px; max-width:700px; margin-left:auto; margin-right:auto; color:#5a4a30;">
+                Understanding Chinese culture is essential for mastering the language. This guide explores the rich
+                tapestry of traditions, dialects, arts, and philosophies that shape the Chinese-speaking world.
+            </p>
+        </header>
+
+        <!-- ═══════════════ OVERVIEW ═══════════════ -->
+        <section id="overview">
+            <h2><span class="icon">📖</span> Overview of Chinese Culture</h2>
+            <p>
+                Chinese culture is one of the world's oldest continuous cultures, with over <strong>5,000 years</strong>
+                of recorded history. It has profoundly influenced East Asia and the world through its philosophy,
+                language, cuisine, art, and social customs. The term <em>Zhōnghuá wénhuà</em> (中华文化) encompasses the
+                shared heritage of the Chinese nation, including its many ethnic groups — though the <strong>Han Chinese</strong>
+                form the majority, there are officially <strong>56 recognized ethnic groups</strong>, each contributing
+                unique traditions.
+            </p>
+            <p>
+                For Mandarin learners, culture provides the <strong>context</strong> behind idioms (成语 chéngyǔ), social
+                etiquette, and even grammar patterns. Concepts like <em>miànzi</em> (面子, "face"), <em>guānxi</em> (关系,
+                relationships), and <em>xiào</em> (孝, filial piety) are deeply embedded in daily communication.
+            </p>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>🌏 Geographic Scope</h4>
+                    <p>Chinese culture is primarily associated with the People's Republic of China, but also thrives in
+                        Taiwan, Hong Kong, Macau, Singapore, Malaysia, and overseas Chinese communities worldwide.</p>
+                </div>
+                <div class="card">
+                    <h4>🗓 Cultural Continuity</h4>
+                    <p>Few civilizations can claim uninterrupted cultural continuity from ancient times to the present.
+                        Chinese writing, for instance, has evolved but remains recognizable from oracle bone scripts
+                        (c. 1200 BCE) to modern characters.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ HISTORY ═══════════════ -->
+        <section id="history">
+            <h2><span class="icon">🏛</span> Historical Timeline</h2>
+            <p>China's dynastic cycle shaped its culture profoundly. Here is a condensed timeline of major dynasties:</p>
+            <div class="timeline">
+                <div class="timeline-item"><span class="year">c. 2070–1600 BCE</span> — <strong>Xia Dynasty</strong>：
+                    Legendary first dynasty, origins of Chinese civilization.</div>
+                <div class="timeline-item"><span class="year">c. 1600–1046 BCE</span> — <strong>Shang Dynasty</strong>：
+                    Oracle bones, bronze vessels, early Chinese writing.</div>
+                <div class="timeline-item"><span class="year">1046–256 BCE</span> — <strong>Zhou Dynasty</strong>：
+                    Mandate of Heaven (天命), Confucius & Laozi, Hundred Schools of Thought.</div>
+                <div class="timeline-item"><span class="year">221–206 BCE</span> — <strong>Qin Dynasty</strong>：
+                    First unification, standardization of script, Terracotta Army.</div>
+                <div class="timeline-item"><span class="year">206 BCE–220 CE</span> — <strong>Han Dynasty</strong>：
+                    Silk Road, paper invention, Imperial examination seeds.</div>
+                <div class="timeline-item"><span class="year">618–907 CE</span> — <strong>Tang Dynasty</strong>：
+                    Golden age of poetry, cosmopolitan culture, woodblock printing.</div>
+                <div class="timeline-item"><span class="year">960–1279</span> — <strong>Song Dynasty</strong>：
+                    Gunpowder, compass, movable type, landscape painting peak.</div>
+                <div class="timeline-item"><span class="year">1271–1368</span> — <strong>Yuan Dynasty</strong>：
+                    Mongol rule, Marco Polo, drama & opera flourished.</div>
+                <div class="timeline-item"><span class="year">1368–1644</span> — <strong>Ming Dynasty</strong>：
+                    Forbidden City, blue-and-white porcelain, maritime expeditions.</div>
+                <div class="timeline-item"><span class="year">1644–1912</span> — <strong>Qing Dynasty</strong>：
+                    Manchu rule, last dynasty, encountered Western powers.</div>
+                <div class="timeline-item"><span class="year">1949–present</span> — <strong>Modern China</strong>：
+                    People's Republic, Reform & Opening Up, global resurgence.</div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ DIALECTS ═══════════════ -->
+        <section id="dialects">
+            <h2><span class="icon">🗣</span> Chinese Dialects &amp; Languages</h2>
+            <p>
+                What many call "Chinese" is actually a <strong>family of languages</strong> (Sinitic branch of
+                Sino-Tibetan). <strong>Mandarin (Pǔtōnghuà / 普通话)</strong> is the official standard, but there are
+                <strong>7–10 major dialect groups</strong>, many of which are mutually unintelligible. For learners,
+                knowing about these varieties enriches cultural understanding and explains regional accents.
+            </p>
+
+            <h3>Major Sinitic Language Groups</h3>
+            <div style="overflow-x:auto;">
+                <table class="dialect-table">
+                    <thead>
+                        <tr>
+                            <th>Group</th>
+                            <th>Chinese Name</th>
+                            <th>Speakers (approx.)</th>
+                            <th>Primary Regions</th>
+                            <th>Notable Features</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Mandarin</strong></td>
+                            <td>官话 / 普通话</td>
+                            <td>~920 million</td>
+                            <td>North, Central, Southwest China; Taiwan; Singapore</td>
+                            <td>4 tones (plus neutral); standard official language; Beijing dialect basis</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cantonese (Yue)</strong></td>
+                            <td>粤语 / 广东话</td>
+                            <td>~85 million</td>
+                            <td>Guangdong, Guangxi, Hong Kong, Macau; overseas communities</td>
+                            <td>6–9 tones; retains ancient final consonants (-p, -t, -k); rich in classical poetry
+                                preservation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wu (Shanghainese)</strong></td>
+                            <td>吴语 / 上海话</td>
+                            <td>~80 million</td>
+                            <td>Shanghai, Zhejiang, Jiangsu south</td>
+                            <td>Complex tone sandhi; voiced initials; very different from Mandarin</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Min (Hokkien, Teochew)</strong></td>
+                            <td>闽语 / 福建话</td>
+                            <td>~75 million</td>
+                            <td>Fujian, Taiwan, Hainan; SE Asia diaspora</td>
+                            <td>5–8 tones; ancient Min retains Old Chinese features; Taiwanese Hokkien widely spoken</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hakka (Kejia)</strong></td>
+                            <td>客家话</td>
+                            <td>~48 million</td>
+                            <td>Scattered across South China; Taiwan; SE Asia</td>
+                            <td>6 tones; preserves many Middle Chinese features; "guest people" language</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Xiang (Hunanese)</strong></td>
+                            <td>湘语 / 湖南话</td>
+                            <td>~38 million</td>
+                            <td>Hunan province</td>
+                            <td>5–6 tones; influenced by Mandarin; distinct from surrounding dialects</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gan</strong></td>
+                            <td>赣语 / 江西话</td>
+                            <td>~22 million</td>
+                            <td>Jiangxi province</td>
+                            <td>Shares features with Hakka; often overlooked group</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pinghua</strong></td>
+                            <td>平话</td>
+                            <td>~7 million</td>
+                            <td>Guangxi</td>
+                            <td>Sometimes grouped with Cantonese; distinct history</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jin</strong></td>
+                            <td>晋语</td>
+                            <td>~63 million</td>
+                            <td>Shanxi, Inner Mongolia</td>
+                            <td>Often considered separate from Mandarin; retains entering tone</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Why Dialects Matter for Learners</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>📌 Pronunciation Clues</h4>
+                    <p>Many Mandarin words that rhyme in poetry actually reflect older rhyming patterns preserved in
+                        Cantonese or Min. Learning about dialects helps understand <em>why</em> characters share phonetic
+                        components.</p>
+                </div>
+                <div class="card">
+                    <h4>📌 Regional Identity</h4>
+                    <p>In Hong Kong, Cantonese is the primary spoken language. In Shanghai, many locals speak
+                        Shanghainese at home. Respecting these varieties shows cultural sensitivity.</p>
+                </div>
+                <div class="card">
+                    <h4>📌 Classical Chinese</h4>
+                    <p>Cantonese and Min retain final stops (-p, -t, -k) and more tones, making ancient poetry sound more
+                        authentic when read in these dialects.</p>
+                </div>
+                <div class="card">
+                    <h4>📌 Overseas Communities</h4>
+                    <p>Most Chinatowns in North America and Europe historically spoke Cantonese or Taishanese. Today,
+                        Mandarin is growing, but regional dialects remain vibrant.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ PHILOSOPHY ═══════════════ -->
+        <section id="philosophy">
+            <h2><span class="icon">☯</span> Philosophy &amp; Religion</h2>
+            <p>Chinese thought is dominated by <strong>Three Teachings</strong> (三教 Sān Jiào) that coexist and
+                intermingle:</p>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>🧘 Confucianism (儒教 Rújiào)</h4>
+                    <p>Founded by <strong>Confucius (孔子 Kǒngzǐ, 551–479 BCE)</strong>. Emphasizes moral cultivation,
+                        social harmony, filial piety (孝 xiào), ritual propriety (礼 lǐ), and the five key relationships.
+                        The <em>Analects</em> (论语 Lúnyǔ) is its core text.</p>
+                </div>
+                <div class="card">
+                    <h4>🌿 Daoism (道教 Dàojiào)</h4>
+                    <p>Attributed to <strong>Laozi (老子 Lǎozǐ)</strong> and the <em>Dao De Jing</em> (道德经). Advocates
+                        living in harmony with the <strong>Dao (道)</strong>, the natural way of the universe. Concepts:
+                        wú wéi (无为, effortless action), yīn-yáng (阴阳), and simplicity.</p>
+                </div>
+                <div class="card">
+                    <h4>🪷 Buddhism (佛教 Fójiào)</h4>
+                    <p>Imported from India via the Silk Road (~1st century CE). <strong>Chan (Zen)</strong> Buddhism
+                        flourished in China. Blended with native beliefs, producing unique schools and the beloved
+                        <em>Guanyin</em> (观音) bodhisattva of compassion.</p>
+                </div>
+            </div>
+            <p style="margin-top:16px;">Additionally, Chinese folk religion, ancestor worship, and practices like
+                <strong>Feng Shui</strong> (风水) remain deeply influential in daily life.</p>
+        </section>
+
+        <!-- ═══════════════ ARTS ═══════════════ -->
+        <section id="arts">
+            <h2><span class="icon">🎨</span> Traditional Arts &amp; Crafts</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>🖌 Calligraphy (书法 Shūfǎ)</h4>
+                    <p>The art of writing characters with brush and ink. Considered the highest form of visual art.
+                        Styles: Seal (篆), Clerical (隶), Regular (楷), Running (行), Cursive (草). Tools: the <strong>Four
+                            Treasures</strong> — brush, ink stick, ink stone, paper.</p>
+                </div>
+                <div class="card">
+                    <h4>⛰ Ink Wash Painting (水墨画 Shuǐmòhuà)</h4>
+                    <p>Landscapes, bamboo, and nature rendered in black ink on silk or rice paper. Emphasis on capturing
+                        the <em>spirit</em> (神 shén) rather than exact likeness. Famous painters: Gu Kaizhi, Fan Kuan.</p>
+                </div>
+                <div class="card">
+                    <h4>🎭 Beijing Opera (京剧 Jīngjù)</h4>
+                    <p>Combines singing, recitation, acting, and acrobatics. Elaborate costumes and symbolic face
+                        painting (脸谱 liǎnpǔ) indicate character traits — red for loyalty, white for treachery.</p>
+                </div>
+                <div class="card">
+                    <h4>🏺 Porcelain &amp; Ceramics</h4>
+                    <p>China's name is synonymous with fine porcelain. <strong>Blue-and-white ware</strong> (青花瓷
+                        qīnghuācí) from Jingdezhen reached global fame. Techniques passed down through generations.</p>
+                </div>
+                <div class="card">
+                    <h4>🧵 Silk &amp; Embroidery</h4>
+                    <p>Sericulture (silkworm cultivation) originated in China. The <strong>Silk Road</strong> exported
+                        this luxury fabric. Famous embroidery styles: Suzhou (苏绣), Hunan (湘绣), Sichuan (蜀绣).</p>
+                </div>
+                <div class="card">
+                    <h4>🎵 Traditional Music</h4>
+                    <p>Instruments: <strong>Gǔqín</strong> (古琴, seven-string zither), <strong>Pípá</strong> (琵琶, lute),
+                        <strong>Èrhú</strong> (二胡, two-string fiddle), <strong>Dízi</strong> (笛子, bamboo flute).
+                        Pentatonic scale predominates.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ CUISINE ═══════════════ -->
+        <section id="cuisine">
+            <h2><span class="icon">🥢</span> Chinese Cuisine (中国菜 Zhōngguó Cài)</h2>
+            <p>Food is central to Chinese culture, with the saying <em>"民以食为天" (mín yǐ shí wéi tiān — "The people take
+                    food as heaven")</em>. The <strong>Eight Great Cuisines</strong> (八大菜系) represent regional diversity:
+            </p>
+            <div class="grid-2">
+                <div class="card"><h4>🌶 Sichuan (川菜)</h4><p>Numbing-spicy (麻辣 málà), bold flavors. Mapo tofu, Kung Pao
+                        chicken.</p></div>
+                <div class="card"><h4>🦞 Cantonese (粤菜)</h4><p>Fresh, subtle, dim sum (点心), roast meats. Steamed fish,
+                        char siu.</p></div>
+                <div class="card"><h4>🍲 Jiangsu (苏菜)</h4><p>Elegant, slightly sweet, braised dishes. Lion's head
+                        meatballs.</p></div>
+                <div class="card"><h4>🍜 Shandong (鲁菜)</h4><p>Salty, crispy, emphasis on soups and seafood. Influenced
+                        imperial cuisine.</p></div>
+                <div class="card"><h4>🥘 Zhejiang (浙菜)</h4><p>Fresh, mellow, refined. Dongpo pork, West Lake fish.</p>
+                </div>
+                <div class="card"><h4>🍗 Fujian (闽菜)</h4><p>Umami-rich, soup-based, Buddha Jumps Over the Wall (佛跳墙).</p>
+                </div>
+                <div class="card"><h4>🌿 Hunan (湘菜)</h4><p>Hot, sour, aromatic. Smoked meats, steamed fish head with
+                        chili.</p></div>
+                <div class="card"><h4>🧆 Anhui (徽菜)</h4><p>Wild herbs, simple hearty stews, braised turtle, bamboo
+                        shoots.</p></div>
+            </div>
+            <p style="margin-top:16px;"><strong>Key dining etiquette:</strong> Chopsticks should never be stuck upright
+                in rice (resembles incense at funerals). Sharing dishes is customary; the host often serves guests first.
+                <em>Gānbēi</em> (干杯, "dry glass") means bottoms up during toasts.</p>
+        </section>
+
+        <!-- ═══════════════ FESTIVALS ═══════════════ -->
+        <section id="festivals">
+            <h2><span class="icon">🎊</span> Major Festivals &amp; Holidays</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>🧧 Spring Festival (春节 Chūnjié)</h4>
+                    <p><strong>Lunar New Year</strong> — most important holiday. Red envelopes (红包 hóngbāo), family
+                        reunions, fireworks, dragon dances. 15-day celebration ending with Lantern Festival (元宵节).</p>
+                </div>
+                <div class="card">
+                    <h4>🏮 Mid-Autumn Festival (中秋节 Zhōngqiūjié)</h4>
+                    <p>15th day of 8th lunar month. Mooncakes (月饼 yuèbǐng), family gatherings, admiring the full moon.
+                        Legend of Chang'e (嫦娥), the moon goddess.</p>
+                </div>
+                <div class="card">
+                    <h4>🐉 Dragon Boat Festival (端午节 Duānwǔjié)</h4>
+                    <p>5th day of 5th lunar month. Dragon boat races, eating zòngzi (粽子, sticky rice dumplings).
+                        Commemorates poet Qu Yuan (屈原).</p>
+                </div>
+                <div class="card">
+                    <h4>👻 Qingming Festival (清明节 Qīngmíngjié)</h4>
+                    <p>Tomb Sweeping Day — ancestors' graves are cleaned and offerings made. Also a time to enjoy spring
+                        outings.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ CUSTOMS ═══════════════ -->
+        <section id="customs">
+            <h2><span class="icon">💮</span> Social Customs &amp; Etiquette</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>🤝 Concept of "Face" (面子 Miànzi)</h4>
+                    <p>Social standing, dignity, and reputation. Avoiding public embarrassment and giving compliments are
+                        crucial. "Losing face" (丢脸 diūliǎn) is a serious social faux pas.</p>
+                </div>
+                <div class="card">
+                    <h4>🎁 Gift Giving</h4>
+                    <p>Gifts are often refused once or twice before acceptance. Avoid clocks (送钟 sòng zhōng sounds like
+                        "attending a funeral"), sharp objects, and white flowers. Red is auspicious.</p>
+                </div>
+                <div class="card">
+                    <h4>🏠 Visiting Homes</h4>
+                    <p>Remove shoes or wear provided slippers. Bring a small gift (fruit, tea). Compliment the host's
+                        home. Offer to help but expect to be refused.</p>
+                </div>
+                <div class="card">
+                    <h4>💬 Communication Style</h4>
+                    <p>Indirectness is valued. Saying "no" directly can be considered rude. "Maybe" (也许 yěxǔ) or "I'll
+                        consider it" often means no. Harmony (和谐 héxié) is prioritized.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ ARCHITECTURE ═══════════════ -->
+        <section id="architecture">
+            <h2><span class="icon">🏯</span> Traditional Architecture</h2>
+            <p>Chinese architecture emphasizes <strong>symmetry, courtyards, and wooden structures</strong>. Key elements
+                include:</p>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>🏛 Siheyuan (四合院)</h4>
+                    <p>Traditional courtyard residence with buildings on all four sides. Common in Beijing. Reflects
+                        family hierarchy and privacy.</p>
+                </div>
+                <div class="card">
+                    <h4>⛩ Dougong (斗拱)</h4>
+                    <p>Interlocking wooden brackets supporting roof eaves — an engineering marvel that enables the
+                        iconic sweeping rooflines without nails.</p>
+                </div>
+                <div class="card">
+                    <h4>🏯 Forbidden City (紫禁城 Zǐjìnchéng)</h4>
+                    <p>Imperial palace in Beijing, built 1406–1420. The largest wooden structure complex in the world.
+                        Symbolizes cosmic order and imperial power.</p>
+                </div>
+                <div class="card">
+                    <h4>🛕 Pagodas (塔 Tǎ)</h4>
+                    <p>Multi-tiered towers with religious origins. Famous examples: Big Wild Goose Pagoda (Xi'an),
+                        Iron Pagoda (Kaifeng).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ LITERATURE ═══════════════ -->
+        <section id="literature">
+            <h2><span class="icon">📚</span> Chinese Literature</h2>
+            <p>China has a vast literary tradition spanning poetry, novels, and philosophical texts.</p>
+            <h3>The Four Great Classical Novels (四大名著 Sì Dà Míngzhù)</h3>
+            <div class="grid-2">
+                <div class="card"><h4>🐒 Journey to the West (西游记)</h4><p>Wu Cheng'en. Monkey King Sun Wukong protects
+                        monk Xuanzang on a pilgrimage to India.</p></div>
+                <div class="card"><h4>⚔ Romance of the Three Kingdoms (三国演义)</h4><p>Luo Guanzhong. Epic historical
+                        novel of the Three Kingdoms period.</p></div>
+                <div class="card"><h4>💧 Water Margin (水浒传)</h4><p>Shi Nai'an. 108 outlaws form a band of rebels in the
+                        Song dynasty.</p></div>
+                <div class="card"><h4>🏮 Dream of the Red Chamber (红楼梦)</h4><p>Cao Xueqin. Masterpiece of social realism,
+                        the rise and fall of a noble family.</p></div>
+            </div>
+            <h3>Notable Poets</h3>
+            <p><strong>Li Bai (李白)</strong> — Romantic, Daoist-inspired, celebrated for wine and freedom.
+                <strong>Du Fu (杜甫)</strong> — Realist, moral seriousness, "Poet-Historian."
+                <strong>Wang Wei (王维)</strong> — Buddhist painter-poet, nature imagery. Tang poetry (唐诗) remains the
+                pinnacle of poetic achievement.</p>
+        </section>
+
+        <!-- ═══════════════ TEA CULTURE ═══════════════ -->
+        <section id="tea">
+            <h2><span class="icon">🍵</span> Tea Culture (茶文化 Chá Wénhuà)</h2>
+            <p>Tea originated in China and is deeply woven into daily life and ceremony. The <strong>Six Major Tea
+                    Categories</strong>:</p>
+            <div class="grid-3">
+                <div class="card"><h4>🍃 Green Tea (绿茶)</h4><p>Unoxidized. Longjing (Dragon Well), Biluochun. Fresh,
+                        grassy.</p></div>
+                <div class="card"><h4>🔴 Black Tea (红茶)</h4><p>Fully oxidized. Keemun, Lapsang Souchong. Malty, robust.
+                        Called "red tea" in Chinese.</p></div>
+                <div class="card"><h4>🟤 Oolong (乌龙茶)</h4><p>Partially oxidized. Tieguanyin, Da Hong Pao. Complex,
+                        floral.</p></div>
+                <div class="card"><h4>⚪ White Tea (白茶)</h4><p>Minimally processed. Silver Needle. Delicate, subtle
+                        sweetness.</p></div>
+                <div class="card"><h4>🟡 Yellow Tea (黄茶)</h4><p>Rare, slightly fermented. Junshan Yinzhen. Mellow.</p>
+                </div>
+                <div class="card"><h4>⬛ Pu-erh (普洱茶)</h4><p>Aged, fermented dark tea from Yunnan. Earthy, can improve
+                        with age like wine.</p></div>
+            </div>
+            <p style="margin-top:16px;">The <strong>Gongfu Tea Ceremony</strong> (工夫茶) uses small Yixing clay pots and
+                multiple short infusions to appreciate the tea's evolving flavor. Tea is a symbol of respect, apology, and
+                hospitality.</p>
+        </section>
+
+        <!-- ═══════════════ MARTIAL ARTS ═══════════════ -->
+        <section id="martial">
+            <h2><span class="icon">🥋</span> Martial Arts (武术 Wǔshù / 功夫 Gōngfu)</h2>
+            <p>Chinese martial arts combine combat techniques with philosophy, meditation, and health practices.</p>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>☯ Tai Chi (太极拳 Tàijíquán)</h4>
+                    <p>Slow, flowing movements based on yin-yang principles. Practiced worldwide for health, balance, and
+                        stress reduction. Rooted in Daoist internal alchemy.</p>
+                </div>
+                <div class="card">
+                    <h4>🐉 Shaolin Kung Fu (少林功夫)</h4>
+                    <p>Developed at the Shaolin Temple (Henan). Combines Chan Buddhism with rigorous physical training.
+                        Famous for animal-inspired forms.</p>
+                </div>
+                <div class="card">
+                    <h4>🦅 Wing Chun (咏春)</h4>
+                    <p>Close-combat style emphasizing centerline theory and rapid strikes. Popularized by Bruce Lee and Ip
+                        Man.</p>
+                </div>
+                <div class="card">
+                    <h4>🐞 Wudang (武当)</h4>
+                    <p>Daoist internal arts from Wudang Mountains. Focus on qigong, sword forms, and inner energy
+                        cultivation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ MEDICINE ═══════════════ -->
+        <section id="medicine">
+            <h2><span class="icon">🌿</span> Traditional Chinese Medicine (中医 Zhōngyī)</h2>
+            <p>TCM is a holistic medical system dating back over 2,000 years. It views the body as an integrated whole
+                governed by <strong>Qi (气)</strong>, the vital life force.</p>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>🪡 Acupuncture (针灸 Zhēnjiǔ)</h4>
+                    <p>Insertion of fine needles at specific points along meridians to balance Qi flow. Recognized by WHO
+                        for various conditions.</p>
+                </div>
+                <div class="card">
+                    <h4>🌱 Herbal Medicine (中药 Zhōngyào)</h4>
+                    <p>Uses plant, mineral, and animal substances in complex formulas. Key herbs: ginseng (人参), goji
+                        berries (枸杞), licorice root (甘草).</p>
+                </div>
+                <div class="card">
+                    <h4>🔥 Cupping &amp; Moxibustion</h4>
+                    <p>Cupping (拔罐 báguàn) uses suction to promote blood flow. Moxibustion (艾灸 àijiǔ) burns mugwort near
+                        the skin to warm meridians.</p>
+                </div>
+                <div class="card">
+                    <h4>🍲 Food as Medicine</h4>
+                    <p>Foods classified as "heating" (热 rè) or "cooling" (凉 liáng). Diet tailored to individual
+                        constitution and season. Ginger tea for colds, pear soup for dry coughs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ CLOSING ═══════════════ -->
+        <section style="text-align:center; border: 2px dashed var(--gold); background:#fffef7;">
+            <h2 style="border-bottom:none; justify-content:center;">🌟 学无止境 — Learning Never Ends</h2>
+            <p style="max-width:700px; margin:0 auto;">
+                This guide only scratches the surface of China's immense cultural heritage. As you continue your Mandarin
+                studies, let culture be your compass — it will make the language come alive. Remember:
+            </p>
+            <blockquote style="max-width:600px; margin:20px auto; text-align:center;">
+                读万卷书，行万里路<br>
+                <small>Dú wàn juàn shū, xíng wàn lǐ lù — "Read ten thousand books, travel ten thousand miles."</small>
+            </blockquote>
+            <p style="color:#8b7a60; font-size:0.9rem;">加油！(Jiāyóu! — Keep going / You can do it!)</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>📜 Compiled for Mandarin learners with love for Chinese culture | Sources: Chinese classics, academic
+            references, and living traditions</p>
+        <p>© 2024 · All content for educational purposes · <a href="#hero">Back to Top ↑</a></p>
+    </footer>
+
+    <a href="#hero" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
+
+</body>
+</html>

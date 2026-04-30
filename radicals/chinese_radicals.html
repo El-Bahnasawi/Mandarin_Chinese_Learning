@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Radicals · 59 Radicals Categorized | 汉字部首</title>
+    <style>
+        :root {
+            --bg: #fdfaf5;
+            --card-bg: #ffffff;
+            --text: #3a322e;
+            --text-light: #6b5e55;
+            --border: #e8dfd5;
+            --shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 6px 22px rgba(0, 0, 0, 0.1);
+            --radius: 14px;
+            --font-cn: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'STSong', 'KaiTi', serif;
+            --font-sans: 'PingFang SC', 'Noto Sans SC', 'Segoe UI', Arial, sans-serif;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            background-image: radial-gradient(ellipse at 10% 20%, rgba(180,140,100,0.05) 0%, transparent 60%),
+            radial-gradient(ellipse at 85% 70%, rgba(160,120,90,0.04) 0%, transparent 60%);
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px 40px;
+            background: linear-gradient(180deg, #fefefe 0%, #f9f5ef 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        .hero h1 {
+            font-family: var(--font-cn);
+            font-size: 2.8rem;
+            color: #8b1a1a;
+            margin-bottom: 0.3rem;
+        }
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+        .intro {
+            max-width: 860px;
+            margin: 28px auto 18px;
+            padding: 0 20px;
+            text-align: center;
+            color: var(--text-light);
+        }
+        .category-section {
+            max-width: 1500px;
+            margin: 24px auto 12px;
+            padding: 0 20px;
+        }
+        .category-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin: 28px 0 14px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e8dfd5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #5a4a3a;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border-color: #e8dfd5;
+        }
+        .card-accent {
+            height: 4px;
+            width: 100%;
+        }
+        .card-body {
+            padding: 16px 18px 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .radical-showcase {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .radical-char {
+            font-family: var(--font-cn);
+            font-size: 3.8rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #3a2a1a;
+            transition: transform 0.2s;
+        }
+        .card:hover .radical-char { transform: scale(1.05); }
+        .radical-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .radical-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #3a2a1a;
+        }
+        .radical-pinyin {
+            font-size: 0.9rem;
+            color: #8b6b4a;
+            font-style: italic;
+        }
+        .radical-meaning {
+            font-size: 0.8rem;
+            color: #9b7b5b;
+        }
+        .radical-emoji {
+            font-size: 1.8rem;
+            margin-left: auto;
+        }
+        .variant-row {
+            font-size: 0.8rem;
+            color: #8b6b4a;
+            background: #fdf9f4;
+            border-radius: 6px;
+            padding: 3px 10px;
+            display: inline-block;
+            align-self: flex-start;
+            margin-bottom: 8px;
+        }
+        .assoc-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #a09080;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+        .assoc-chars {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+        .assoc-chip {
+            font-family: var(--font-cn);
+            font-size: 1.3rem;
+            background: #faf7f2;
+            border: 1px solid #e8dfd5;
+            border-radius: 7px;
+            padding: 3px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .assoc-chip:hover { background: #fef9f0; border-color: #c9a87c; }
+        .assoc-chip .py {
+            font-size: 0.65rem;
+            color: #a09080;
+            font-family: var(--font-sans);
+            margin-top: 1px;
+            white-space: nowrap;
+        }
+        .example-box {
+            background: #fefefb;
+            border-left: 3px solid #d4b896;
+            border-radius: 0 6px 6px 0;
+            padding: 8px 12px;
+            margin-top: auto;
+        }
+        .example-hanzi {
+            font-family: var(--font-cn);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3a2a1a;
+        }
+        .example-pinyin {
+            font-size: 0.8rem;
+            color: #8b6b4a;
+            font-style: italic;
+            margin-top: 2px;
+        }
+        .example-trans {
+            font-size: 0.8rem;
+            color: #7a6b5b;
+        }
+        .footer {
+            text-align: center;
+            padding: 28px 20px 36px;
+            color: #b0a090;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            max-width: 800px;
+            margin: 30px auto 0;
+        }
+        @media (max-width: 700px) {
+            .card-grid { grid-template-columns: 1fr; }
+            .radical-char { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>Chinese Radicals 🀄</h1>
+        <p class="subtitle"><span style="font-family:var(--font-cn);font-size:1.3rem;">汉字部首</span> — 59 Common Radicals, Categorized</p>
+        <p style="margin-top:10px;color:#8b5e3c;">👶 Beginner friendly · Emoji hints · Example sentences</p>
+    </header>
+    <section class="intro">
+        <p><strong>Radicals</strong> are the building blocks of Chinese characters. They often hint at the <strong>meaning</strong>. Here are <strong>59 radicals</strong> grouped by theme. Use the emojis to remember them! 🎯</p>
+    </section>
+
+    <!-- 👤 People & Social -->
+    <div class="category-section">
+        <h2 class="category-title">👤 People & Social</h2>
+        <div class="card-grid">
+            <!-- 人/亻 -->
+            <div class="card"><div class="card-accent" style="background:#5b7fa5;"></div><div class="card-body">
+                <div class="radical-showcase"><span class="radical-char">人</span><div class="radical-info"><span class="radical-name">人 / 亻</span><span class="radical-pinyin">rén</span><span class="radical-meaning">Person 👤</span></div><span class="radical-emoji">👤</span></div>
+                <span class="variant-row">Side: <strong>亻</strong></span>
+                <div class="assoc-chars"><span class="assoc-chip">你<span class="py">nǐ · you 👤</span></span><span class="assoc-chip">他<span class="py">tā · he 👨</span></span><span class="assoc-chip">们<span class="py">men · plural 👥</span></span><span class="assoc-chip">休<span class="py">xiū · rest 🛌</span></span><span class="assoc-chip">伴<span class="py">bàn · companion 👫</span></span><span class="assoc-chip">住<span class="py">zhù · live 🏠</span></span></div>
+                <div class="example-box"><div class="example-hanzi">你好！我是学生。</div><div class="example-pinyin">Nǐ hǎo! Wǒ shì xuéshēng.</div><div class="example-trans">💬 Hello! I am a student.</div></div>
+            </div></div>
+            <!-- 女 -->
+            <div class="card"><div class="card-accent" style="background:#d4789b;"></div><div class="card-body">
+                <div class="radical-showcase"><span class="radical-char">女</span><div class="radical-info"><span class="radical-name">女</span><span class="radical-pinyin">nǚ</span><span class="radical-meaning">Woman 👩</span></div><span class="radical-emoji">👩</span></div>
+                <span class="variant-row">Woman pictogram</span>
+                <div class="assoc-chars"><span class="assoc-chip">妈<span class="py">mā · mom 👩</span></span><span class="assoc-chip">姐<span class="py">jiě · sister 👧</span></span><span class="assoc-chip">妹<span class="py">mèi · sister 👧</span></span><span class="assoc-chip">好<span class="py">hǎo · good 👍</span></span><span class="assoc-chip">姓<span class="py">xìng · surname 📛</span></span><span class="assoc-chip">婚<span class="py">hūn · marriage 💒</span></span></div>
+                <div class="example-box"><div class="example-hanzi">她是我妈妈。</div><div class="example-pinyin">Tā shì wǒ māma.</div><div class="example-trans">💬 She is my mother.</div></div>
+            </div></div>
+            <!-- 子 -->
+            <div class="card"><div class="card-accent" style="background:#f0a830;"></div><div class="card-body">
+                <div class="radical-showcase"><span class="radical-char">子</span><div class="radical-info"><span class="radical-name">子</span><span class="radical-pinyin">zǐ</span><span class="radical-meaning">Child 👶</span></div><span class="radical-emoji">👶</span></div>
+                <span class="variant-row">Child, seed</span>
+                <div class="assoc-chars"><span class="assoc-chip">孩<span class="py">hái · child 👶</span></span><span class="assoc-chip">孙<span class="py">sūn · grandchild 👴</span></span><span class="assoc-chip">学<span class="py">xué · study 📚</span></span><span class="assoc-chip">字<span class="py">zì · character 🔤</span></span><span class="assoc-chip">孝<span class="py">xiào · filial 🙇</span></span></div>
+                <div class="example-box"><div class="example-hanzi">孩子们在学校。</div><div class="example-pinyin">Háizimen zài xuéxiào.</div><div class="example-trans">💬 The children are at school.</div></div>
+            </div></div>
+            <!-- 大 -->
+            <div class="card"><div class="card-accent" style="background:#5b7fa5;"></div><div class="card-body">
+                <div class="radical-showcase"><span class="radical-char">大</span><div class="radical-info"><span class="radical-name">大</span><span class="radical-pinyin">dà</span><span class="radical-meaning">Big 🦵</span></div><span class="radical-emoji">🦵</span></div>
+                <span class="variant-row">Person with arms out</span>
+                <div class="assoc-chars"><span class="assoc-chip">太<span class="py">tài · too 👑</span></span><span class="assoc-chip">天<span class="py">tiān · sky ☁️</span></span><span class="assoc-chip">夫<span class="py">fū · husband 🤵</span></span><span class="assoc-chip">失<span class="py">shī · lose 😞</span></span></div>
+                <div class="example-box"><div class="example-hanzi">今天天气很好。</div><div class="example-pinyin">Jīntiān tiānqì hěn hǎo.</div><div class="example-trans">💬 The weather is nice today.</div></div>
+            </div></div>
+            <!-- 小 -->
+            <div class="card"><div class="card-accent" style="background:#6baa6b;"></div><div class="card-body">
+                <div class="radical-showcase"><span class="radical-char">小</span><div class="radical-info"><span class="radical-name">小</span><span class="radical-pinyin">xiǎo</span><span class="radical-meaning">Small 🐭</span></div><span class="radical-emoji">🐭</span></div>
+                <span class="variant-row">Small / little</span>
+                <div class="assoc-chars"><span class="assoc-chip">少<span class="py">shǎo · few 👌</span></span><span class="assoc-chip">尖<span class="py">jiān · sharp ✨</span></span><span class="assoc-chip">尘<span class="py">chén · dust 🌫️</span></span><span class="assoc-chip">雀<span class="py">què · sparrow 🐦</span></span></div>
+                <div class="example-box"><div class="example-hanzi">我有一只小猫。</div><div class="example-pinyin">Wǒ yǒu yì zhī xiǎo māo.</div><div class="example-trans">💬 I have a small cat.</div></div>
+            </div></div>
+            <!-- 立 -->
+            <div class="card"><div class="card-accent" style="background:#b8956a;"></div><div class="card-body">
+                <div class="radical-showcase"><span class="radical-char">立</span><div class="radical-info"><span class="radical-name">立</span><span class="radical-pinyin">lì</span><span class="radical-meaning">Stand 🧍</span></div><span class="radical-emoji">🧍</span></div>
+                <span class="variant-row">Person standing</span>
+                <div class="assoc-chars"><span class="assoc-chip">站<span class="py">zhàn · stand 🚉</span></span><span class="assoc-chip">童<span class="py">tóng · child 👦</span></span><span class="assoc-chip">章<span class="py">zhāng · chapter 📖</span></span><span class="assoc-chip">竞<span class="py">jìng · compete 🏁</span></span></div>
+                <div class="example-box"><div class="example-hanzi">请站起来。</div><div class="example-pinyin">Qǐng zhàn qǐlái.</div><div class="example-trans">💬 Please stand up.</div></div>
+            </div></div>
+            <!-- 又 -->
+            <div class="card"><div class="card-accent" style="background:#e8983e;"></div><div class="card-body">
+                <div class="radical-showcase"><span class="radical-char">又</span><div class="radical-info"><span class="radical-name">又</span><span class="radical-pinyin">yòu</span><span class="radical-meaning">Again / hand ✋</span></div><span class="radical-emoji">✋</span></div>
+                <span class="variant-row">Right hand, again</span>
+                <div class="assoc-chars"><span class="assoc-chip">友<span class="py">yǒu · friend 👫</span></span><span class="assoc-chip">双<span class="py">shuāng · double 👯</span></span><span class="assoc-chip">发<span class="py">fā · send 📤</span></span><span class="assoc-chip">取<span class="py">qǔ · take 🖐️</span></span></div>
+                <div class="example-box"><div class="example-hanzi">我们是好朋友。</div><div class="example-pinyin">Wǒmen shì hǎo péngyou.</div><div class="example-trans">💬 We are good friends.</div></div>
+            </div></div>
+        </div>
+    </div>
+
+    <!-- 👄 Body & Health -->
+    <div class="category-section">
+        <h2 class="category-title">👄 Body & Health</h2>
+        <div class="card-grid">
+            <div class="card"><div class="card-accent" style="background:#c75b7a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">口</span><div class="radical-info"><span class="radical-name">口</span><span class="radical-pinyin">kǒu</span><span class="radical-meaning">Mouth 👄</span></div><span class="radical-emoji">👄</span></div><span class="variant-row">Open mouth</span><div class="assoc-chars"><span class="assoc-chip">吃<span class="py">chī · eat 🍴</span></span><span class="assoc-chip">喝<span class="py">hē · drink 🥤</span></span><span class="assoc-chip">唱<span class="py">chàng · sing 🎤</span></span><span class="assoc-chip">叫<span class="py">jiào · call 📣</span></span><span class="assoc-chip">吹<span class="py">chuī · blow 💨</span></span></div><div class="example-box"><div class="example-hanzi">我喜欢吃苹果。</div><div class="example-pinyin">Wǒ xǐhuān chī píngguǒ.</div><div class="example-trans">💬 I like eating apples.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#4a6b8a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">目</span><div class="radical-info"><span class="radical-name">目</span><span class="radical-pinyin">mù</span><span class="radical-meaning">Eye 👁️</span></div><span class="radical-emoji">👁️</span></div><span class="variant-row">Eye shape</span><div class="assoc-chars"><span class="assoc-chip">看<span class="py">kàn · look 👀</span></span><span class="assoc-chip">眼<span class="py">yǎn · eye 👁️</span></span><span class="assoc-chip">睛<span class="py">jīng · eyeball 👁️</span></span><span class="assoc-chip">睡<span class="py">shuì · sleep 😴</span></span></div><div class="example-box"><div class="example-hanzi">我用眼睛看书。</div><div class="example-pinyin">Wǒ yòng yǎnjīng kàn shū.</div><div class="example-trans">💬 I read with my eyes.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b87c4b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">足</span><div class="radical-info"><span class="radical-name">足 / ⻊</span><span class="radical-pinyin">zú</span><span class="radical-meaning">Foot 🦶</span></div><span class="radical-emoji">🦶</span></div><span class="variant-row">Side: ⻊</span><div class="assoc-chars"><span class="assoc-chip">跑<span class="py">pǎo · run 🏃</span></span><span class="assoc-chip">跳<span class="py">tiào · jump 🦘</span></span><span class="assoc-chip">路<span class="py">lù · road 🛣️</span></span><span class="assoc-chip">踢<span class="py">tī · kick ⚽</span></span></div><div class="example-box"><div class="example-hanzi">我喜欢跑步。</div><div class="example-pinyin">Wǒ xǐhuān pǎobù.</div><div class="example-trans">💬 I like running.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b8956a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">手</span><div class="radical-info"><span class="radical-name">手 / 扌</span><span class="radical-pinyin">shǒu</span><span class="radical-meaning">Hand ✋</span></div><span class="radical-emoji">✋</span></div><span class="variant-row">Side: 扌</span><div class="assoc-chars"><span class="assoc-chip">打<span class="py">dǎ · hit/play 🏀</span></span><span class="assoc-chip">拍<span class="py">pāi · pat 🤚</span></span><span class="assoc-chip">拉<span class="py">lā · pull 🤝</span></span><span class="assoc-chip">抱<span class="py">bào · hug 🤗</span></span></div><div class="example-box"><div class="example-hanzi">我打篮球。</div><div class="example-pinyin">Wǒ dǎ lánqiú.</div><div class="example-trans">💬 I play basketball.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#e05555;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">心</span><div class="radical-info"><span class="radical-name">心 / 忄</span><span class="radical-pinyin">xīn</span><span class="radical-meaning">Heart ❤️</span></div><span class="radical-emoji">❤️</span></div><span class="variant-row">Side: 忄</span><div class="assoc-chars"><span class="assoc-chip">想<span class="py">xiǎng · think 💭</span></span><span class="assoc-chip">思<span class="py">sī · think 🤔</span></span><span class="assoc-chip">爱<span class="py">ài · love ❤️</span></span><span class="assoc-chip">情<span class="py">qíng · feeling 💕</span></span></div><div class="example-box"><div class="example-hanzi">我想你。</div><div class="example-pinyin">Wǒ xiǎng nǐ.</div><div class="example-trans">💬 I miss you.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#7b7fc0;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">月</span><div class="radical-info"><span class="radical-name">月 (flesh)</span><span class="radical-pinyin">ròu</span><span class="radical-meaning">Flesh 🍖</span></div><span class="radical-emoji">🍖</span></div><span class="variant-row">Also moon radical, here flesh meaning</span><div class="assoc-chars"><span class="assoc-chip">脸<span class="py">liǎn · face 🧑</span></span><span class="assoc-chip">脑<span class="py">nǎo · brain 🧠</span></span><span class="assoc-chip">腿<span class="py">tuǐ · leg 🦵</span></span><span class="assoc-chip">胖<span class="py">pàng · fat ⚖️</span></span></div><div class="example-box"><div class="example-hanzi">我的腿有点疼。</div><div class="example-pinyin">Wǒ de tuǐ yǒudiǎn téng.</div><div class="example-trans">💬 My leg hurts a bit.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#9b7b5b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">页</span><div class="radical-info"><span class="radical-name">页</span><span class="radical-pinyin">yè</span><span class="radical-meaning">Head / page 👤</span></div><span class="radical-emoji">👤</span></div><span class="variant-row">Head, often right side</span><div class="assoc-chars"><span class="assoc-chip">顶<span class="py">dǐng · top 🔝</span></span><span class="assoc-chip">领<span class="py">lǐng · collar 👔</span></span><span class="assoc-chip">颜<span class="py">yán · color 🎨</span></span><span class="assoc-chip">题<span class="py">tí · topic 📝</span></span></div><div class="example-box"><div class="example-hanzi">我喜欢红色和蓝色。</div><div class="example-pinyin">Wǒ xǐhuān hóngsè hé lán sè.</div><div class="example-trans">💬 I like red and blue.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#d4789b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">疒</span><div class="radical-info"><span class="radical-name">疒</span><span class="radical-pinyin">nè</span><span class="radical-meaning">Sickness 🤒</span></div><span class="radical-emoji">🤒</span></div><span class="variant-row">Illness radical</span><div class="assoc-chars"><span class="assoc-chip">病<span class="py">bìng · illness 🤒</span></span><span class="assoc-chip">疼<span class="py">téng · pain 😣</span></span><span class="assoc-chip">痛<span class="py">tòng · ache 😖</span></span><span class="assoc-chip">瘦<span class="py">shòu · thin 🦴</span></span></div><div class="example-box"><div class="example-hanzi">我生病了。</div><div class="example-pinyin">Wǒ shēngbìng le.</div><div class="example-trans">💬 I am sick.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b89b5b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">首</span><div class="radical-info"><span class="radical-name">首</span><span class="radical-pinyin">shǒu</span><span class="radical-meaning">Head 🤯</span></div><span class="radical-emoji">🤯</span></div><span class="variant-row">Head, chief</span><div class="assoc-chars"><span class="assoc-chip">道<span class="py">dào · way 🛤️</span></span><span class="assoc-chip">馗<span class="py">kuí · crossroad 🚦</span></span></div><div class="example-box"><div class="example-hanzi">我知道这条路。</div><div class="example-pinyin">Wǒ zhīdào zhè tiáo lù.</div><div class="example-trans">💬 I know this road.</div></div></div></div>
+        </div>
+    </div>
+
+    <!-- 🌿 Nature & Animals -->
+    <div class="category-section">
+        <h2 class="category-title">🌿 Nature & Animals</h2>
+        <div class="card-grid">
+            <div class="card"><div class="card-accent" style="background:#4a90d9;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">水</span><div class="radical-info"><span class="radical-name">水 / 氵</span><span class="radical-pinyin">shuǐ</span><span class="radical-meaning">Water 💧</span></div><span class="radical-emoji">💧</span></div><span class="variant-row">Side: 氵</span><div class="assoc-chars"><span class="assoc-chip">河<span class="py">hé · river 🌊</span></span><span class="assoc-chip">海<span class="py">hǎi · sea 🌊</span></span><span class="assoc-chip">洗<span class="py">xǐ · wash 🧼</span></span><span class="assoc-chip">泳<span class="py">yǒng · swim 🏊</span></span></div><div class="example-box"><div class="example-hanzi">河里有很多鱼。</div><div class="example-pinyin">Hé lǐ yǒu hěnduō yú.</div><div class="example-trans">💬 There are many fish in the river.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#e85d3a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">火</span><div class="radical-info"><span class="radical-name">火 / 灬</span><span class="radical-pinyin">huǒ</span><span class="radical-meaning">Fire 🔥</span></div><span class="radical-emoji">🔥</span></div><span class="variant-row">Bottom: 灬</span><div class="assoc-chars"><span class="assoc-chip">烧<span class="py">shāo · burn 🔥</span></span><span class="assoc-chip">烤<span class="py">kǎo · roast 🍖</span></span><span class="assoc-chip">热<span class="py">rè · hot 🥵</span></span><span class="assoc-chip">灯<span class="py">dēng · light 💡</span></span></div><div class="example-box"><div class="example-hanzi">今天很热。</div><div class="example-pinyin">Jīntiān hěn rè.</div><div class="example-trans">💬 Today is very hot.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#5d9b5c;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">木</span><div class="radical-info"><span class="radical-name">木</span><span class="radical-pinyin">mù</span><span class="radical-meaning">Tree 🌳</span></div><span class="radical-emoji">🌳</span></div><span class="variant-row">Tree shape</span><div class="assoc-chars"><span class="assoc-chip">林<span class="py">lín · forest 🌳</span></span><span class="assoc-chip">森<span class="py">sēn · woods 🌲</span></span><span class="assoc-chip">桌<span class="py">zhuō · table 🪑</span></span><span class="assoc-chip">树<span class="py">shù · tree 🌳</span></span></div><div class="example-box"><div class="example-hanzi">公园里有很多树。</div><div class="example-pinyin">Gōngyuán lǐ yǒu hěnduō shù.</div><div class="example-trans">💬 There are many trees in the park.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#6baa6b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">艹</span><div class="radical-info"><span class="radical-name">艹</span><span class="radical-pinyin">cǎo</span><span class="radical-meaning">Grass 🌿</span></div><span class="radical-emoji">🌿</span></div><span class="variant-row">Grass crown</span><div class="assoc-chars"><span class="assoc-chip">花<span class="py">huā · flower 🌸</span></span><span class="assoc-chip">草<span class="py">cǎo · grass 🌿</span></span><span class="assoc-chip">茶<span class="py">chá · tea 🍵</span></span><span class="assoc-chip">菜<span class="py">cài · vegetable 🥬</span></span></div><div class="example-box"><div class="example-hanzi">这朵花很美。</div><div class="example-pinyin">Zhè duǒ huā hěn měi.</div><div class="example-trans">💬 This flower is beautiful.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#a0785a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">土</span><div class="radical-info"><span class="radical-name">土</span><span class="radical-pinyin">tǔ</span><span class="radical-meaning">Earth ⛰️</span></div><span class="radical-emoji">⛰️</span></div><span class="variant-row">Ground, soil</span><div class="assoc-chars"><span class="assoc-chip">地<span class="py">dì · ground 🌍</span></span><span class="assoc-chip">坐<span class="py">zuò · sit 🪑</span></span><span class="assoc-chip">城<span class="py">chéng · city 🏙️</span></span><span class="assoc-chip">块<span class="py">kuài · piece 🧱</span></span></div><div class="example-box"><div class="example-hanzi">我喜欢坐在草地上。</div><div class="example-pinyin">Wǒ xǐhuān zuò zài cǎo dì shàng.</div><div class="example-trans">💬 I like sitting on the grass.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#7e8a8b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">石</span><div class="radical-info"><span class="radical-name">石</span><span class="radical-pinyin">shí</span><span class="radical-meaning">Stone 🪨</span></div><span class="radical-emoji">🪨</span></div><span class="variant-row">Rock</span><div class="assoc-chars"><span class="assoc-chip">码<span class="py">mǎ · number 🔢</span></span><span class="assoc-chip">矿<span class="py">kuàng · mine ⛏️</span></span><span class="assoc-chip">破<span class="py">pò · break 💥</span></span><span class="assoc-chip">硬<span class="py">yìng · hard 🪨</span></span></div><div class="example-box"><div class="example-hanzi">地上有一块石头。</div><div class="example-pinyin">Dì shàng yǒu yí kuài shítou.</div><div class="example-trans">💬 There is a stone on the ground.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#6a7b6a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">山</span><div class="radical-info"><span class="radical-name">山</span><span class="radical-pinyin">shān</span><span class="radical-meaning">Mountain ⛰️</span></div><span class="radical-emoji">⛰️</span></div><span class="variant-row">Peak</span><div class="assoc-chars"><span class="assoc-chip">岩<span class="py">yán · rock 🪨</span></span><span class="assoc-chip">峰<span class="py">fēng · peak 🏔️</span></span><span class="assoc-chip">岛<span class="py">dǎo · island 🏝️</span></span></div><div class="example-box"><div class="example-hanzi">那座山很高。</div><div class="example-pinyin">Nà zuò shān hěn gāo.</div><div class="example-trans">💬 That mountain is tall.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#5c7a9a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">雨</span><div class="radical-info"><span class="radical-name">雨</span><span class="radical-pinyin">yǔ</span><span class="radical-meaning">Rain 🌧️</span></div><span class="radical-emoji">🌧️</span></div><span class="variant-row">Rain drops</span><div class="assoc-chars"><span class="assoc-chip">雪<span class="py">xuě · snow ❄️</span></span><span class="assoc-chip">雷<span class="py">léi · thunder ⚡</span></span><span class="assoc-chip">雾<span class="py">wù · fog 🌫️</span></span></div><div class="example-box"><div class="example-hanzi">今天下雨了。</div><div class="example-pinyin">Jīntiān xià yǔ le.</div><div class="example-trans">💬 It rained today.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#f0a830;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">日</span><div class="radical-info"><span class="radical-name">日</span><span class="radical-pinyin">rì</span><span class="radical-meaning">Sun ☀️</span></div><span class="radical-emoji">☀️</span></div><span class="variant-row">Sun, day</span><div class="assoc-chars"><span class="assoc-chip">明<span class="py">míng · bright ☀️</span></span><span class="assoc-chip">晴<span class="py">qíng · sunny ☀️</span></span><span class="assoc-chip">时<span class="py">shí · time ⏰</span></span><span class="assoc-chip">星<span class="py">xīng · star ⭐</span></span></div><div class="example-box"><div class="example-hanzi">今天是晴天。</div><div class="example-pinyin">Jīntiān shì qíngtiān.</div><div class="example-trans">💬 Today is sunny.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#7b7fc0;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">月</span><div class="radical-info"><span class="radical-name">月 (moon)</span><span class="radical-pinyin">yuè</span><span class="radical-meaning">Moon 🌙</span></div><span class="radical-emoji">🌙</span></div><span class="variant-row">Moon, month</span><div class="assoc-chars"><span class="assoc-chip">朋<span class="py">péng · friend 👫</span></span><span class="assoc-chip">期<span class="py">qī · period 📅</span></span><span class="assoc-chip">朗<span class="py">lǎng · bright 🌕</span></span></div><div class="example-box"><div class="example-hanzi">月亮很漂亮。</div><div class="example-pinyin">Yuèliàng hěn piàoliang.</div><div class="example-trans">💬 The moon is beautiful.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#6b8e4a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">虫</span><div class="radical-info"><span class="radical-name">虫</span><span class="radical-pinyin">chóng</span><span class="radical-meaning">Insect 🐛</span></div><span class="radical-emoji">🐛</span></div><span class="variant-row">Worm, insect</span><div class="assoc-chars"><span class="assoc-chip">蛇<span class="py">shé · snake 🐍</span></span><span class="assoc-chip">蚊<span class="py">wén · mosquito 🦟</span></span><span class="assoc-chip">蜜<span class="py">mì · honey 🍯</span></span><span class="assoc-chip">蝶<span class="py">dié · butterfly 🦋</span></span></div><div class="example-box"><div class="example-hanzi">夏天有很多蚊子。</div><div class="example-pinyin">Xiàtiān yǒu hěnduō wénzi.</div><div class="example-trans">💬 There are many mosquitoes in summer.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b89b5b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">鸟</span><div class="radical-info"><span class="radical-name">鸟</span><span class="radical-pinyin">niǎo</span><span class="radical-meaning">Bird 🐦</span></div><span class="radical-emoji">🐦</span></div><span class="variant-row">Bird pictogram</span><div class="assoc-chars"><span class="assoc-chip">鸡<span class="py">jī · chicken 🐔</span></span><span class="assoc-chip">鸭<span class="py">yā · duck 🦆</span></span><span class="assoc-chip">鹅<span class="py">é · goose 🦢</span></span></div><div class="example-box"><div class="example-hanzi">树上有一只小鸟。</div><div class="example-pinyin">Shù shàng yǒu yì zhī xiǎo niǎo.</div><div class="example-trans">💬 There is a small bird on the tree.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#5c9eb0;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">鱼</span><div class="radical-info"><span class="radical-name">鱼</span><span class="radical-pinyin">yú</span><span class="radical-meaning">Fish 🐟</span></div><span class="radical-emoji">🐟</span></div><span class="variant-row">Fish shape</span><div class="assoc-chars"><span class="assoc-chip">鲜<span class="py">xiān · fresh 🐠</span></span><span class="assoc-chip">鲤<span class="py">lǐ · carp 🎏</span></span><span class="assoc-chip">鲸<span class="py">jīng · whale 🐋</span></span></div><div class="example-box"><div class="example-hanzi">这条鱼很新鲜。</div><div class="example-pinyin">Zhè tiáo yú hěn xīnxiān.</div><div class="example-trans">💬 This fish is very fresh.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#8b6b4a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">马</span><div class="radical-info"><span class="radical-name">马</span><span class="radical-pinyin">mǎ</span><span class="radical-meaning">Horse 🐴</span></div><span class="radical-emoji">🐴</span></div><span class="variant-row">Horse, often phonetic</span><div class="assoc-chars"><span class="assoc-chip">妈<span class="py">mā · mom 👩</span></span><span class="assoc-chip">吗<span class="py">ma · question ❓</span></span><span class="assoc-chip">码<span class="py">mǎ · code 🔢</span></span></div><div class="example-box"><div class="example-hanzi">你好吗？</div><div class="example-pinyin">Nǐ hǎo ma?</div><div class="example-trans">💬 How are you?</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b89b5b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">田</span><div class="radical-info"><span class="radical-name">田</span><span class="radical-pinyin">tián</span><span class="radical-meaning">Field 🌾</span></div><span class="radical-emoji">🌾</span></div><span class="variant-row">Rice field</span><div class="assoc-chars"><span class="assoc-chip">男<span class="py">nán · male 👨</span></span><span class="assoc-chip">界<span class="py">jiè · boundary 🌐</span></span><span class="assoc-chip">留<span class="py">liú · stay 🛑</span></span></div><div class="example-box"><div class="example-hanzi">田里有很多稻子。</div><div class="example-pinyin">Tián lǐ yǒu hěnduō dàozi.</div><div class="example-trans">💬 There is a lot of rice in the field.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#e8983e;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">米</span><div class="radical-info"><span class="radical-name">米</span><span class="radical-pinyin">mǐ</span><span class="radical-meaning">Rice 🍚</span></div><span class="radical-emoji">🍚</span></div><span class="variant-row">Grain, rice</span><div class="assoc-chars"><span class="assoc-chip">粉<span class="py">fěn · powder 🧂</span></span><span class="assoc-chip">糖<span class="py">táng · sugar 🍬</span></span><span class="assoc-chip">粮<span class="py">liáng · grain 🌾</span></span></div><div class="example-box"><div class="example-hanzi">我早饭吃米饭。</div><div class="example-pinyin">Wǒ zǎofàn chī mǐfàn.</div><div class="example-trans">💬 I eat rice for breakfast.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#7da87b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">竹</span><div class="radical-info"><span class="radical-name">竹 / ⺮</span><span class="radical-pinyin">zhú</span><span class="radical-meaning">Bamboo 🎋</span></div><span class="radical-emoji">🎋</span></div><span class="variant-row">Top: ⺮</span><div class="assoc-chars"><span class="assoc-chip">笔<span class="py">bǐ · pen 🖊️</span></span><span class="assoc-chip">筷<span class="py">kuài · chopsticks 🥢</span></span><span class="assoc-chip">篮<span class="py">lán · basket 🧺</span></span></div><div class="example-box"><div class="example-hanzi">请给我一双筷子。</div><div class="example-pinyin">Qǐng gěi wǒ yì shuāng kuàizi.</div><div class="example-trans">💬 Please give me chopsticks.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#9e7b5c;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">犭</span><div class="radical-info"><span class="radical-name">犭 (犬)</span><span class="radical-pinyin">quǎn</span><span class="radical-meaning">Dog / beast 🐕</span></div><span class="radical-emoji">🐕</span></div><span class="variant-row">Animal radical</span><div class="assoc-chars"><span class="assoc-chip">狗<span class="py">gǒu · dog 🐶</span></span><span class="assoc-chip">猫<span class="py">māo · cat 🐱</span></span><span class="assoc-chip">猪<span class="py">zhū · pig 🐷</span></span><span class="assoc-chip">猴<span class="py">hóu · monkey 🐒</span></span></div><div class="example-box"><div class="example-hanzi">我有一只小狗。</div><div class="example-pinyin">Wǒ yǒu yì zhī xiǎo gǒu.</div><div class="example-trans">💬 I have a small dog.</div></div></div></div>
+        </div>
+    </div>
+
+    <!-- 🏠 Shelter & Places -->
+    <div class="category-section">
+        <h2 class="category-title">🏠 Shelter & Places</h2>
+        <div class="card-grid">
+            <div class="card"><div class="card-accent" style="background:#8b6b4a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">门</span><div class="radical-info"><span class="radical-name">门</span><span class="radical-pinyin">mén</span><span class="radical-meaning">Door 🚪</span></div><span class="radical-emoji">🚪</span></div><span class="variant-row">Gate, door</span><div class="assoc-chars"><span class="assoc-chip">间<span class="py">jiān · between 📏</span></span><span class="assoc-chip">问<span class="py">wèn · ask ❓</span></span><span class="assoc-chip">闭<span class="py">bì · close 🔒</span></span></div><div class="example-box"><div class="example-hanzi">请问，图书馆在哪儿？</div><div class="example-pinyin">Qǐngwèn, túshūguǎn zài nǎr?</div><div class="example-trans">💬 Excuse me, where is the library?</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b0926a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">宀</span><div class="radical-info"><span class="radical-name">宀</span><span class="radical-pinyin">mián</span><span class="radical-meaning">Roof 🏠</span></div><span class="radical-emoji">🏠</span></div><span class="variant-row">Roof top</span><div class="assoc-chars"><span class="assoc-chip">家<span class="py">jiā · home 🏡</span></span><span class="assoc-chip">安<span class="py">ān · peace 😌</span></span><span class="assoc-chip">字<span class="py">zì · character 🔤</span></span></div><div class="example-box"><div class="example-hanzi">我家有三口人。</div><div class="example-pinyin">Wǒ jiā yǒu sān kǒu rén.</div><div class="example-trans">💬 My family has three people.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b87c4b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">户</span><div class="radical-info"><span class="radical-name">户</span><span class="radical-pinyin">hù</span><span class="radical-meaning">Door / household 🚪</span></div><span class="radical-emoji">🚪</span></div><span class="variant-row">Household</span><div class="assoc-chars"><span class="assoc-chip">房<span class="py">fáng · room 🏠</span></span><span class="assoc-chip">所<span class="py">suǒ · place 📍</span></span><span class="assoc-chip">扇<span class="py">shàn · fan 🪭</span></span></div><div class="example-box"><div class="example-hanzi">我的房间很干净。</div><div class="example-pinyin">Wǒ de fángjiān hěn gānjìng.</div><div class="example-trans">💬 My room is clean.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#9b8b7a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">广</span><div class="radical-info"><span class="radical-name">广</span><span class="radical-pinyin">yǎn</span><span class="radical-meaning">Wide / shelter 🏬</span></div><span class="radical-emoji">🏬</span></div><span class="variant-row">Building roof</span><div class="assoc-chars"><span class="assoc-chip">店<span class="py">diàn · shop 🏪</span></span><span class="assoc-chip">床<span class="py">chuáng · bed 🛏️</span></span><span class="assoc-chip">座<span class="py">zuò · seat 💺</span></span></div><div class="example-box"><div class="example-hanzi">我去商店买东西。</div><div class="example-pinyin">Wǒ qù shāngdiàn mǎi dōngxi.</div><div class="example-trans">💬 I go to the store to buy things.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#7e8a8b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">尸</span><div class="radical-info"><span class="radical-name">尸</span><span class="radical-pinyin">shī</span><span class="radical-meaning">Corpse / roof 🏠</span></div><span class="radical-emoji">🏠</span></div><span class="variant-row">Dwelling, body</span><div class="assoc-chars"><span class="assoc-chip">层<span class="py">céng · layer 🏢</span></span><span class="assoc-chip">屋<span class="py">wū · house 🏡</span></span><span class="assoc-chip">居<span class="py">jū · reside 🏘️</span></span></div><div class="example-box"><div class="example-hanzi">我住在五层。</div><div class="example-pinyin">Wǒ zhù zài wǔ céng.</div><div class="example-trans">💬 I live on the fifth floor.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#6a7b6a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">阝</span><div class="radical-info"><span class="radical-name">阝 (right)</span><span class="radical-pinyin">yì</span><span class="radical-meaning">City 🏙️</span></div><span class="radical-emoji">🏙️</span></div><span class="variant-row">Right side, place</span><div class="assoc-chars"><span class="assoc-chip">都<span class="py">dū · capital 🏛️</span></span><span class="assoc-chip">那<span class="py">nà · that 👉</span></span><span class="assoc-chip">邮<span class="py">yóu · mail ✉️</span></span></div><div class="example-box"><div class="example-hanzi">北京是中国的首都。</div><div class="example-pinyin">Běijīng shì Zhōngguó de shǒudū.</div><div class="example-trans">💬 Beijing is the capital of China.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#5e8b7c;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">阝</span><div class="radical-info"><span class="radical-name">阝 (left)</span><span class="radical-pinyin">fù</span><span class="radical-meaning">Mound ⛰️</span></div><span class="radical-emoji">⛰️</span></div><span class="variant-row">Left side, hill</span><div class="assoc-chars"><span class="assoc-chip">阳<span class="py">yáng · sun ☀️</span></span><span class="assoc-chip">队<span class="py">duì · team 👥</span></span><span class="assoc-chip">险<span class="py">xiǎn · danger ⚠️</span></span></div><div class="example-box"><div class="example-hanzi">我们的队伍很棒。</div><div class="example-pinyin">Wǒmen de duìwǔ hěn bàng.</div><div class="example-trans">💬 Our team is great.</div></div></div></div>
+        </div>
+    </div>
+
+    <!-- 🛠️ Tools & Objects -->
+    <div class="category-section">
+        <h2 class="category-title">🛠️ Tools & Objects</h2>
+        <div class="card-grid">
+            <div class="card"><div class="card-accent" style="background:#9b9b9b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">金</span><div class="radical-info"><span class="radical-name">金 / 钅</span><span class="radical-pinyin">jīn</span><span class="radical-meaning">Metal 🥇</span></div><span class="radical-emoji">🥇</span></div><span class="variant-row">Side: 钅</span><div class="assoc-chars"><span class="assoc-chip">钱<span class="py">qián · money 💰</span></span><span class="assoc-chip">铁<span class="py">tiě · iron ⚙️</span></span><span class="assoc-chip">银<span class="py">yín · silver 🥈</span></span></div><div class="example-box"><div class="example-hanzi">我的钱在这里。</div><div class="example-pinyin">Wǒ de qián zài zhèlǐ.</div><div class="example-trans">💬 My money is here.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#5e6472;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">车</span><div class="radical-info"><span class="radical-name">车</span><span class="radical-pinyin">chē</span><span class="radical-meaning">Vehicle 🚗</span></div><span class="radical-emoji">🚗</span></div><span class="variant-row">Cart, car</span><div class="assoc-chars"><span class="assoc-chip">轮<span class="py">lún · wheel 🛞</span></span><span class="assoc-chip">辆<span class="py">liàng · vehicle 🚙</span></span><span class="assoc-chip">转<span class="py">zhuǎn · turn 🔄</span></span></div><div class="example-box"><div class="example-hanzi">我有一辆新车。</div><div class="example-pinyin">Wǒ yǒu yí liàng xīn chē.</div><div class="example-trans">💬 I have a new car.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#e8983e;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">食</span><div class="radical-info"><span class="radical-name">食 / 饣</span><span class="radical-pinyin">shí</span><span class="radical-meaning">Food 🍽️</span></div><span class="radical-emoji">🍽️</span></div><span class="variant-row">Side: 饣</span><div class="assoc-chars"><span class="assoc-chip">饭<span class="py">fàn · meal 🍚</span></span><span class="assoc-chip">饺<span class="py">jiǎo · dumpling 🥟</span></span><span class="assoc-chip">饿<span class="py">è · hungry 😋</span></span></div><div class="example-box"><div class="example-hanzi">我饿了，想吃饺子。</div><div class="example-pinyin">Wǒ è le, xiǎng chī jiǎozi.</div><div class="example-trans">💬 I'm hungry, I want dumplings.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#c9a04b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">贝</span><div class="radical-info"><span class="radical-name">贝</span><span class="radical-pinyin">bèi</span><span class="radical-meaning">Shell / money 💰</span></div><span class="radical-emoji">💰</span></div><span class="variant-row">Ancient currency</span><div class="assoc-chars"><span class="assoc-chip">贵<span class="py">guì · expensive 💸</span></span><span class="assoc-chip">买<span class="py">mǎi · buy 🛒</span></span><span class="assoc-chip">卖<span class="py">mài · sell 🏷️</span></span></div><div class="example-box"><div class="example-hanzi">这个包很贵。</div><div class="example-pinyin">Zhège bāo hěn guì.</div><div class="example-trans">💬 This bag is expensive.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b06d7a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">糸</span><div class="radical-info"><span class="radical-name">糸 / 纟</span><span class="radical-pinyin">mì</span><span class="radical-meaning">Silk 🧵</span></div><span class="radical-emoji">🧵</span></div><span class="variant-row">Side: 纟</span><div class="assoc-chars"><span class="assoc-chip">红<span class="py">hóng · red 🔴</span></span><span class="assoc-chip">绿<span class="py">lǜ · green 🟢</span></span><span class="assoc-chip">纸<span class="py">zhǐ · paper 📄</span></span></div><div class="example-box"><div class="example-hanzi">我喜欢红色的花。</div><div class="example-pinyin">Wǒ xǐhuān hóngsè de huā.</div><div class="example-trans">💬 I like red flowers.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b85c7a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">衣</span><div class="radical-info"><span class="radical-name">衣 / 衤</span><span class="radical-pinyin">yī</span><span class="radical-meaning">Clothing 👚</span></div><span class="radical-emoji">👚</span></div><span class="variant-row">Side: 衤</span><div class="assoc-chars"><span class="assoc-chip">裤<span class="py">kù · pants 👖</span></span><span class="assoc-chip">袜<span class="py">wà · socks 🧦</span></span><span class="assoc-chip">被<span class="py">bèi · blanket 🛌</span></span></div><div class="example-box"><div class="example-hanzi">这条裤子很舒服。</div><div class="example-pinyin">Zhè tiáo kùzi hěn shūfu.</div><div class="example-trans">💬 These pants are comfortable.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#7e8a8b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">皿</span><div class="radical-info"><span class="radical-name">皿</span><span class="radical-pinyin">mǐn</span><span class="radical-meaning">Dish 🍽️</span></div><span class="radical-emoji">🍽️</span></div><span class="variant-row">Utensil, dish</span><div class="assoc-chars"><span class="assoc-chip">盘<span class="py">pán · plate 🍛</span></span><span class="assoc-chip">盆<span class="py">pén · basin 🪣</span></span><span class="assoc-chip">盒<span class="py">hé · box 📦</span></span></div><div class="example-box"><div class="example-hanzi">盘子里有水果。</div><div class="example-pinyin">Pánzi lǐ yǒu shuǐguǒ.</div><div class="example-trans">💬 There is fruit on the plate.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b89b5b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">革</span><div class="radical-info"><span class="radical-name">革</span><span class="radical-pinyin">gé</span><span class="radical-meaning">Leather 👜</span></div><span class="radical-emoji">👜</span></div><span class="variant-row">Leather, hide</span><div class="assoc-chars"><span class="assoc-chip">鞋<span class="py">xié · shoe 👟</span></span><span class="assoc-chip">鞭<span class="py">biān · whip 🏇</span></span><span class="assoc-chip">靴<span class="py">xuē · boot 👢</span></span></div><div class="example-box"><div class="example-hanzi">我买了一双新鞋。</div><div class="example-pinyin">Wǒ mǎi le yì shuāng xīn xié.</div><div class="example-trans">💬 I bought a pair of new shoes.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#5c7a9a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">舟</span><div class="radical-info"><span class="radical-name">舟</span><span class="radical-pinyin">zhōu</span><span class="radical-meaning">Boat 🚢</span></div><span class="radical-emoji">🚢</span></div><span class="variant-row">Ship, vessel</span><div class="assoc-chars"><span class="assoc-chip">船<span class="py">chuán · boat 🛥️</span></span><span class="assoc-chip">航<span class="py">háng · navigate ✈️</span></span><span class="assoc-chip">般<span class="py">bān · sort 🔄</span></span></div><div class="example-box"><div class="example-hanzi">我们坐船去岛上。</div><div class="example-pinyin">Wǒmen zuò chuán qù dǎo shàng.</div><div class="example-trans">💬 We take a boat to the island.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#9b7b5b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">刀</span><div class="radical-info"><span class="radical-name">刀 / 刂</span><span class="radical-pinyin">dāo</span><span class="radical-meaning">Knife ⚔️</span></div><span class="radical-emoji">⚔️</span></div><span class="variant-row">Side: 刂</span><div class="assoc-chars"><span class="assoc-chip">刻<span class="py">kè · carve 🖋️</span></span><span class="assoc-chip">到<span class="py">dào · arrive 🚪</span></span><span class="assoc-chip">别<span class="py">bié · separate 👋</span></span></div><div class="example-box"><div class="example-hanzi">我到家了。</div><div class="example-pinyin">Wǒ dào jiā le.</div><div class="example-trans">💬 I arrived home.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b8956a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">寸</span><div class="radical-info"><span class="radical-name">寸</span><span class="radical-pinyin">cùn</span><span class="radical-meaning">Inch / rule 📏</span></div><span class="radical-emoji">📏</span></div><span class="variant-row">Measurement, hand</span><div class="assoc-chars"><span class="assoc-chip">时<span class="py">shí · time ⏰</span></span><span class="assoc-chip">对<span class="py">duì · correct ✅</span></span><span class="assoc-chip">村<span class="py">cūn · village 🏘️</span></span></div><div class="example-box"><div class="example-hanzi">现在几点？</div><div class="example-pinyin">Xiànzài jǐ diǎn?</div><div class="example-trans">💬 What time is it now?</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#8b6b4a;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">工</span><div class="radical-info"><span class="radical-name">工</span><span class="radical-pinyin">gōng</span><span class="radical-meaning">Work 🔧</span></div><span class="radical-emoji">🔧</span></div><span class="variant-row">Tool, craft</span><div class="assoc-chars"><span class="assoc-chip">左<span class="py">zuǒ · left 👈</span></span><span class="assoc-chip">巧<span class="py">qiǎo · skillful ✨</span></span><span class="assoc-chip">功<span class="py">gōng · merit 🏆</span></span></div><div class="example-box"><div class="example-hanzi">他很努力工作。</div><div class="example-pinyin">Tā hěn nǔlì gōngzuò.</div><div class="example-trans">💬 He works very hard.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#c49b3f;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">示</span><div class="radical-info"><span class="radical-name">示 / 礻</span><span class="radical-pinyin">shì</span><span class="radical-meaning">Spirit / altar 🛐</span></div><span class="radical-emoji">🛐</span></div><span class="variant-row">Side: 礻</span><div class="assoc-chars"><span class="assoc-chip">礼<span class="py">lǐ · ceremony 🎁</span></span><span class="assoc-chip">神<span class="py">shén · god 🙏</span></span><span class="assoc-chip">祝<span class="py">zhù · wish 🎉</span></span></div><div class="example-box"><div class="example-hanzi">祝你生日快乐！</div><div class="example-pinyin">Zhù nǐ shēngrì kuàilè!</div><div class="example-trans">💬 Happy birthday to you!</div></div></div></div>
+        </div>
+    </div>
+
+    <!-- 🚶 Movement & Action -->
+    <div class="category-section">
+        <h2 class="category-title">🚶 Movement & Action</h2>
+        <div class="card-grid">
+            <div class="card"><div class="card-accent" style="background:#5e8b7c;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">辶</span><div class="radical-info"><span class="radical-name">辶</span><span class="radical-pinyin">chuò</span><span class="radical-meaning">Walk 🚶</span></div><span class="radical-emoji">🚶</span></div><span class="variant-row">Movement radical</span><div class="assoc-chars"><span class="assoc-chip">过<span class="py">guò · pass 🚶</span></span><span class="assoc-chip">还<span class="py">hái · still 🔙</span></span><span class="assoc-chip">这<span class="py">zhè · this 👈</span></span><span class="assoc-chip">进<span class="py">jìn · enter 🚪</span></span></div><div class="example-box"><div class="example-hanzi">请进！</div><div class="example-pinyin">Qǐng jìn!</div><div class="example-trans">💬 Please come in!</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#7da87b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">彳</span><div class="radical-info"><span class="radical-name">彳</span><span class="radical-pinyin">chì</span><span class="radical-meaning">Step 🚶</span></div><span class="radical-emoji">🚶</span></div><span class="variant-row">Step, walk</span><div class="assoc-chars"><span class="assoc-chip">行<span class="py">xíng · go 🚶</span></span><span class="assoc-chip">很<span class="py">hěn · very 👍</span></span><span class="assoc-chip">得<span class="py">de · get 🎯</span></span><span class="assoc-chip">往<span class="py">wǎng · toward ➡️</span></span></div><div class="example-box"><div class="example-hanzi">我很好，谢谢！</div><div class="example-pinyin">Wǒ hěn hǎo, xièxie!</div><div class="example-trans">💬 I'm very well, thank you!</div></div></div></div>
+        </div>
+    </div>
+
+    <!-- 💬 Communication & Abstract -->
+    <div class="category-section">
+        <h2 class="category-title">💬 Communication & Abstract</h2>
+        <div class="card-grid">
+            <div class="card"><div class="card-accent" style="background:#8d6e9e;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">言</span><div class="radical-info"><span class="radical-name">言 / 讠</span><span class="radical-pinyin">yán</span><span class="radical-meaning">Speech 💬</span></div><span class="radical-emoji">💬</span></div><span class="variant-row">Side: 讠</span><div class="assoc-chars"><span class="assoc-chip">说<span class="py">shuō · speak 🗣️</span></span><span class="assoc-chip">话<span class="py">huà · speech 💬</span></span><span class="assoc-chip">读<span class="py">dú · read 📖</span></span></div><div class="example-box"><div class="example-hanzi">他会说英语。</div><div class="example-pinyin">Tā huì shuō Yīngyǔ.</div><div class="example-trans">💬 He can speak English.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#c49b3f;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">王</span><div class="radical-info"><span class="radical-name">王 / 玉</span><span class="radical-pinyin">wáng / yù</span><span class="radical-meaning">Jade / king 👑</span></div><span class="radical-emoji">👑</span></div><span class="variant-row">Jewel, royalty</span><div class="assoc-chars"><span class="assoc-chip">玩<span class="py">wán · play 🎮</span></span><span class="assoc-chip">现<span class="py">xiàn · now 🕒</span></span><span class="assoc-chip">球<span class="py">qiú · ball ⚽</span></span></div><div class="example-box"><div class="example-hanzi">我喜欢打乒乓球。</div><div class="example-pinyin">Wǒ xǐhuān dǎ pīngpāngqiú.</div><div class="example-trans">💬 I like playing table tennis.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#b89b5b;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">音</span><div class="radical-info"><span class="radical-name">音</span><span class="radical-pinyin">yīn</span><span class="radical-meaning">Sound 🎵</span></div><span class="radical-emoji">🎵</span></div><span class="variant-row">Sound, music</span><div class="assoc-chars"><span class="assoc-chip">意<span class="py">yì · meaning 💡</span></span><span class="assoc-chip">韵<span class="py">yùn · rhyme 🎶</span></span><span class="assoc-chip">响<span class="py">xiǎng · echo 📢</span></span></div><div class="example-box"><div class="example-hanzi">音乐让我快乐。</div><div class="example-pinyin">Yīnyuè ràng wǒ kuàilè.</div><div class="example-trans">💬 Music makes me happy.</div></div></div></div>
+            <div class="card"><div class="card-accent" style="background:#e05555;"></div><div class="card-body"><div class="radical-showcase"><span class="radical-char">力</span><div class="radical-info"><span class="radical-name">力</span><span class="radical-pinyin">lì</span><span class="radical-meaning">Strength 💪</span></div><span class="radical-emoji">💪</span></div><span class="variant-row">Power, force</span><div class="assoc-chars"><span class="assoc-chip">男<span class="py">nán · male 👨</span></span><span class="assoc-chip">动<span class="py">dòng · move 🏃</span></span><span class="assoc-chip">加<span class="py">jiā · add ➕</span></span></div><div class="example-box"><div class="example-hanzi">加油！你可以的！</div><div class="example-pinyin">Jiāyóu! Nǐ kěyǐ de!</div><div class="example-trans">💬 Come on! You can do it!</div></div></div></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p><span style="font-family:var(--font-cn);">学而时习之，不亦乐乎</span> 🎋</p>
+        <p>59 radicals organized for beginners. Keep exploring! 加油！💪</p>
+        <p style="font-size:0.75rem;color:#c5b8a8;">No images — just emojis & clear examples</p>
+    </footer>
+</body>
+</html>
