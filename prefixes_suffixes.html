@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Prefixes & Suffixes — A Comprehensive Guide</title>
+    <style>
+        :root {
+            --bg: #fdf8f3;
+            --card-bg: #ffffff;
+            --text: #2c2416;
+            --text-light: #5c5347;
+            --accent: #b5343a;
+            --accent-soft: #d4454a;
+            --gold: #c7944a;
+            --gold-light: #f5e6d0;
+            --border: #e5d9c8;
+            --prefix-bg: #fef9f4;
+            --prefix-border: #e8c8a0;
+            --suffix-bg: #f4f8fc;
+            --suffix-border: #a0c8e8;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.10);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ── Scrollbar ────────────────────── */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4c5aa;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b8976a;
+        }
+
+        /* ── Header ───────────────────────── */
+        .hero {
+            background: linear-gradient(165deg, #3a1f1a 0%, #5c2d26 30%, #7a3830 60%, #4e211c 100%);
+            color: #fdf3e8;
+            text-align: center;
+            padding: 60px 24px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 8l4 12h13l-10 8 4 12-11-8-11 8 4-12-10-8h13z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 18px;
+            backdrop-filter: blur(4px);
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 .zh {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.8;
+            letter-spacing: 0.1em;
+            margin-top: 4px;
+        }
+        .hero .subtitle {
+            margin-top: 12px;
+            font-size: 1.05rem;
+            opacity: 0.75;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        /* ── Navigation Pills ─────────────── */
+        .nav-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(253, 248, 243, 0.85);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 0;
+        }
+        .nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            list-style: none;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        .nav-pills a {
+            display: block;
+            padding: 7px 17px;
+            border-radius: 22px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: var(--transition);
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+        .nav-pills a:hover,
+        .nav-pills a.active {
+            background: #fff;
+            color: var(--accent);
+            border-color: var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ── Main Container ───────────────── */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 28px 20px 60px;
+        }
+
+        /* ── Section Headings ─────────────── */
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin: 40px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.02em;
+        }
+        .section-title .icon {
+            font-size: 1.8rem;
+        }
+        .section-subtitle {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ── Info Callout ─────────────────── */
+        .callout {
+            background: #fffdf7;
+            border-left: 4px solid var(--gold);
+            padding: 18px 22px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 18px 0 28px;
+            font-size: 0.95rem;
+            color: #5a4a30;
+            box-shadow: var(--shadow-sm);
+        }
+        .callout strong {
+            color: var(--accent);
+        }
+
+        /* ── Affix Card Grid ──────────────── */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 18px;
+            margin: 20px 0 36px;
+        }
+        .affix-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 20px 22px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .affix-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        .affix-card.prefix {
+            border-left: 5px solid var(--prefix-border);
+        }
+        .affix-card.suffix {
+            border-left: 5px solid var(--suffix-border);
+        }
+        .affix-card .affix-char {
+            font-size: 2.4rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+        .affix-card.prefix .affix-char {
+            color: #b8772e;
+        }
+        .affix-card.suffix .affix-char {
+            color: #3b7db5;
+        }
+        .affix-card .affix-pinyin {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        .affix-card .affix-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .affix-card .examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .affix-card .example-tag {
+            display: inline-block;
+            background: #f5f2ec;
+            padding: 5px 12px;
+            border-radius: 18px;
+            font-size: 0.85rem;
+            color: #4a3f30;
+            transition: var(--transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .affix-card.prefix .example-tag {
+            background: #fdf6ed;
+        }
+        .affix-card.suffix .example-tag {
+            background: #edf4fa;
+        }
+        .affix-card .example-tag .zh-word {
+            font-weight: 600;
+        }
+        .affix-card .example-tag .py-word {
+            font-size: 0.75rem;
+            color: #888;
+            margin-left: 3px;
+        }
+
+        /* ── Detailed Table ───────────────── */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0 36px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            background: var(--card-bg);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 640px;
+        }
+        thead th {
+            background: #f5efe4;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            color: #5c4a30;
+            border-bottom: 2px solid var(--border);
+            white-space: nowrap;
+        }
+        tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f0e9db;
+            vertical-align: top;
+        }
+        tbody tr:hover {
+            background: #fefcf8;
+        }
+        .type-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+        .type-badge.prefix-badge {
+            background: #fce9d2;
+            color: #8b5e2b;
+        }
+        .type-badge.suffix-badge {
+            background: #d2e6f8;
+            color: #2b5e8b;
+        }
+
+        /* ── Tabs for organized view ──────── */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin: 16px 0 20px;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            border: 1px solid var(--border);
+            background: #fff;
+            cursor: pointer;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+        .tab-btn:hover {
+            background: #fef9f0;
+        }
+        .tab-btn.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            box-shadow: 0 2px 8px rgba(181, 52, 58, 0.3);
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.35s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── Footer ───────────────────────── */
+        .footer {
+            text-align: center;
+            padding: 28px 20px;
+            color: #a09080;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ── Responsive ──────────────────── */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 40px 16px 34px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-pills a {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            .affix-card .affix-char {
+                font-size: 2rem;
+            }
+            table {
+                font-size: 0.78rem;
+            }
+            thead th,
+            tbody td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <header class="hero">
+        <span class="badge">📚 汉语语法 · Chinese Grammar</span>
+        <h1>
+            Chinese Prefixes & Suffixes
+            <span class="zh">汉语前缀与后缀 · 词缀总览</span>
+        </h1>
+        <p class="subtitle">
+            A comprehensive reference covering the most common <strong>前缀 (qiánzhuì · prefixes)</strong> and
+            <strong>后缀 (hòuzhuì · suffixes)</strong> in Mandarin Chinese, with pinyin, examples, and usage notes.
+        </p>
+    </header>
+
+    <!-- ═══════════════ STICKY NAV ══════════ -->
+    <nav class="nav-wrap" id="navWrap">
+        <ul class="nav-pills">
+            <li><a href="#overview">📖 Overview</a></li>
+            <li><a href="#prefixes">➕ Prefixes</a></li>
+            <li><a href="#suffixes">➖ Suffixes</a></li>
+            <li><a href="#master-table">📋 Full Table</a></li>
+            <li><a href="#notes">💡 Notes</a></li>
+        </ul>
+    </nav>
+
+    <!-- ═══════════════ MAIN CONTENT ═══════ -->
+    <main class="container">
+
+        <!-- ── Overview ────────────────────── -->
+        <section id="overview">
+            <h2 class="section-title"><span class="icon">📖</span> What Are Chinese Affixes?</h2>
+            <p class="section-subtitle">
+                In Mandarin Chinese, <strong>词缀 (cízhuì)</strong> — affixes — are morphemes that attach to root words
+                to modify meaning, create new words, or indicate grammatical functions. Unlike English, Chinese affixes
+                are often <em>semi-productive</em> and many originated from full-content words that underwent
+                grammaticalization over centuries.
+            </p>
+            <div class="callout">
+                <strong>💡 Key Insight:</strong> Many Chinese "affixes" can still function as standalone words. For
+                example, <strong>子 (zǐ)</strong> means "child" on its own, but as a suffix in <strong>桌子 (zhuōzi ·
+                table)</strong> it's a neutral nominal marker. This dual nature is a hallmark of Chinese morphology.
+            </div>
+            <p style="color:var(--text-light);font-size:0.9rem;line-height:1.7;">
+                <strong>Prefixes (前缀)</strong> appear <em>before</em> the root — e.g., <strong>老-</strong> in 老师
+                (lǎoshī · teacher).
+                <strong>Suffixes (后缀)</strong> appear <em>after</em> the root — e.g., <strong>-子</strong> in 椅子
+                (yǐzi · chair).
+                Some affixes are highly productive (like <strong>-性</strong> for "-ness"), while others are limited to
+                specific lexicalized words. Below you'll find a curated collection of the most important ones, organized
+                for easy reference.
+            </p>
+        </section>
+
+        <!-- ── Prefixes ────────────────────── -->
+        <section id="prefixes">
+            <h2 class="section-title"><span class="icon">➕</span> Common Chinese Prefixes <span style="font-size:1rem;font-weight:400;color:var(--text-light);">(前缀 qiánzhuì)</span></h2>
+            <p class="section-subtitle">Prefixes attach before a root to indicate familiarity, ordinality, negation,
+                degree, or scope.</p>
+
+            <div class="cards-grid">
+                <!-- 老 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">老</span>
+                    <span class="affix-pinyin">lǎo-</span>
+                    <p class="affix-desc">Familiarity or respect; also used for animals and ordinal seniority.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">老师</span> <span class="py-word">lǎoshī</span> · teacher</span>
+                        <span class="example-tag"><span class="zh-word">老虎</span> <span class="py-word">lǎohǔ</span> · tiger</span>
+                        <span class="example-tag"><span class="zh-word">老王</span> <span class="py-word">Lǎo Wáng</span> · Old Wang</span>
+                        <span class="example-tag"><span class="zh-word">老大</span> <span class="py-word">lǎodà</span> · eldest / boss</span>
+                    </div>
+                </div>
+
+                <!-- 小 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">小</span>
+                    <span class="affix-pinyin">xiǎo-</span>
+                    <p class="affix-desc">Diminutive; informal/friendly address; also "little" or "young."</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">小王</span> <span class="py-word">Xiǎo Wáng</span> · Little Wang</span>
+                        <span class="example-tag"><span class="zh-word">小猫</span> <span class="py-word">xiǎomāo</span> · kitten</span>
+                        <span class="example-tag"><span class="zh-word">小姐</span> <span class="py-word">xiǎojiě</span> · Miss</span>
+                        <span class="example-tag"><span class="zh-word">小吃</span> <span class="py-word">xiǎochī</span> · snack</span>
+                    </div>
+                </div>
+
+                <!-- 第 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">第</span>
+                    <span class="affix-pinyin">dì-</span>
+                    <p class="affix-desc">Forms ordinal numbers (first, second, third…).</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">第一</span> <span class="py-word">dìyī</span> · first</span>
+                        <span class="example-tag"><span class="zh-word">第二</span> <span class="py-word">dì'èr</span> · second</span>
+                        <span class="example-tag"><span class="zh-word">第三十</span> <span class="py-word">dìsānshí</span> · thirtieth</span>
+                    </div>
+                </div>
+
+                <!-- 初 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">初</span>
+                    <span class="affix-pinyin">chū-</span>
+                    <p class="affix-desc">Ordinal for days 1–10 of the lunar month; "beginning / early."</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">初一</span> <span class="py-word">chūyī</span> · 1st day</span>
+                        <span class="example-tag"><span class="zh-word">初雪</span> <span class="py-word">chūxuě</span> · first snow</span>
+                        <span class="example-tag"><span class="zh-word">初步</span> <span class="py-word">chūbù</span> · preliminary</span>
+                    </div>
+                </div>
+
+                <!-- 阿 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">阿</span>
+                    <span class="affix-pinyin">ā-</span>
+                    <p class="affix-desc">Affectionate/familiar prefix (common in southern dialects).</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">阿妈</span> <span class="py-word">āmā</span> · mom</span>
+                        <span class="example-tag"><span class="zh-word">阿明</span> <span class="py-word">Ā Míng</span> · (name)</span>
+                        <span class="example-tag"><span class="zh-word">阿姨</span> <span class="py-word">āyí</span> · auntie</span>
+                    </div>
+                </div>
+
+                <!-- 可 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">可</span>
+                    <span class="affix-pinyin">kě-</span>
+                    <p class="affix-desc">"-able / -ible"; worth doing; also conveys emphasis.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">可爱</span> <span class="py-word">kě'ài</span> · lovable / cute</span>
+                        <span class="example-tag"><span class="zh-word">可怕</span> <span class="py-word">kěpà</span> · fearful / scary</span>
+                        <span class="example-tag"><span class="zh-word">可笑</span> <span class="py-word">kěxiào</span> · laughable</span>
+                        <span class="example-tag"><span class="zh-word">可靠</span> <span class="py-word">kěkào</span> · reliable</span>
+                    </div>
+                </div>
+
+                <!-- 非 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">非</span>
+                    <span class="affix-pinyin">fēi-</span>
+                    <p class="affix-desc">"Non- / un- / in-"; negation or exclusion.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">非法</span> <span class="py-word">fēifǎ</span> · illegal</span>
+                        <span class="example-tag"><span class="zh-word">非常</span> <span class="py-word">fēicháng</span> · extraordinary / very</span>
+                        <span class="example-tag"><span class="zh-word">非正式</span> <span class="py-word">fēizhèngshì</span> · informal</span>
+                    </div>
+                </div>
+
+                <!-- 超 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">超</span>
+                    <span class="affix-pinyin">chāo-</span>
+                    <p class="affix-desc">"Super- / ultra- / hyper-"; exceeding the norm.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">超级</span> <span class="py-word">chāojí</span> · super</span>
+                        <span class="example-tag"><span class="zh-word">超人</span> <span class="py-word">chāorén</span> · superman</span>
+                        <span class="example-tag"><span class="zh-word">超速</span> <span class="py-word">chāosù</span> · speeding</span>
+                    </div>
+                </div>
+
+                <!-- 自 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">自</span>
+                    <span class="affix-pinyin">zì-</span>
+                    <p class="affix-desc">"Self- / auto-"; reflexive or automatic action.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">自己</span> <span class="py-word">zìjǐ</span> · oneself</span>
+                        <span class="example-tag"><span class="zh-word">自动</span> <span class="py-word">zìdòng</span> · automatic</span>
+                        <span class="example-tag"><span class="zh-word">自学</span> <span class="py-word">zìxué</span> · self-study</span>
+                    </div>
+                </div>
+
+                <!-- 反 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">反</span>
+                    <span class="affix-pinyin">fǎn-</span>
+                    <p class="affix-desc">"Anti- / counter-"; opposition or reversal.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">反对</span> <span class="py-word">fǎnduì</span> · oppose</span>
+                        <span class="example-tag"><span class="zh-word">反常</span> <span class="py-word">fǎncháng</span> · abnormal</span>
+                        <span class="example-tag"><span class="zh-word">反作用</span> <span class="py-word">fǎnzuòyòng</span> · reaction</span>
+                    </div>
+                </div>
+
+                <!-- 多 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">多</span>
+                    <span class="affix-pinyin">duō-</span>
+                    <p class="affix-desc">"Multi- / poly- / many"; plurality or abundance.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">多元</span> <span class="py-word">duōyuán</span> · multivariate</span>
+                        <span class="example-tag"><span class="zh-word">多媒体</span> <span class="py-word">duōméitǐ</span> · multimedia</span>
+                        <span class="example-tag"><span class="zh-word">多功能</span> <span class="py-word">duōgōngnéng</span> · multifunctional</span>
+                    </div>
+                </div>
+
+                <!-- 前 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">前</span>
+                    <span class="affix-pinyin">qián-</span>
+                    <p class="affix-desc">"Pre- / former / ex-"; prior in time or position.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">前总统</span> <span class="py-word">qiánzǒngtǒng</span> · former president</span>
+                        <span class="example-tag"><span class="zh-word">前天</span> <span class="py-word">qiántiān</span> · day before yesterday</span>
+                        <span class="example-tag"><span class="zh-word">前言</span> <span class="py-word">qiányán</span> · preface</span>
+                    </div>
+                </div>
+
+                <!-- 微 -->
+                <div class="affix-card prefix">
+                    <span class="affix-char">微</span>
+                    <span class="affix-pinyin">wēi-</span>
+                    <p class="affix-desc">"Micro- / tiny"; small scale or subtlety.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">微信</span> <span class="py-word">Wēixìn</span> · WeChat</span>
+                        <span class="example-tag"><span class="zh-word">微观</span> <span class="py-word">wēiguān</span> · microscopic</span>
+                        <span class="example-tag"><span class="zh-word">微笑</span> <span class="py-word">wēixiào</span> · smile</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Suffixes ────────────────────── -->
+        <section id="suffixes">
+            <h2 class="section-title"><span class="icon">➖</span> Common Chinese Suffixes <span style="font-size:1rem;font-weight:400;color:var(--text-light);">(后缀 hòuzhuì)</span></h2>
+            <p class="section-subtitle">Suffixes attach after a root to form nouns, indicate plural, express abstract
+                qualities, or mark grammatical roles.</p>
+
+            <div class="cards-grid">
+                <!-- 子 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">子</span>
+                    <span class="affix-pinyin">-zi</span>
+                    <p class="affix-desc"><strong>Neutral nominal suffix</strong> — the most common suffix; turns roots
+                        into concrete nouns. Tone becomes neutral.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">桌子</span> <span class="py-word">zhuōzi</span> · table</span>
+                        <span class="example-tag"><span class="zh-word">孩子</span> <span class="py-word">háizi</span> · child</span>
+                        <span class="example-tag"><span class="zh-word">房子</span> <span class="py-word">fángzi</span> · house</span>
+                        <span class="example-tag"><span class="zh-word">鼻子</span> <span class="py-word">bízi</span> · nose</span>
+                    </div>
+                </div>
+
+                <!-- 儿 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">儿</span>
+                    <span class="affix-pinyin">-r / -ér</span>
+                    <p class="affix-desc"><strong>Diminutive / rhotacization</strong> — especially common in northern
+                        dialects (Beijing); adds lightness or smallness.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">花儿</span> <span class="py-word">huār</span> · flower</span>
+                        <span class="example-tag"><span class="zh-word">小孩儿</span> <span class="py-word">xiǎoháir</span> · little kid</span>
+                        <span class="example-tag"><span class="zh-word">一点儿</span> <span class="py-word">yìdiǎnr</span> · a little bit</span>
+                        <span class="example-tag"><span class="zh-word">玩儿</span> <span class="py-word">wánr</span> · to play</span>
+                    </div>
+                </div>
+
+                <!-- 头 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">头</span>
+                    <span class="affix-pinyin">-tou</span>
+                    <p class="affix-desc">Nominal suffix for concrete objects or abstract concepts; tone becomes neutral.
+                    </p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">石头</span> <span class="py-word">shítou</span> · stone</span>
+                        <span class="example-tag"><span class="zh-word">木头</span> <span class="py-word">mùtou</span> · wood / log</span>
+                        <span class="example-tag"><span class="zh-word">念头</span> <span class="py-word">niàntou</span> · thought / idea</span>
+                        <span class="example-tag"><span class="zh-word">甜头</span> <span class="py-word">tiántou</span> · benefit / sweetness</span>
+                    </div>
+                </div>
+
+                <!-- 们 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">们</span>
+                    <span class="affix-pinyin">-men</span>
+                    <p class="affix-desc"><strong>Plural marker</strong> for people (and sometimes personified
+                        animals/things).</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">我们</span> <span class="py-word">wǒmen</span> · we / us</span>
+                        <span class="example-tag"><span class="zh-word">朋友们</span> <span class="py-word">péngyoumen</span> · friends</span>
+                        <span class="example-tag"><span class="zh-word">孩子们</span> <span class="py-word">háizimen</span> · children</span>
+                    </div>
+                </div>
+
+                <!-- 性 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">性</span>
+                    <span class="affix-pinyin">-xìng</span>
+                    <p class="affix-desc"><strong>"-ness / -ity / nature of"</strong> — highly productive for abstract
+                        nouns.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">重要性</span> <span class="py-word">zhòngyàoxìng</span> · importance</span>
+                        <span class="example-tag"><span class="zh-word">可能性</span> <span class="py-word">kěnéngxìng</span> · possibility</span>
+                        <span class="example-tag"><span class="zh-word">安全性</span> <span class="py-word">ānquánxìng</span> · safety</span>
+                    </div>
+                </div>
+
+                <!-- 化 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">化</span>
+                    <span class="affix-pinyin">-huà</span>
+                    <p class="affix-desc"><strong>"-ize / -ify / -ization"</strong> — transformation or change into a
+                        state.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">现代化</span> <span class="py-word">xiàndàihuà</span> · modernization</span>
+                        <span class="example-tag"><span class="zh-word">自动化</span> <span class="py-word">zìdònghuà</span> · automation</span>
+                        <span class="example-tag"><span class="zh-word">全球化</span> <span class="py-word">quánqiúhuà</span> · globalization</span>
+                    </div>
+                </div>
+
+                <!-- 家 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">家</span>
+                    <span class="affix-pinyin">-jiā</span>
+                    <p class="affix-desc"><strong>"-ist / -er / specialist"</strong> — expert in a field.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">科学家</span> <span class="py-word">kēxuéjiā</span> · scientist</span>
+                        <span class="example-tag"><span class="zh-word">作家</span> <span class="py-word">zuòjiā</span> · writer / author</span>
+                        <span class="example-tag"><span class="zh-word">艺术家</span> <span class="py-word">yìshùjiā</span> · artist</span>
+                    </div>
+                </div>
+
+                <!-- 者 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">者</span>
+                    <span class="affix-pinyin">-zhě</span>
+                    <p class="affix-desc"><strong>"-er / -or / one who"</strong> — agent or person associated with an
+                        action.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">读者</span> <span class="py-word">dúzhě</span> · reader</span>
+                        <span class="example-tag"><span class="zh-word">作者</span> <span class="py-word">zuòzhě</span> · author</span>
+                        <span class="example-tag"><span class="zh-word">记者</span> <span class="py-word">jìzhě</span> · journalist</span>
+                    </div>
+                </div>
+
+                <!-- 员 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">员</span>
+                    <span class="affix-pinyin">-yuán</span>
+                    <p class="affix-desc"><strong>Member / personnel</strong> — person belonging to an organization or
+                        role.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">演员</span> <span class="py-word">yǎnyuán</span> · actor</span>
+                        <span class="example-tag"><span class="zh-word">服务员</span> <span class="py-word">fúwùyuán</span> · waiter / server</span>
+                        <span class="example-tag"><span class="zh-word">运动员</span> <span class="py-word">yùndòngyuán</span> · athlete</span>
+                    </div>
+                </div>
+
+                <!-- 度 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">度</span>
+                    <span class="affix-pinyin">-dù</span>
+                    <p class="affix-desc"><strong>Degree / measure</strong> — extent or level of something.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">温度</span> <span class="py-word">wēndù</span> · temperature</span>
+                        <span class="example-tag"><span class="zh-word">速度</span> <span class="py-word">sùdù</span> · speed</span>
+                        <span class="example-tag"><span class="zh-word">难度</span> <span class="py-word">nándù</span> · difficulty</span>
+                    </div>
+                </div>
+
+                <!-- 学 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">学</span>
+                    <span class="affix-pinyin">-xué</span>
+                    <p class="affix-desc"><strong>"-ology / study of"</strong> — field of academic study.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">科学</span> <span class="py-word">kēxué</span> · science</span>
+                        <span class="example-tag"><span class="zh-word">数学</span> <span class="py-word">shùxué</span> · mathematics</span>
+                        <span class="example-tag"><span class="zh-word">语言学</span> <span class="py-word">yǔyánxué</span> · linguistics</span>
+                    </div>
+                </div>
+
+                <!-- 感 -->
+                <div class="affix-card suffix">
+                    <span class="affix-char">感</span>
+                    <span class="affix-pinyin">-gǎn</span>
+                    <p class="affix-desc"><strong>Feeling / sense of</strong> — perceptual or emotional quality.</p>
+                    <div class="examples">
+                        <span class="example-tag"><span class="zh-word">安全感</span> <span class="py-word">ānquángǎn</span> · sense of security</span>
+                        <span class="example-tag"><span class="zh-word">美感</span> <span class="py-word">měigǎn</span> · aesthetic sense</span>
+                        <span class="example-tag"><span class="zh-word">责任感</span> <span class="py-word">zérèngǎn</span> · sense of responsibility</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Master Table ────────────────── -->
+        <section id="master-table">
+            <h2 class="section-title"><span class="icon">📋</span> Complete Reference Table</h2>
+            <p class="section-subtitle">A sortable overview of all major Chinese affixes covered on this page. Use the
+                tabs below to filter.</p>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="tab-all">All Affixes</button>
+                <button class="tab-btn" data-tab="tab-prefixes">Prefixes Only</button>
+                <button class="tab-btn" data-tab="tab-suffixes">Suffixes Only</button>
+            </div>
+
+            <!-- Tab: All -->
+            <div class="tab-content active" id="tab-all">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Affix</th>
+                                <th>Type</th>
+                                <th>Pinyin</th>
+                                <th>Function / Meaning</th>
+                                <th>Examples</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>老</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>lǎo-</td>
+                                <td>Familiarity, respect, animal names</td>
+                                <td>老师, 老虎, 老王</td>
+                            </tr>
+                            <tr>
+                                <td><strong>小</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>xiǎo-</td>
+                                <td>Diminutive, informal address</td>
+                                <td>小王, 小猫, 小吃</td>
+                            </tr>
+                            <tr>
+                                <td><strong>第</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>dì-</td>
+                                <td>Ordinal number marker</td>
+                                <td>第一, 第二, 第三</td>
+                            </tr>
+                            <tr>
+                                <td><strong>初</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>chū-</td>
+                                <td>Initial / first (days 1–10)</td>
+                                <td>初一, 初雪, 初步</td>
+                            </tr>
+                            <tr>
+                                <td><strong>阿</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>ā-</td>
+                                <td>Affectionate/familiar (southern)</td>
+                                <td>阿妈, 阿姨, 阿明</td>
+                            </tr>
+                            <tr>
+                                <td><strong>可</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>kě-</td>
+                                <td>"-able / -ible"</td>
+                                <td>可爱, 可怕, 可靠</td>
+                            </tr>
+                            <tr>
+                                <td><strong>非</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>fēi-</td>
+                                <td>"Non- / un-"</td>
+                                <td>非法, 非常, 非正式</td>
+                            </tr>
+                            <tr>
+                                <td><strong>超</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>chāo-</td>
+                                <td>"Super- / ultra-"</td>
+                                <td>超级, 超人, 超速</td>
+                            </tr>
+                            <tr>
+                                <td><strong>自</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>zì-</td>
+                                <td>"Self- / auto-"</td>
+                                <td>自己, 自动, 自学</td>
+                            </tr>
+                            <tr>
+                                <td><strong>反</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>fǎn-</td>
+                                <td>"Anti- / counter-"</td>
+                                <td>反对, 反常, 反思</td>
+                            </tr>
+                            <tr>
+                                <td><strong>多</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>duō-</td>
+                                <td>"Multi- / poly-"</td>
+                                <td>多元, 多媒体, 多功能</td>
+                            </tr>
+                            <tr>
+                                <td><strong>前</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>qián-</td>
+                                <td>"Pre- / former / ex-"</td>
+                                <td>前总统, 前天, 前言</td>
+                            </tr>
+                            <tr>
+                                <td><strong>微</strong></td>
+                                <td><span class="type-badge prefix-badge">PREFIX</span></td>
+                                <td>wēi-</td>
+                                <td>"Micro- / tiny"</td>
+                                <td>微信, 微观, 微笑</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>子</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-zi</td>
+                                <td>Neutral nominal suffix</td>
+                                <td>桌子, 孩子, 房子</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>儿</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-r / -ér</td>
+                                <td>Diminutive / rhotacization</td>
+                                <td>花儿, 小孩儿, 一点儿</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>头</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-tou</td>
+                                <td>Nominal suffix (objects/abstract)</td>
+                                <td>石头, 木头, 念头</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>们</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-men</td>
+                                <td>Plural for people</td>
+                                <td>我们, 朋友们, 孩子们</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>性</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-xìng</td>
+                                <td>"-ness / -ity" (abstract quality)</td>
+                                <td>重要性, 可能性, 安全性</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>化</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-huà</td>
+                                <td>"-ize / -ify / -ization"</td>
+                                <td>现代化, 自动化, 全球化</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>家</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-jiā</td>
+                                <td>"-ist / specialist"</td>
+                                <td>科学家, 作家, 艺术家</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>者</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-zhě</td>
+                                <td>"-er / one who"</td>
+                                <td>读者, 作者, 记者</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>员</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-yuán</td>
+                                <td>Member / personnel</td>
+                                <td>演员, 服务员, 运动员</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>度</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-dù</td>
+                                <td>Degree / measure</td>
+                                <td>温度, 速度, 难度</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>学</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-xué</td>
+                                <td>"-ology / study of"</td>
+                                <td>科学, 数学, 语言学</td>
+                            </tr>
+                            <tr style="background:#fafdfe;">
+                                <td><strong>感</strong></td>
+                                <td><span class="type-badge suffix-badge">SUFFIX</span></td>
+                                <td>-gǎn</td>
+                                <td>Feeling / sense of</td>
+                                <td>安全感, 美感, 责任感</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab: Prefixes Only -->
+            <div class="tab-content" id="tab-prefixes">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Prefix</th>
+                                <th>Pinyin</th>
+                                <th>Function / Meaning</th>
+                                <th>Examples</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>老</strong></td>
+                                <td>lǎo-</td>
+                                <td>Familiarity, respect, animal names</td>
+                                <td>老师, 老虎, 老王</td>
+                            </tr>
+                            <tr>
+                                <td><strong>小</strong></td>
+                                <td>xiǎo-</td>
+                                <td>Diminutive, informal address</td>
+                                <td>小王, 小猫, 小吃</td>
+                            </tr>
+                            <tr>
+                                <td><strong>第</strong></td>
+                                <td>dì-</td>
+                                <td>Ordinal number marker</td>
+                                <td>第一, 第二, 第三</td>
+                            </tr>
+                            <tr>
+                                <td><strong>初</strong></td>
+                                <td>chū-</td>
+                                <td>Initial / first (days 1–10)</td>
+                                <td>初一, 初雪, 初步</td>
+                            </tr>
+                            <tr>
+                                <td><strong>阿</strong></td>
+                                <td>ā-</td>
+                                <td>Affectionate/familiar (southern)</td>
+                                <td>阿妈, 阿姨, 阿明</td>
+                            </tr>
+                            <tr>
+                                <td><strong>可</strong></td>
+                                <td>kě-</td>
+                                <td>"-able / -ible"</td>
+                                <td>可爱, 可怕, 可靠</td>
+                            </tr>
+                            <tr>
+                                <td><strong>非</strong></td>
+                                <td>fēi-</td>
+                                <td>"Non- / un-"</td>
+                                <td>非法, 非常, 非正式</td>
+                            </tr>
+                            <tr>
+                                <td><strong>超</strong></td>
+                                <td>chāo-</td>
+                                <td>"Super- / ultra-"</td>
+                                <td>超级, 超人, 超速</td>
+                            </tr>
+                            <tr>
+                                <td><strong>自</strong></td>
+                                <td>zì-</td>
+                                <td>"Self- / auto-"</td>
+                                <td>自己, 自动, 自学</td>
+                            </tr>
+                            <tr>
+                                <td><strong>反</strong></td>
+                                <td>fǎn-</td>
+                                <td>"Anti- / counter-"</td>
+                                <td>反对, 反常, 反思</td>
+                            </tr>
+                            <tr>
+                                <td><strong>多</strong></td>
+                                <td>duō-</td>
+                                <td>"Multi- / poly-"</td>
+                                <td>多元, 多媒体, 多功能</td>
+                            </tr>
+                            <tr>
+                                <td><strong>前</strong></td>
+                                <td>qián-</td>
+                                <td>"Pre- / former / ex-"</td>
+                                <td>前总统, 前天, 前言</td>
+                            </tr>
+                            <tr>
+                                <td><strong>微</strong></td>
+                                <td>wēi-</td>
+                                <td>"Micro- / tiny"</td>
+                                <td>微信, 微观, 微笑</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab: Suffixes Only -->
+            <div class="tab-content" id="tab-suffixes">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Suffix</th>
+                                <th>Pinyin</th>
+                                <th>Function / Meaning</th>
+                                <th>Examples</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>子</strong></td>
+                                <td>-zi</td>
+                                <td>Neutral nominal suffix</td>
+                                <td>桌子, 孩子, 房子</td>
+                            </tr>
+                            <tr>
+                                <td><strong>儿</strong></td>
+                                <td>-r / -ér</td>
+                                <td>Diminutive / rhotacization</td>
+                                <td>花儿, 小孩儿, 一点儿</td>
+                            </tr>
+                            <tr>
+                                <td><strong>头</strong></td>
+                                <td>-tou</td>
+                                <td>Nominal suffix (objects/abstract)</td>
+                                <td>石头, 木头, 念头</td>
+                            </tr>
+                            <tr>
+                                <td><strong>们</strong></td>
+                                <td>-men</td>
+                                <td>Plural for people</td>
+                                <td>我们, 朋友们, 孩子们</td>
+                            </tr>
+                            <tr>
+                                <td><strong>性</strong></td>
+                                <td>-xìng</td>
+                                <td>"-ness / -ity" (abstract quality)</td>
+                                <td>重要性, 可能性, 安全性</td>
+                            </tr>
+                            <tr>
+                                <td><strong>化</strong></td>
+                                <td>-huà</td>
+                                <td>"-ize / -ify / -ization"</td>
+                                <td>现代化, 自动化, 全球化</td>
+                            </tr>
+                            <tr>
+                                <td><strong>家</strong></td>
+                                <td>-jiā</td>
+                                <td>"-ist / specialist"</td>
+                                <td>科学家, 作家, 艺术家</td>
+                            </tr>
+                            <tr>
+                                <td><strong>者</strong></td>
+                                <td>-zhě</td>
+                                <td>"-er / one who"</td>
+                                <td>读者, 作者, 记者</td>
+                            </tr>
+                            <tr>
+                                <td><strong>员</strong></td>
+                                <td>-yuán</td>
+                                <td>Member / personnel</td>
+                                <td>演员, 服务员, 运动员</td>
+                            </tr>
+                            <tr>
+                                <td><strong>度</strong></td>
+                                <td>-dù</td>
+                                <td>Degree / measure</td>
+                                <td>温度, 速度, 难度</td>
+                            </tr>
+                            <tr>
+                                <td><strong>学</strong></td>
+                                <td>-xué</td>
+                                <td>"-ology / study of"</td>
+                                <td>科学, 数学, 语言学</td>
+                            </tr>
+                            <tr>
+                                <td><strong>感</strong></td>
+                                <td>-gǎn</td>
+                                <td>Feeling / sense of</td>
+                                <td>安全感, 美感, 责任感</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Notes ───────────────────────── -->
+        <section id="notes">
+            <h2 class="section-title"><span class="icon">💡</span> Important Notes &amp; Insights</h2>
+
+            <div class="callout">
+                <strong>🔍 Free vs. Bound Morphemes:</strong> In Chinese, many affixes are <em>not fully bound</em> — they
+                can appear as independent words. For instance, <strong>学 (xué)</strong> means "to learn" as a verb, but
+                acts as a suffix meaning "-ology" in <strong>数学 (shùxué · mathematics)</strong>. This flexibility is a
+                key feature of isolating languages like Chinese.
+            </div>
+
+            <div class="callout">
+                <strong>🗣️ Regional Variation — The -儿 Suffix:</strong> The suffix <strong>-儿 (-r)</strong> is
+                especially prominent in <strong>Beijing and northern Chinese dialects</strong> (the rhotacized "érhuà"
+                儿化). In southern China, this suffix is rarely used. For example, <strong>花 (huā)</strong> in the south
+                vs. <strong>花儿 (huār)</strong> in the north — both mean "flower," but the northern form adds the
+                retroflex ending.
+            </div>
+
+            <div class="callout">
+                <strong>📈 Productivity:</strong> Some suffixes like <strong>-性 (-xìng)</strong> and <strong>-化
+                    (-huà)</strong> are <em>highly productive</em> — new words are constantly coined using them (e.g.,
+                <strong>数字化 shùzìhuà · digitization</strong>). Others like <strong>-子 (-zi)</strong> and <strong>-头
+                    (-tou)</strong> are mostly <em>lexicalized</em>, meaning they appear in fixed words and aren't used to
+                create new ones freely.
+            </div>
+
+            <div class="callout">
+                <strong>🎯 Tone Neutralization:</strong> When <strong>子</strong>, <strong>头</strong>, and
+                <strong>们</strong> function as suffixes, they lose their original tone and become neutral
+                (轻声 qīngshēng). For example, <strong>子</strong> is <em>zǐ</em> (3rd tone) as a standalone word
+                ("child"), but becomes neutral <em>zi</em> in <strong>桌子 (zhuōzi)</strong>.
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══════════════ FOOTER ═════════════ -->
+    <footer class="footer">
+        <p>📚 Chinese Prefixes &amp; Suffixes Reference · Designed for learners of Mandarin Chinese</p>
+        <p style="margin-top:6px;">All examples include <strong>汉字 (Hànzì)</strong>, <strong>拼音 (Pīnyīn)</strong>, and
+            English glosses for clarity.</p>
+        <p style="margin-top:10px;font-size:0.75rem;color:#c0b0a0;">© 2026 · Free educational resource</p>
+    </footer>
+
+    <!-- ═══════════════ JAVASCRIPT ══════════ -->
+    <script>
+        // ── Tab Switching ────────────────────
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all buttons & contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // Activate clicked button
+                btn.classList.add('active');
+
+                // Show corresponding content
+                const targetId = btn.getAttribute('data-tab');
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+
+        // ── Smooth Scroll for Nav Pills ─────
+        const navLinks = document.querySelectorAll('.nav-pills a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    const navHeight = document.getElementById('navWrap').offsetHeight;
+                    const offset = targetEl.getBoundingClientRect().top + window.pageYOffset -
+                        navHeight - 16;
+                    window.scrollTo({ top: offset, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ── Highlight active nav on scroll ──
+        const sections = document.querySelectorAll('section[id]');
+        const navWrap = document.getElementById('navWrap');
+
+        function updateActiveNav() {
+            const navHeight = navWrap.offsetHeight;
+            let currentSectionId = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top + window.pageYOffset -
+                    navHeight - 60;
+                if (window.pageYOffset >= sectionTop) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSectionId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+    </script>
+</body>
+</html>

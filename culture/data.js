@@ -77,18 +77,72 @@ const sectionsData = [
         title: "History Timeline",
         icon: "🏛",
         html: `
-            <div class="timeline">
-                <div class="timeline-item"><span class="year">c. 2070–1600 BCE</span> — <strong>Xia Dynasty</strong>：Legendary first dynasty.</div>
-                <div class="timeline-item"><span class="year">c. 1600–1046 BCE</span> — <strong>Shang Dynasty</strong>：Oracle bones, bronze.</div>
-                <div class="timeline-item"><span class="year">1046–256 BCE</span> — <strong>Zhou Dynasty</strong>：Confucius, Laozi, Hundred Schools.</div>
-                <div class="timeline-item"><span class="year">221–206 BCE</span> — <strong>Qin Dynasty</strong>：Unification, standard script.</div>
-                <div class="timeline-item"><span class="year">206 BCE–220 CE</span> — <strong>Han Dynasty</strong>：Silk Road, paper.</div>
-                <div class="timeline-item"><span class="year">618–907 CE</span> — <strong>Tang Dynasty</strong>：Golden age of poetry.</div>
-                <div class="timeline-item"><span class="year">960–1279</span> — <strong>Song Dynasty</strong>：Gunpowder, compass.</div>
-                <div class="timeline-item"><span class="year">1271–1368</span> — <strong>Yuan Dynasty</strong>：Mongol rule, drama.</div>
-                <div class="timeline-item"><span class="year">1368–1644</span> — <strong>Ming Dynasty</strong>：Forbidden City, blue porcelain.</div>
-                <div class="timeline-item"><span class="year">1644–1912</span> — <strong>Qing Dynasty</strong>：Manchu rule, last dynasty.</div>
-                <div class="timeline-item"><span class="year">1949–present</span> — <strong>Modern China</strong>：PRC founded, rapid development.</div>
+            <!-- YouTube video preview -->
+            <div class="yt-preview" style="margin-bottom:24px; text-align:center;">
+                <a href="https://www.youtube.com/watch?v=Fz_uQNQBK0g&list=PLWmgcpoXdEMDY4BG7LE6Mz2sv6jg-rcIA&index=28&t=1156s&pp=iAQB" target="_blank" rel="noopener noreferrer" style="display:inline-block; max-width:560px; text-decoration:none; color:inherit;">
+                    <img src="https://img.youtube.com/vi/Fz_uQNQBK0g/maxresdefault.jpg" 
+                        alt="All of China's Dynasties in ONE Video - Chinese History 101" 
+                        style="width:100%; border-radius:10px; border:2px solid var(--gold); box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+                    <h4 style="margin:10px 0 5px; color:var(--red); font-size:1.1rem;">🎬 All of China's Dynasties in ONE Video – Chinese History 101</h4>
+                </a>
+                <p style="margin-top:5px; font-size:0.9rem; color:#5a4a30;">A fast‑paced visual journey covering Xia to modern times – great companion to the details below. <em>(Opens in new tab)</em></p>
+            </div>
+
+            <p>China’s recorded history stretches back over 3,500 years, with legendary origins even older. The story of its dynasties is one of brilliant culture, brutal conquest, and the enduring idea that a ruler must hold the <strong>Mandate of Heaven (天命 Tiānmìng)</strong> — the right to govern through virtue.</p>
+
+            <div class="timeline" style="border-left: 3px solid var(--gold); padding-left: 28px; margin-top:20px;">
+                <div class="timeline-item">
+                    <span class="year">c. 2070–1600 BCE</span> — <strong>Xia Dynasty (夏朝)</strong>
+                    <p>Legendary first dynasty, said to be founded by Yu the Great after he tamed the great flood. No written records from the Xia survive, so historians still debate its existence. According to myth, Yu dug channels to drain the waters and was rewarded with kingship by the sage emperor Shun.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">c. 1600–1046 BCE</span> — <strong>Shang Dynasty (商朝)</strong>
+                    <p>The first historically confirmed Chinese dynasty. The Shang left us <strong>oracle bones</strong> (turtle shells and ox bones with divination inscriptions) – the earliest form of Chinese writing. Their immense bronze ritual vessels show a highly stratified society obsessed with ancestor worship and sacrifice.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1046–256 BCE</span> — <strong>Zhou Dynasty (周朝)</strong>
+                    <p>The Zhou introduced the <strong>Mandate of Heaven</strong>: a king rules only as long as Heaven favors his virtue. After a strong start, royal power weakened, leading to the <strong>Spring and Autumn period</strong> (722–481 BCE) and the <strong>Warring States period</strong> (403–221 BCE). It was during this chaotic time that <strong>Confucius (Kǒngzǐ)</strong> lived, teaching filial piety and the five virtues (benevolence, justice, ritual, wisdom, faith). Other schools like Daoism and Legalism also emerged during the “Hundred Schools of Thought”.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">221–206 BCE</span> — <strong>Qin Dynasty (秦朝)</strong>
+                    <p>The western state of Qin conquered the other six warring states and unified China. Its First Emperor, <strong>Qin Shi Huang</strong>, created the title “Emperor” (皇帝 Huángdì). He brutally standardized writing, weights, measures, and even road widths across the empire. He is notorious for burying 460 scholars alive and for the massive <strong>Terracotta Army</strong> buried to guard his tomb. The dynasty collapsed shortly after his death due to harsh rule.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">206 BCE – 220 CE</span> — <strong>Han Dynasty (漢朝)</strong>
+                    <p>Founded by peasant‑turned‑rebel <strong>Liu Bang</strong>. The Han adopted Confucianism as state philosophy, expanded the empire’s territory far into Central Asia, and established the <strong>Silk Road</strong> trade route, connecting China to the Roman world. Paper was invented in this era. It is often called China’s first golden age, lasting over 400 years. After the Han fell, China splintered into the <strong>Three Kingdoms</strong> (220–280 CE), an era immortalized in the novel <em>Romance of the Three Kingdoms</em>.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">220–589 CE</span> — <strong>Period of Disunity: Six Dynasties & Northern/Southern</strong>
+                    <p>Following the Han, China was divided for centuries. Nomadic groups ruled the north while Chinese courts fled south to Nanjing. <strong>Buddhism</strong>, introduced during the Han, spread rapidly; by 477 CE there were over 6,000 temples in the north alone. The period saw cultural fusion and the evolution of landscape poetry, but constant warfare.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">581–618 CE</span> — <strong>Sui Dynasty (隋朝)</strong>
+                    <p>Re‑unified China after nearly 400 years of division. Emperor Wen was a devout Buddhist who used military force to defend the faith. The Sui built the Grand Canal but overtaxed the people with huge construction projects and military campaigns; the dynasty lasted only 37 years.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">618–907 CE</span> — <strong>Tang Dynasty (唐朝)</strong>
+                    <p>Considered the <strong>golden age</strong> of Chinese civilization. The Tang perfect the civil service exam based on Confucian classics, making government a meritocracy. The capital <strong>Chang’an</strong> (modern Xi’an) was the world’s largest city with around 2 million people and a cosmopolitan mix of religions. <strong>Poetry</strong> reached its peak with masters Li Bai (romantic, moon‑loving) and Du Fu (realist, chronicler of war). Tea culture blossomed thanks to Lu Yu’s <em>Classic of Tea</em>. Tang control eventually crumbled into warlord rebellion.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">960–1279</span> — <strong>Song Dynasty (宋朝)</strong>
+                    <p>An era of economic boom and cultural brilliance, but militarily weak. The Song lost northern China to the Jurchen <strong>Jin dynasty</strong> in 1127 and retreated south to Hangzhou. Despite this, it was a time of enormous innovation: <strong>gunpowder</strong> weapons (flamethrowers, bombs), the magnetic compass, movable‑type printing, and landscape painting (Shanshui). Neo‑Confucian scholar <strong>Zhu Xi</strong> compiled commentaries that became the standard for civil service exams until 1905. The dynasty fell to the Mongols in 1279 after a long, grinding war.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1271–1368</span> — <strong>Yuan Dynasty (元朝)</strong>
+                    <p>Established by <strong>Kublai Khan</strong>, grandson of Genghis Khan. The Mongols moved the capital to Beijing and ruled China as part of the largest contiguous land empire in history. Ethnic Chinese were placed low in the social hierarchy, but customs were mostly tolerated. The Silk Road re‑opened, bringing figures like <strong>Marco Polo</strong>. The imperial exams resumed in 1315 with quotas favoring Mongols. Chinese inventions like gunpowder and printing spread westward, soon fueling Europe’s Age of Exploration.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1368–1644</span> — <strong>Ming Dynasty (明朝)</strong>
+                    <p>Founded by the peasant rebel <strong>Zhu Yuanzhang</strong> (Emperor Taizu), who threw out the Mongols. The Ming rebuilt the Great Wall and the magnificent <strong>Forbidden City</strong>. Admiral <strong>Zheng He</strong> led huge treasure fleets as far as East Africa. <strong>Blue‑and‑white porcelain</strong> became a global luxury. Publishing and vernacular novels (like <em>Water Margin</em>) flourished. By the 1600s, fiscal collapse, famine, and rebellion doomed the dynasty; the last Ming emperor hanged himself as rebels stormed Beijing.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1644–1912</span> — <strong>Qing Dynasty (清朝)</strong>
+                    <p>Founded by the <strong>Manchus</strong> from the northeast. They imposed the queue hairstyle as a sign of submission but later became enthusiastic patrons of Chinese culture. Two great emperors, <strong>Kangxi</strong> and <strong>Qianlong</strong>, each ruled for 60 years, expanding the empire to include Tibet, Xinjiang, Mongolia, and Taiwan. However, the Qing restricted Western trade, leading to the <strong>Opium Wars</strong> in the 19th century. Defeat by Britain and other powers resulted in unequal treaties, the cession of Hong Kong, and internal rebellions like the Taiping. After a failed attempt at modernization (Self‑Strengthening Movement), the dynasty ended with the abdication of the last emperor in 1912.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1949–present</span> — <strong>Modern China</strong>
+                    <p>The People’s Republic of China was founded in 1949, reunifying the mainland. Since then, China has undergone radical social transformation and rapid economic development, becoming a major global power while still drawing on its millennia‑old cultural heritage.</p>
+                </div>
             </div>
         `
     },
